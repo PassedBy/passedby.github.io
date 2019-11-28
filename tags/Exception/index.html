@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Java Class Loading · android</title>
+    <title>android</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Android Tech And Thoughts.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Java Class Loading</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Android Tech And Thoughts.</a>
 </header>
@@ -231,68 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            Java Class Loading
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">1.7k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/11/29</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -393,120 +338,42 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>Java代码需要先编译成 class 字节码，然后被虚拟机解释执行</p>
-<p>虚拟器类加载机制涉及到两个方面的内容：</p>
-<p>1.虚拟机如何加载class文件</p>
-<p>2.class文件中的信息进入到虚拟机后会发生什么变化</p>
-<p><img src="http://images2015.cnblogs.com/blog/331425/201606/331425-20160623115845438-670228585.png" alt=""></p>
-<p>不同于 C/C++ 这种编译语言生成的可执行文件，Java字节码只有基于 JVM 才能真正执行。</p>
-<blockquote>
-<p><strong>把字节码从class文件（或其它外部来源）加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这一过程就是虚拟机的类加载机制</strong>。  –[深入理解Java虚拟机]</p>
-</blockquote>
-<p>这里的类包括 类、接口、数组类（数组类是虚拟机内部产生的），本文主要讨论普通类的加载，无论哪种形式的类，其加载流程都是一样的</p>
-<p>与那些需要在编译时进行连接工作的语言不同，在Java语言里面，类型的加载、连接和初始化都是在运行期间完成的。</p>
-<p>虽然这会让类加载时稍微增加一些性能开销，但是却提供了高度的灵活性。例如：</p>
-<p>用户可以让一个本地的应用程序在运行时从网络或者其他地方加载一个二进制流作为程序代码的一部分。</p>
-<h3 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h3><p><img src="http://static.zybuluo.com/Rico123/ojhhtids41ivtuowfj74mkb2/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B" alt="类的生命周期"></p>
-<p>加载、验证、准备、初始化和卸载这五个阶段的顺序是确定的，而解析阶段则不一定：</p>
-<p>它在某些情况下可以在初始化阶段之后再开始，这是为了支持Java的运行时绑定（或者说动态绑定或者晚期绑定）</p>
-<p><strong>1.什么时候需要开始类加载的第一阶段：加载？</strong></p>
-<blockquote>
-<p>Java 虚拟机中并没有进行强行约束，这点可以交给虚拟机的具体实现来自由把握</p>
-</blockquote>
-<p><strong>2.但是，对于初始化阶段，则有明确的规定，有且只有以下五种情况，进行类的初始化</strong></p>
-<ul>
-<li>遇到 new 、getstatic、putstatic、invokestaticm 这四条字节码指令时，如果类没有进行初始化，则进行初始化</li>
-<li>使用 java.lang.reflect 包的方法对类进行反射调用的时候</li>
-<li>当初始化一个类时，如果发现其父类还没有进行初始化</li>
-<li>当虚拟机启动时，用户需要指定一个要执行的主类（包含main方法的那个类），虚拟机会先初始化这个主类</li>
-<li>参见P211，暂时不太懂</li>
-</ul>
-<p>除此之外，所有引用类的方法都不会触发初始化，成为被动引用。但是注意，不初始化，不代表没有执行前面的几个步骤，这个依据虚拟机的具体实现</p>
-<h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><p>虚拟机类加载的过程可以分为三大步骤</p>
-<p>1.Loading : 加载</p>
-<p>2.Linking：链接</p>
-<ol>
-<li>验证</li>
-<li>准备</li>
-<li>解析</li>
-</ol>
-<p>3.Initializing：初始化</p>
-<h5 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h5><p>“加载”是”类加载”(Class Loading)过程的一个阶段，要注意区分，也不要把类加载说成加载类</p>
-<p>在加载阶段，虚拟机主要完成以下三个事情：</p>
-<p>1）通过一个类的全限定名来获取定义此类的二进制字节流</p>
-<p>2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</p>
-<p>3）在内存中生成一个代表这个类的 java.lang.Class 对象，作为方法区这个类的各种数据的访问入口</p>
-<p>相对于类加载的其它阶段而言，一个非数组类的加载阶段（准确地说，是该阶段中获取二进制字节流的动作）是开发人员可控性最强的。这是因为加载阶段既可以使用系统提供的引导类加载器来完成，也可以由用户自定义的类加载器去完成</p>
-<hr>
-<p>加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟所需的格式存储在方法区之中，方法区中的数据存储格式由虚拟机实现自行定义（虚拟机规范未规定此区域的具体数据结构）</p>
-<p>T:需要注意的是，加载阶段与连接阶段的部分内容是交叉进行的</p>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p>验证是连接阶段的第一步，这一阶段的目的是为了确保 Class 文件的字节流包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全。</p>
-<p>Java相对于其它语言（如C/C++）是相对安全的吗，使用纯粹的 Java 代码无法做到诸如访问数组边界以外的数据、将一个对象转换为它并未实现的类型、跳转到不存在的代码行之类的事情。<strong>但是</strong>，Class文件并不一定要求用Java源码编译出来，可以使用人恶化途径产生，甚至包括使用十六进制直接编写出来的Class文件（前面也提到了，Class文件的来源不确定），在字节码层面，上述Java代码无法做到的事情都是可以实现的。虚拟机如果不检查输入的字节流，对其完全信任的话，很可能因为载入了幽海的字节流而导致系统崩溃。</p>
-<blockquote>
-<p><strong>所以，验证对虚拟机是一项极其重要的工作</strong></p>
-</blockquote>
-<p>从整体上看，验证阶段大致会完成下面四个阶段的校验工作：</p>
-<p>1.文件格式校验</p>
-<p>2.元数据验证</p>
-<p>3.字节码验证</p>
-<p>4.符号引用验证</p>
-<p>T：对于虚拟机的类加载机制来说，验证阶段是一个重要的、但非必要（因为对程序运行期没有影响）的阶段。</p>
-<p>如果所运行的全部代码都确保安全，那么在实施阶段就可以考虑使用 -Xverify:none 参数来关闭大部分的类验证措施，以缩短虚拟机类加载的时间（毕竟这个阶段耗时还是很多的）</p>
-<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些变量所使用的内存都将在方法区中进行分配。</p>
-<p>强调一下：</p>
-<ul>
-<li>这时候进行内存分配的仅包含类变量（被static修饰的变量），而不包括实例变量</li>
-<li>这时候的初始化一般是零值（除非具有 ConstantValue 属性）</li>
-</ul>
-<h3 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h3><p><a href="[http://fanyilun.me/2018/12/29/%E7%90%86%E8%A7%A3Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/](http://fanyilun.me/2018/12/29/理解Java类加载机制/)">理解类加载机制</a></p>
-<p>深入理解Java虚拟机</p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>Author：<a href="https://passedby.github.io">Dan</a>
-            <p>原文链接：<a href="https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</a>
-            <p>发表日期：<a href="https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">November 29th 2019, 4:28:08 am</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">November 29th 2019, 4:42:51 am</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/11/29/Java-Exception/" >
+            
+                <span>Java Exception</span>
+        </a>
+        <div class="abstract-content">
+            Java ExceptionJava的基本理念是 “结构不佳的代码不能运行”
+发现错误的理想时机是在编译阶段，然而，编译期间并不能找出所有的错误，余下的问题必须在运行期间解决。这就需要错误源能通过某种方式，把适当的信息传递给某个接收者–该接收者将知道如何正确处理这个问题
+概念异常这个词有 “我对此感到意外” 的意思，问题出现了，你也许不知道该如何处理，但你的确知道不该置之不理，你要停下来，看看是不是有别人或在别的地方，能够处理这个问题。只是在当前的环境中还没有足够的信息来解决这个问题，所以就把这个问题提交到一个更高级别的环境中，在这里将做出正确的决定
+使用异常的另一个相当明显的好处是，它...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Exception">Exception</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/11/29/Java-Exception/" title= "Java Exception">
-                    <div class="nextTitle">Java Exception</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/11/29/hello-world/" title= "Hello World">
-                    <div class="prevTitle">Hello World</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -591,24 +458,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载的时机"><span class="toc-number">1.</span> <span class="toc-text">类加载的时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载的过程"><span class="toc-number">2.</span> <span class="toc-text">类加载的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#加载"><span class="toc-number">2.0.1.</span> <span class="toc-text">加载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#验证"><span class="toc-number">2.0.2.</span> <span class="toc-text">验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#准备"><span class="toc-number">2.0.3.</span> <span class="toc-text">准备</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference："><span class="toc-number">3.</span> <span class="toc-text">Reference：</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -759,8 +608,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
