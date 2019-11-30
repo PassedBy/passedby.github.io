@@ -401,7 +401,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="Class文件结构"><a href="#Class文件结构" class="headerlink" title="Class文件结构"></a>Class文件结构</h2><p>说明：本文中，通俗地将任意一个有效的类或接口所应当满足的格式称为 “Class 文件格式”，实际上它并不一定以磁盘文件的形式存在。</p>
+        <h1 id="Class文件结构"><a href="#Class文件结构" class="headerlink" title="Class文件结构"></a>Class文件结构</h1><p>说明：本文中，通俗地将任意一个有效的类或接口所应当满足的格式称为 “Class 文件格式”，实际上它并不一定以磁盘文件的形式存在。</p>
 <p>Class文件是一组以8位字节（对应2位16进制编码）为基础单位的二进制流，各个项目严格按照顺序紧凑地排列在Class文件之中（保证了解析地准确性），当遇到8位字节以上空间的数据项时，则会按照高位在前的方式（Big-Endian）分割成若干个8位字节进行存储。</p>
 <p>根据Java虚拟机规范，Class文件格式采用一种类似C语言结构体的形式来组织数据，这种伪结构体中只有两种数据类型：<strong>无符号数</strong> 和 <strong>表</strong>，后面的解析以这两种数据类型为基础。</p>
 <p>无符号数属于基本的数据类型，以 u1、u2、u4、u8 来分别表示1个字节、两个字节etc。无符号数可以用来描述数字、索引引用、数量值或者按照UTF-8编码构成字符串值。表是由多个无符号数或者其它表作为数据项构成的复合数据类型，表都习惯地以_info 结尾。类似于ViewGroup与View的关系。</p>
@@ -409,7 +409,7 @@ height:50vh;
 <p>Class本身就是一个表，它其中各个数据的顺序与各项数据所占的大小如下图.无论是无符号数还是表，当需要描述同一类型但数量不定的多个数据时，经常会使用一个前置的容量计数器加若干个连续的数据项的形式，这时称这一连续的某一类型的数据为某一类型的集合</p>
 <p><img src="https://i.loli.net/2019/11/30/2IuYyAUtl1BLF7P.png" alt="class数据组织.png"></p>
 <p>下面我们将根据这张表来详细讲解每一个数据项的大小以及含义</p>
-<h3 id="魔数与Class文件的版本-magic-minor-version-major-version"><a href="#魔数与Class文件的版本-magic-minor-version-major-version" class="headerlink" title="魔数与Class文件的版本 [magic/minor_version/major_version]"></a>魔数与Class文件的版本 [magic/minor_version/major_version]</h3><p>u4表明了魔数所占大小为4个字节（32位，8个16进制编码位），magic number 的唯一作用是确定这个文件是否为一个能被虚拟机接受的 Class 文件。</p>
+<h1 id="魔数与Class文件的版本-magic-minor-version-major-version"><a href="#魔数与Class文件的版本-magic-minor-version-major-version" class="headerlink" title="魔数与Class文件的版本 [magic/minor_version/major_version]"></a>魔数与Class文件的版本 [magic/minor_version/major_version]</h1><p>u4表明了魔数所占大小为4个字节（32位，8个16进制编码位），magic number 的唯一作用是确定这个文件是否为一个能被虚拟机接受的 Class 文件。</p>
 <h4 id><a href="#" class="headerlink" title></a></h4>
     </article>
     <!-- license  -->
@@ -418,7 +418,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">November 30th 2019, 2:20:25 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">November 30th 2019, 2:50:58 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">November 30th 2019, 2:56:35 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -570,7 +570,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class文件结构"><span class="toc-number">1.</span> <span class="toc-text">Class文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#魔数与Class文件的版本-magic-minor-version-major-version"><span class="toc-number">1.1.</span> <span class="toc-text">魔数与Class文件的版本 [magic/minor_version/major_version]</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">1.1.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Class文件结构"><span class="toc-number">1.</span> <span class="toc-text">Class文件结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#魔数与Class文件的版本-magic-minor-version-major-version"><span class="toc-number">2.</span> <span class="toc-text">魔数与Class文件的版本 [magic/minor_version/major_version]</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-number">2.0.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
