@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">1.4k</span>Reading time: <span class="post-count reading-time">4 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.8k</span>Reading time: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -454,10 +454,78 @@ height:50vh;
 <p><img src="https://i.loli.net/2019/11/30/FcNa2OPB5sxe6zw.png" alt="Class_info_detail_1.png"></p>
 <p><img src="https://i.loli.net/2019/11/30/eKIfp85xirUAu39.png" alt="Class_info_detail_2.png"></p>
 <h1 id="访问标志-Access-flags"><a href="#访问标志-Access-flags" class="headerlink" title="访问标志 [Access_flags]"></a>访问标志 [Access_flags]</h1><p>紧接着常量池的两个字节表示访问标志，用于识别一些类或者接口层次的访问信息。包括：这个Class是类还是接口，是否定义为 public 类型是否定义为 abstract 类型，如果是类的话，是否被声明为 final 等等。</p>
-<h1 id="类索引、父类索引-与-接口索引集合"><a href="#类索引、父类索引-与-接口索引集合" class="headerlink" title="类索引、父类索引 与  接口索引集合"></a>类索引、父类索引 与  接口索引集合</h1><p>this_class / super_class 都是u2类型的数据</p>
-<p>interfaces 是一组 u2 类型的数据的集合</p>
-<p>概念回顾:</p>
-<blockquote>
+<h1 id="类索引、父类索引-与-接口索引集合"><a href="#类索引、父类索引-与-接口索引集合" class="headerlink" title="类索引、父类索引 与  接口索引集合"></a>类索引、父类索引 与  接口索引集合</h1><p>this_class / super_class 都是u2类型的数据，interfaces 是一组 u2 类型的数据的集合。Class 文件由这三项数据来确定该类的继承关系。</p>
+<ul>
+<li>类索引用于确定这个类的全限定名</li>
+<li>父类索引用于确定这个类的父类的全限定名（除了 java.lang.Object 之外，有且仅有一个父类）</li>
+<li>接口索引集合用来描述这个类实现了哪些接口，这些被实现的接口将按 implements （如果该类本身就是一个接口，则是extends ）语句顺序从左到右排列在接口索引集合中。</li>
+</ul>
+<p>如图</p>
+<table>
+<thead>
+<tr>
+<th>this_class</th>
+<th>super_class</th>
+<th>interfacecount</th>
+<th>interface</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u2</td>
+<td>u2</td>
+<td>u2</td>
+<td>u2 (0)</td>
+<td>u2</td>
+<td>………</td>
+<td>u2 (interface_count)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="字段表集合-field-info"><a href="#字段表集合-field-info" class="headerlink" title="字段表集合 [field_info]"></a>字段表集合 [field_info]</h1><p>field_info 用于描述接口或者类中声明的变量。字段（field）包括类级变量和实例级变量，但不包括在方法中声明的局部变量（临时变量）。</p>
+<p>我们可以想象一下在Java中描述一个字段可以包含什么信息</p>
+<p><img src="https://i.loli.net/2019/12/01/NgYqHiS75RLkj4T.png" alt="field_property.png"></p>
+<p>下图是他的最终形式以及表格表示：</p>
+<p><img src="!%5Bfield.png%5D(https://i.loli.net/2019/12/01/F97LWGibonlcsUp.png" alt="field属性"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190724141328373.png" alt="表格"></p>
+<p>看到上图中索引值一般都以 _index 结尾，表示引用别的地方</p>
+<p>现在我们需要区分你几个概念：</p>
+<table>
+<thead>
+<tr>
+<th>简单名称</th>
+<th align="center">没有类型或者参数修饰的方法或者字段名称</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全限定名</td>
+<td align="center">包含类型和参数修饰的方法或者字段名称</td>
+<td></td>
+</tr>
+<tr>
+<td>描述符 （descriptor ）</td>
+<td align="center">描述字段的数据类型、方法的参数列表和返回值</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h1><p>理解了字段表集合，就很容易理解方法表集合。</p>
+<h1 id="概念回顾"><a href="#概念回顾" class="headerlink" title="概念回顾:"></a>概念回顾:</h1><blockquote>
 <p>表：由多个无符号数或其它表作为数据项构成的复合数据类型，习惯以 _info 结尾</p>
 </blockquote>
 <blockquote>
@@ -472,7 +540,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">November 30th 2019, 2:20:25 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">November 30th 2019, 6:50:30 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/">December 1st 2019, 3:03:20 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -629,7 +697,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Class文件结构"><span class="toc-number">1.</span> <span class="toc-text">Class文件结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#魔数与Class文件的版本-magic-minor-version-major-version"><span class="toc-number">2.</span> <span class="toc-text">魔数与Class文件的版本 [magic/minor_version/major_version]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常量池"><span class="toc-number">3.</span> <span class="toc-text">常量池</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#访问标志-Access-flags"><span class="toc-number">4.</span> <span class="toc-text">访问标志 [Access_flags]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类索引、父类索引-与-接口索引集合"><span class="toc-number">5.</span> <span class="toc-text">类索引、父类索引 与  接口索引集合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References:</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Class文件结构"><span class="toc-number">1.</span> <span class="toc-text">Class文件结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#魔数与Class文件的版本-magic-minor-version-major-version"><span class="toc-number">2.</span> <span class="toc-text">魔数与Class文件的版本 [magic/minor_version/major_version]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常量池"><span class="toc-number">3.</span> <span class="toc-text">常量池</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#访问标志-Access-flags"><span class="toc-number">4.</span> <span class="toc-text">访问标志 [Access_flags]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类索引、父类索引-与-接口索引集合"><span class="toc-number">5.</span> <span class="toc-text">类索引、父类索引 与  接口索引集合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字段表集合-field-info"><span class="toc-number">6.</span> <span class="toc-text">字段表集合 [field_info]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方法表集合"><span class="toc-number">7.</span> <span class="toc-text">方法表集合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概念回顾"><span class="toc-number">8.</span> <span class="toc-text">概念回顾:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">9.</span> <span class="toc-text">References:</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -722,9 +790,24 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 8
+        Total : 9
         </div>
         <!-- search  -->
         
@@ -734,25 +817,6 @@ top:50vh;
     
     
     
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/ListView%E4%B8%8ERecyclerView%E7%94%A8%E6%B3%95/" >ListView与RecyclerView用法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
     
     <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
@@ -770,6 +834,21 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span><a class="archive-post-title" href= "/2019/12/01/Lint%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" >Lint简单使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/ListView%E4%B8%8ERecyclerView%E7%94%A8%E6%B3%95/" >ListView与RecyclerView用法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -803,9 +882,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
     
-        <span class="sidebar-tag-name" data-tags="Introduction"><span class="iconfont-archer">&#xe606;</span>Introduction</span>
+        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
     
         <span class="sidebar-tag-name" data-tags="赤壁赋"><span class="iconfont-archer">&#xe606;</span>赤壁赋</span>
+    
+        <span class="sidebar-tag-name" data-tags="Introduction"><span class="iconfont-archer">&#xe606;</span>Introduction</span>
     
         <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
@@ -847,6 +928,8 @@ jsonContent:
     <div class="sidebar-categories-name">
     
         <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
+    
+        <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
     
         <span class="sidebar-category-name" data-categories="蚊子"><span class="iconfont-archer">&#xe60a;</span>蚊子</span>
     
