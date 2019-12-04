@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">1.7k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.9k</span>Reading time: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -406,7 +406,7 @@ height:50vh;
 </blockquote>
 <p>这里的类包括 类、接口、数组类（数组类是虚拟机内部产生的），本文主要讨论普通类的加载，无论哪种形式的类，其加载流程都是一样的</p>
 <p>与那些需要在编译时进行连接工作的语言不同，在Java语言里面，类型的加载、连接和初始化都是在运行期间完成的。虽然这会让类加载时稍微增加一些性能开销，但是却提供了高度的灵活性。例如：用户可以让一个本地的应用程序在运行时从网络或者其他地方加载一个二进制流作为程序代码的一部分。</p>
-<h3 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h3><p><img src="http://static.zybuluo.com/Rico123/ojhhtids41ivtuowfj74mkb2/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B" alt="类的生命周期"></p>
+<h1 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h1><p><img src="http://static.zybuluo.com/Rico123/ojhhtids41ivtuowfj74mkb2/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B" alt="类的生命周期"></p>
 <p>加载、验证、准备、初始化和卸载这五个阶段的顺序是确定的，而解析阶段则不一定：</p>
 <p>它在某些情况下可以在初始化阶段之后再开始，这是为了支持Java的运行时绑定（或者说动态绑定或者晚期绑定）</p>
 <p><strong>1.什么时候需要开始类加载的第一阶段：加载？</strong></p>
@@ -422,7 +422,7 @@ height:50vh;
 <li>参见P211，暂时不太懂</li>
 </ul>
 <p>除此之外，所有引用类的方法都不会触发初始化，成为被动引用。但是注意，不初始化，不代表没有执行前面的几个步骤，这个依据虚拟机的具体实现</p>
-<h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><p>虚拟机类加载的过程可以分为三大步骤</p>
+<h1 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h1><p>虚拟机类加载的过程可以分为三大步骤</p>
 <p>1.Loading : 加载</p>
 <p>2.Linking：链接</p>
 <ol>
@@ -431,7 +431,7 @@ height:50vh;
 <li>解析</li>
 </ol>
 <p>3.Initializing：初始化</p>
-<h5 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h5><p>“加载”是”类加载”(Class Loading)过程的一个阶段，要注意区分，也不要把类加载说成加载类</p>
+<h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p>“加载”是”类加载”(Class Loading)过程的一个阶段，要注意区分，也不要把类加载说成加载类</p>
 <p>在加载阶段，虚拟机主要完成以下三个事情：</p>
 <p>1）通过一个类的全限定名来获取定义此类的二进制字节流</p>
 <p>2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</p>
@@ -440,7 +440,7 @@ height:50vh;
 <hr>
 <p>加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟所需的格式存储在方法区之中，方法区中的数据存储格式由虚拟机实现自行定义（虚拟机规范未规定此区域的具体数据结构）</p>
 <p>T:需要注意的是，加载阶段与连接阶段的部分内容是交叉进行的</p>
-<h5 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h5><p>验证是连接阶段的第一步，这一阶段的目的是为了确保 Class 文件的字节流包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全。</p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>验证是连接阶段的第一步，这一阶段的目的是为了确保 Class 文件的字节流包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全。</p>
 <p>Java相对于其它语言（如C/C++）是相对安全的吗，使用纯粹的 Java 代码无法做到诸如访问数组边界以外的数据、将一个对象转换为它并未实现的类型、跳转到不存在的代码行之类的事情。<strong>但是</strong>，Class文件并不一定要求用Java源码编译出来，可以使用人恶化途径产生，甚至包括使用十六进制直接编写出来的Class文件（前面也提到了，Class文件的来源不确定），在字节码层面，上述Java代码无法做到的事情都是可以实现的。虚拟机如果不检查输入的字节流，对其完全信任的话，很可能因为载入了幽海的字节流而导致系统崩溃。</p>
 <blockquote>
 <p><strong>所以，验证对虚拟机是一项极其重要的工作</strong></p>
@@ -452,12 +452,23 @@ height:50vh;
 <p>4.符号引用验证</p>
 <p>T：对于虚拟机的类加载机制来说，验证阶段是一个重要的、但非必要（因为对程序运行期没有影响）的阶段。</p>
 <p>如果所运行的全部代码都确保安全，那么在实施阶段就可以考虑使用 -Xverify:none 参数来关闭大部分的类验证措施，以缩短虚拟机类加载的时间（毕竟这个阶段耗时还是很多的）</p>
-<h5 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h5><p>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些变量所使用的内存都将在方法区中进行分配。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些变量所使用的内存都将在方法区中进行分配。</p>
 <p>强调一下：</p>
 <ul>
-<li>这时候进行内存分配的仅包含类变量（被static修饰的变量），而不包括实例变量</li>
-<li>这时候的初始化一般是零值（除非具有 ConstantValue 属性）</li>
+<li><p>这时候进行内存分配的仅包含类变量（被static修饰的变量），而不包括实例变量</p>
+</li>
+<li><p>这时候的初始化一般是零值（除非具有 ConstantValue 属性）,但是也会有一些特殊情况：如果类字段的字段属性表中存在 ConstantValue 属性，那么再准备阶段 value 就会被初始化为 ConstantValue 属性所指定的值。</p>
+<p>  public static <strong>final</strong> int value = 123;</p>
+<p>  编译时 Javac 将会为 value 生成 ConstantValue 属性，在准备阶段虚拟机就会根据 Constant Value 的设置将 value 赋值为 123.</p>
+</li>
 </ul>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>解析阶段是虚拟机将常量池内的<strong>符号引用</strong>替换为<strong>直接引用</strong>的过程</p>
+<ul>
+<li>符号引用（SymbolicReferences）：符号引用以一组符号来描述索引用的目标，符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可</li>
+<li>直接引用（Direct References）:直接引用可以是直接指向目标的指针</li>
+</ul>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p><img src="https://i.loli.net/2019/12/04/kcTZhbq6yX9JvwH.png" alt="classload.png"></p>
+<p>Thanks for Image from <a href="http://ilacoder.com/" target="_blank" rel="noopener">http://ilacoder.com/</a> </p>
 <h3 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h3><p><a href="[http://fanyilun.me/2018/12/29/%E7%90%86%E8%A7%A3Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/](http://fanyilun.me/2018/12/29/理解Java类加载机制/)">理解类加载机制</a></p>
 <p>深入理解Java虚拟机</p>
 
@@ -468,7 +479,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">November 29th 2019, 4:28:08 am</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">December 1st 2019, 3:52:25 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">December 4th 2019, 9:05:23 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -625,7 +636,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载的时机"><span class="toc-number">1.</span> <span class="toc-text">类加载的时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载的过程"><span class="toc-number">2.</span> <span class="toc-text">类加载的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#加载"><span class="toc-number">2.0.1.</span> <span class="toc-text">加载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#验证"><span class="toc-number">2.0.2.</span> <span class="toc-text">验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#准备"><span class="toc-number">2.0.3.</span> <span class="toc-text">准备</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference："><span class="toc-number">3.</span> <span class="toc-text">Reference：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#类加载的时机"><span class="toc-number">1.</span> <span class="toc-text">类加载的时机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类加载的过程"><span class="toc-number">2.</span> <span class="toc-text">类加载的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#加载"><span class="toc-number">2.1.</span> <span class="toc-text">加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证"><span class="toc-number">2.2.</span> <span class="toc-text">验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">2.3.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析"><span class="toc-number">2.4.</span> <span class="toc-text">解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结："><span class="toc-number">2.5.</span> <span class="toc-text">总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference："><span class="toc-number">2.5.1.</span> <span class="toc-text">Reference：</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -736,9 +747,30 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 10
+        Total : 11
         </div>
         <!-- search  -->
         
@@ -749,22 +781,13 @@ top:50vh;
     
     
     
-    <div class="archive-year"> Invalid date </div>
+    <div class="archive-year"> 2019 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Hello Android</a>
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2019/12/04/Java-RTTI-include-reflect/" >Java RTTI [include reflect]</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -803,12 +826,26 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Hello Android</a>
         </li>
     
     </div>
@@ -825,6 +862,8 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="赤壁赋"><span class="iconfont-archer">&#xe606;</span>赤壁赋</span>
     
         <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
+    
+        <span class="sidebar-tag-name" data-tags="reflect  RTTI"><span class="iconfont-archer">&#xe606;</span>reflect  RTTI</span>
     
         <span class="sidebar-tag-name" data-tags="View"><span class="iconfont-archer">&#xe606;</span>View</span>
     
@@ -872,6 +911,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="蚊子"><span class="iconfont-archer">&#xe60a;</span>蚊子</span>
     
         <span class="sidebar-category-name" data-categories="Java-SE"><span class="iconfont-archer">&#xe60a;</span>Java-SE</span>
+    
+        <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
     
         <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
     

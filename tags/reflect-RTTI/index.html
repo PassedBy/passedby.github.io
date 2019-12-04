@@ -346,58 +346,29 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >
+        <a class="abstract-title" href = "/2019/12/04/Java-RTTI-include-reflect/" >
             
-                <span>View的三大流程</span>
+                <span>Java RTTI [include reflect]</span>
         </a>
         <div class="abstract-content">
-            前言这篇文章会抛弃所有的细枝末节，聚焦在View的Measure过程上，因为这一部分是最难懂，也是最容易思维混乱的地方，由于作者水平有限，文中如果有描述错误，或者不严谨的地方，还请指正，不甚感激。
-理解MeasureSpecMeasureSpec决定了一个View的尺寸，而MeasureSpec受到父ViewGroup和自己的layoutParams的影响
-MeasureSpecMeasureSpec高2位代表SpecMode，低30位代表SpecSize（某种测量模式下的大小）
-Api
-1public static int makeMeasureSpec(int size,int mo...
+            RTTI - 运行期类型识别
+RTTI的概念：当我们手上只有基类型的一个引用时，利用它判断一个对象的正确类型。
+
+本章将讨论如何利用 Java 在运行期间查找对象和类信息。这主要采取两种形式
+01) 一种是传统 RTTI ，它假定我们已在编译和运行期拥有所有类型
+02) 另一种是 Java 1.1 特有的 “反射” 机制，利用它可以在运行期独立查找类信息
+Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型信息在运行时是如何表示的。这项工作是由称为 Class 对象的特殊对象完成的，它包含了与类有关的信息。事实上，Class对象就是用来创建所有的”常规”对象的。J...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/04</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View">View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/All-About-Fragment/" >
-            
-                <span>All About Fragment</span>
-        </a>
-        <div class="abstract-content">
-            Fragment，简称碎片，Android 3.0(11)提出，为了兼容低版本， support-v4 库中也开发了一套 fragment API，最低兼容 Android 1.6
-Fragment 定义
-A Fragment represents a behavior or a portion of user interface in an Activity. You can combine multiple fragments in a single activity to build a multi-pane UI and reuse a fragment in multiple ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "fragment">fragment</a>
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "reflect  RTTI">reflect  RTTI</a>
     
 </div>
             

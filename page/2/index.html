@@ -78,8 +78,6 @@
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -203,8 +201,10 @@
 </head>
 
     
+        <body class="home-body">
     
-<header class="header">
+    
+<header class="header index-header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -220,21 +220,34 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/planets.jpeg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            Android Tech And Thoughts.
+            <!-- 文章页  -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
+            
+            
+                Recording myself sometimes helping others
+            
+            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -346,47 +359,21 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >
+        <a class="abstract-title" href = "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >
             
-                <span>View的三大流程</span>
+                <span>Java Class Loading</span>
         </a>
         <div class="abstract-content">
-            前言这篇文章会抛弃所有的细枝末节，聚焦在View的Measure过程上，因为这一部分是最难懂，也是最容易思维混乱的地方，由于作者水平有限，文中如果有描述错误，或者不严谨的地方，还请指正，不甚感激。
-理解MeasureSpecMeasureSpec决定了一个View的尺寸，而MeasureSpec受到父ViewGroup和自己的layoutParams的影响
-MeasureSpecMeasureSpec高2位代表SpecMode，低30位代表SpecSize（某种测量模式下的大小）
-Api
-1public static int makeMeasureSpec(int size,int mo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
             
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View">View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/All-About-Fragment/" >
-            
-                <span>All About Fragment</span>
-        </a>
-        <div class="abstract-content">
-            Fragment，简称碎片，Android 3.0(11)提出，为了兼容低版本， support-v4 库中也开发了一套 fragment API，最低兼容 Android 1.6
-Fragment 定义
-A Fragment represents a behavior or a portion of user interface in an Activity. You can combine multiple fragments in a single activity to build a multi-pane UI and reuse a fragment in multiple ...
+Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
+虚拟器类加载机制涉及到两个方面的内容：
+1.虚拟机如何加载class文件
+2.class文件中的信息进入到虚拟机后会发生什么变化
+不同于 C/C++ 这种编译语言生成的可执行文件，Java字节码只有基于 JVM 才能真正执行。
+
+把字节码从class文件（或其它外部来源）加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这一过程就是虚拟机的类加载机制。  –[深入理解Java虚拟机]
+
+这里的类包括 类、接口、数组类（数组类是虚拟机内部产生的），本文主要讨论普通类的加载，无论哪...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -395,19 +382,134 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
             </div>
             <!-- tags  -->
             
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "fragment">fragment</a>
-    
-</div>
-            
         </div>
     </article>
     
     <!-- paginator  -->
     
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+    
 </main>
             <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" alt="avatar" src= /avatar/avatar.jpg >
+    <div class="profile-name">YD</div>
+    
+    <div class="profile-signature">
+        Too many mistakes
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:coderliantang@gmail.com" target="_blank" rel="noopener" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/PassedBy" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/qrcode.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://www.zhihu.com/people/west_wind/activities" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+                    <span>
+                        <a href= https://www.androidperformance.com/ target="_black">Gracker</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= http://gityuan.com/ target="_black">Gityuan</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= http://www.yinwang.org/ target="_black">王垠</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= https://droidyue.com/blog/2017/10/22/to-way-to-learning-android/ target="_black">技术小黑屋</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= http://yifeiyuan.me/ target="_black">程序亦非猿</a>
+                    </span>
+                
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
             
         </div>
         <footer class="footer footer-unloaded">
