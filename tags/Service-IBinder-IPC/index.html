@@ -346,82 +346,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >
+        <a class="abstract-title" href = "/2019/12/05/Service-And-IPC/" >
             
-                <span>Java Class Loading</span>
+                <span>Service And IPC</span>
         </a>
         <div class="abstract-content">
             
-Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
-虚拟器类加载机制涉及到两个方面的内容：
-1.虚拟机如何加载class文件
-2.class文件中的信息进入到虚拟机后会发生什么变化
-不同于 C/C++ 这种编译语言生成的可执行文件，Java字节码只有基于 JVM 才能真正执行。
+本文仅列出一些需要注意的点.如果需要详细地了解 Service，请查阅官方文档：Android developer :Service
+ConceptService是一种可在后台执行长时间运行操作而不提供界面的应用组件。服务有三种类型分别为 前台、后台、绑定 。
 
-把字节码从class文件（或其它外部来源）加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这一过程就是虚拟机的类加载机制。  –[深入理解Java虚拟机]
-
-这里的类包括 类、接口、数组类（数组类是虚拟机内部产生的），本文主要讨论普通类的加载，无论哪...
+注意：服务在其托管进程的主线程中运行，它既不创建自己的线程，也不在单独的进程中运行（除非另行指定）。如果服务将执行任何 CPU 密集型工作或阻止性操作（例如 MP3 播放或联网），则应通过在服务内创建新线程来完成这项工作。通过使用单独的线程，您可以降低发生“应用无响应”(ANR) 错误的风险，而应用的主线程仍可继续专注于运行用...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/hello-world/" >
-            
-                <span class="stick-top iconfont-archer">&#xe63d;</span>
-                
-                <span>Hello Android</span>
-        </a>
-        <div class="abstract-content">
-            Quick StartCategories：
-Part1: JavaSE
-位运算与最佳实践
-字符编码的前世今生
-抽象类与接口的本质联系与区别
-Java Exception
-Generic Programming
-JVM 内存结构与 GC 机制
-
-Part2.JVM
-JVM内存结构与GC机制
-ClassLoading
-字节码执行引擎
-程序编译
-代码优化
-
-Part3.AndroidSE
-View流程
-View自定义
-All About Fragment
-RecyclerView的实现以及定制
-View的滑动与源码实现
-触摸反馈
-Binder机制
-常见的IPC方式
-Android体系结构-分...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/05</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Introduction">Introduction</a>
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Service IBinder IPC">Service IBinder IPC</a>
     
 </div>
             
@@ -429,10 +374,6 @@ Android体系结构-分...
     </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2019/">&amp;#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-    </nav>
     
 </main>
             <!-- profile -->

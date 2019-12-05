@@ -346,6 +346,39 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/05/Service-And-IPC/" >
+            
+                <span>Service And IPC</span>
+        </a>
+        <div class="abstract-content">
+            
+本文仅列出一些需要注意的点.如果需要详细地了解 Service，请查阅官方文档：Android developer :Service
+ConceptService是一种可在后台执行长时间运行操作而不提供界面的应用组件。服务有三种类型分别为 前台、后台、绑定 。
+
+注意：服务在其托管进程的主线程中运行，它既不创建自己的线程，也不在单独的进程中运行（除非另行指定）。如果服务将执行任何 CPU 密集型工作或阻止性操作（例如 MP3 播放或联网），则应通过在服务内创建新线程来完成这项工作。通过使用单独的线程，您可以降低发生“应用无响应”(ANR) 错误的风险，而应用的主线程仍可继续专注于运行用...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/05</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Service IBinder IPC">Service IBinder IPC</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/04/Java-RTTI-include-reflect/" >
             
                 <span>Java RTTI [include reflect]</span>
@@ -621,38 +654,6 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >
-            
-                <span>Java Class Loading</span>
-        </a>
-        <div class="abstract-content">
-            
-Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
-虚拟器类加载机制涉及到两个方面的内容：
-1.虚拟机如何加载class文件
-2.class文件中的信息进入到虚拟机后会发生什么变化
-不同于 C/C++ 这种编译语言生成的可执行文件，Java字节码只有基于 JVM 才能真正执行。
-
-把字节码从class文件（或其它外部来源）加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这一过程就是虚拟机的类加载机制。  –[深入理解Java虚拟机]
-
-这里的类包括 类、接口、数组类（数组类是虚拟机内部产生的），本文主要讨论普通类的加载，无论哪...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -877,9 +878,30 @@ Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 11
+        Total : 12
         </div>
         <!-- search  -->
         
@@ -892,6 +914,11 @@ Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/05</span><a class="archive-post-title" href= "/2019/12/05/Service-And-IPC/" >Service And IPC</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -939,11 +966,6 @@ Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
-        </li>
-    
-    
     
     
     
@@ -955,6 +977,20 @@ Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Hello Android</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
     </div>
@@ -970,9 +1006,11 @@ Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
     
         <span class="sidebar-tag-name" data-tags="赤壁赋"><span class="iconfont-archer">&#xe606;</span>赤壁赋</span>
     
-        <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
+        <span class="sidebar-tag-name" data-tags="Service IBinder IPC"><span class="iconfont-archer">&#xe606;</span>Service IBinder IPC</span>
     
         <span class="sidebar-tag-name" data-tags="reflect  RTTI"><span class="iconfont-archer">&#xe606;</span>reflect  RTTI</span>
+    
+        <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
         <span class="sidebar-tag-name" data-tags="View"><span class="iconfont-archer">&#xe606;</span>View</span>
     
@@ -1011,17 +1049,17 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
-    
         <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
+    
+        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
     
         <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
     
         <span class="sidebar-category-name" data-categories="蚊子"><span class="iconfont-archer">&#xe60a;</span>蚊子</span>
     
-        <span class="sidebar-category-name" data-categories="Java-SE"><span class="iconfont-archer">&#xe60a;</span>Java-SE</span>
-    
         <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
+    
+        <span class="sidebar-category-name" data-categories="Java-SE"><span class="iconfont-archer">&#xe60a;</span>Java-SE</span>
     
         <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
     
