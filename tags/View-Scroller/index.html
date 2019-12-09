@@ -346,91 +346,34 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >
+        <a class="abstract-title" href = "/2019/12/09/View%E5%B8%B8%E8%A7%81%E6%BB%91%E5%8A%A8%E6%96%B9%E5%BC%8F%E4%B8%8E%E6%AF%94%E8%BE%83/" >
             
-                <span>View的三大流程</span>
+                <span>View常见滑动方式与比较</span>
         </a>
         <div class="abstract-content">
-            前言这篇文章会抛弃所有的细枝末节，聚焦在View的Measure过程上，因为这一部分是最难懂，也是最容易思维混乱的地方，由于作者水平有限，文中如果有描述错误，或者不严谨的地方，还请指正，不甚感激。
-理解MeasureSpecMeasureSpec决定了一个View的尺寸，而MeasureSpec受到父ViewGroup和自己的layoutParams的影响
-MeasureSpecMeasureSpec高2位代表SpecMode，低30位代表SpecSize（某种测量模式下的大小）
-Api
-1public static int makeMeasureSpec(int size,int mo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View">View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Service-And-IPC/" >
-            
-                <span>Service</span>
-        </a>
-        <div class="abstract-content">
-            
-本文仅列出一些需要注意的点.如果需要详细地了解 Service，请查阅官方文档：Android developer :Service
-ConceptService是一种可在后台执行长时间运行操作而不提供界面的应用组件。服务有三种类型分别为 前台、后台、绑定 。
+            常见滑动方式掌握滑动的方法是实现自定义 View 的基础，常见的实现滑动的方式有三种
 
-注意：服务在其托管进程的主线程中运行，它既不创建自己的线程，也不在单独的进程中运行（除非另行指定）。如果服务将执行任何 CPU 密集型工作或阻止性操作（例如 MP3 播放或联网），则应通过在服务内创建新线程来完成这项工作。通过使用单独的线程，您可以降低发生“应用无响应”(ANR) 错误的风险，而应用的主线程仍可继续专注于运行用...
+ScrollTo/SrollBy
+动画
+改变View的LayoutParams使得View重新布局从而实现滑动
+
+使用ScrollTo/ScrollBy1public void scrollTo(int x,int y)
+
+x: 滑动到的距离，这个距离指的是相对于初始位置（并非上一次的位置，而是View内容最初的位置，最初是0）
+y: 同上
+View内部会有两个变量来记录当前内容的位置 ： mScrollX 和 mScrollY ,向左或者向上为正，反之为负
+1public void scrollBy...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/09</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "IPC service  IBinder AIDL">IPC service  IBinder AIDL</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/All-About-Fragment/" >
-            
-                <span>All About Fragment</span>
-        </a>
-        <div class="abstract-content">
-            Fragment，简称碎片，Android 3.0(11)提出，为了兼容低版本， support-v4 库中也开发了一套 fragment API，最低兼容 Android 1.6
-Fragment 定义
-A Fragment represents a behavior or a portion of user interface in an Activity. You can combine multiple fragments in a single activity to build a multi-pane UI and reuse a fragment in multiple ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "fragment">fragment</a>
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View  Scroller">View  Scroller</a>
     
 </div>
             
