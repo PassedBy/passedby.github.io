@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Lint简单使用 · android</title>
+    <title>android</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Android Tech And Thoughts.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Lint简单使用</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Android Tech And Thoughts.</a>
 </header>
@@ -231,74 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/satelite.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            Lint简单使用
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Lint">Lint</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">445</span>Reading time: <span class="post-count reading-time">1 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/12/01</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,89 +338,60 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h1 id="什么是Lint"><a href="#什么是Lint" class="headerlink" title="什么是Lint"></a>什么是Lint</h1><p>Lint是 Android Studio 提供的 <strong>代码扫描分析工具</strong> , 他可以帮我们发现代码结构/质量 问题，而且这个过程不需要我们手写测试用例（从代码层面直接分析）</p>
-<p>在使用Lint的过程中，比较需要注意的是，我们可以手动调节 问题类型 的错误级别，如 warning/error/weak warning 等等</p>
-<h1 id="Lint-工作方式简单介绍"><a href="#Lint-工作方式简单介绍" class="headerlink" title="Lint 工作方式简单介绍"></a>Lint 工作方式简单介绍</h1><p>Lint 会根据预先配置的检测标准检查我们 Android 项目的源文件，发现潜在的 bug 或者可以优化的地方，优化的内容主要包括以下几方面：</p>
-<ul>
-<li>Correctness：不够完美的编码，比如硬编码、使用过时 API 等</li>
-<li>Performance：对性能有影响的编码，比如：静态引用，循环引用等</li>
-<li>Internationalization：国际化，直接使用汉字，没有使用资源引用等</li>
-<li>Security：不安全的编码，比如在 WebView 中允许使用 JavaScriptInterface 等</li>
-<li>…</li>
-</ul>
-<p>Lint检测代码的过程如下：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/1/6/2505bc5b274650677e12b30f409117a6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="lint"></p>
-<p>App源文件：包括Java代码、xml代码、图标以及 ProGuard 配置文件等</p>
-<p>lint.xml: Lint 检测的执行标准配置文件，我们可以修改它来允许或者禁止报告一些问题</p>
-<h1 id="Lint-GUI使用与设置"><a href="#Lint-GUI使用与设置" class="headerlink" title="Lint GUI使用与设置"></a>Lint GUI使用与设置</h1><p>Analyze-&gt;Inspect Code -&gt;( customa ：Project files) -&gt; OK</p>
-<p>问题等级设置：</p>
-<p><img src="https://i.loli.net/2019/12/01/DWeR7q3KzLA8yG4.png" alt="lint_settings.png"></p>
-<p><strong>使用Lint去除查找出来的无用资源文件</strong></p>
-<p>Android Studio 工具栏 -&gt; Analyze -&gt; Run Inspection By name .. 输入要检查的内容，这里是无用资源，输入 unused,在搜索结果中选择 Unused resources，再选择范围就可以开始检测了。检测结果的右边有 “ Remove All Unused Resources “ 选项，点击后，就可以删除这些无用资源了。</p>
-<h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks:"></a>Thanks:</h1><p><a href="https://blog.csdn.net/u011240877/article/details/54141714" target="_blank" rel="noopener">01.Android性能优化：使用Lint优化代码/去除多余资源</a></p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>Author：<a href="https://passedby.github.io">Dan</a>
-            <p>原文链接：<a href="https://passedby.github.io/2019/12/01/Lint%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">https://passedby.github.io/2019/12/01/Lint%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</a>
-            <p>发表日期：<a href="https://passedby.github.io/2019/12/01/Lint%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">December 1st 2019, 7:12:45 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/01/Lint%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">December 1st 2019, 7:55:18 pm</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/10/C-Language-Tutorial/" >
+            
+                <span>C Language Tutorial</span>
+        </a>
+        <div class="abstract-content">
+            译者注：这是一份C指南，目的在于指导C初学者快速开始并了解C语言，其并不能代替市面上大多数的教材。这里推荐一本非常著名且优秀的C语言教材：
+
+The C Programming Language   –ANSI C
+–By  Brian W.C. Kernighan  &amp;  M. Ritchies
+
+大纲：
+
+第一个程序
+计算
+循环
+宏常量
+条件语句
+指针
+数组
+字符数组
+I/O功能
+函数
+命令行参数
+图形接口
+
+这是一份
+
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "C">C</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/12/01/Android%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5%E5%92%8C%E9%97%AE%E9%A2%98/" title= "Android项目中的常见概念和问题">
-                    <div class="nextTitle">Android项目中的常见概念和问题</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/11/30/ListView%E4%B8%8ERecyclerView%E7%94%A8%E6%B3%95/" title= "ListView与RecyclerView用法">
-                    <div class="prevTitle">ListView与RecyclerView用法</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-    <div id="comment"></div>
-    <script>
-    new Valine({
-        el: '#comment' ,
-        notify:false, 
-        verify:false, 
-        appId: "KKU4IwbD2ruCqou5CVdq1czF-gzGzoHsz",
-        appKey: "FUPhhGPgBSQkGoaJ7HXBsWb8",
-        placeholder: "Lots of way to contact me for any problems.",
-        path:window.location.pathname, 
-        avatar:'mm' 
-    });
-    </script>
-
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -570,24 +480,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是Lint"><span class="toc-number">1.</span> <span class="toc-text">什么是Lint</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lint-工作方式简单介绍"><span class="toc-number">2.</span> <span class="toc-text">Lint 工作方式简单介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lint-GUI使用与设置"><span class="toc-number">3.</span> <span class="toc-text">Lint GUI使用与设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Thanks"><span class="toc-number">4.</span> <span class="toc-text">Thanks:</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1022,8 +914,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
