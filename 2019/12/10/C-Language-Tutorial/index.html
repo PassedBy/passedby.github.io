@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">122</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">589</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -421,8 +421,22 @@ height:50vh;
 <li>命令行参数</li>
 <li>图形接口</li>
 </ol>
-<p>这是一份</p>
+<h2 id="1-A-First-Program"><a href="#1-A-First-Program" class="headerlink" title="1. A First Program"></a>1. A First Program</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	<span class="built_in">printf</span>(<span class="string">"\nHello world\n"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<p>将代码保存在 hello.c 中，然后输入下面的命令进行编译：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">gcc hello.c</span></pre></td></tr></table></figure>
+<p>这将产生一个可执行文件 “a.out”<br>一个C程序包含 函数 与 变量，函数指明了程序需要完成的任务，”main” 函数建立了所有的程序逻辑，通常我们需要保证他是简洁的（通过调用其它的函数来运行子逻辑），所有的 C 程序都有且只有一个 “main” 函数。</p>
+<p>printf是来自于 I/O 函数库 (defined in stdio.h), 最原始的C语言并没有内置的 I/O 库，这些都是后来发展中新增的并最终并入了 ANSI C 规范中。 The K &amp; R 教科书列出了这些新增的标准库</p>
+<h2 id="2-Let’s-Compute"><a href="#2-Let’s-Compute" class="headerlink" title="2. Let’s Compute"></a>2. Let’s Compute</h2><p>下面的程序 ,”sine.c” ,计算了从 0 到 360 度的角度的 sine 函数值</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	<span class="keyword">int</span> angle_degree;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">double</span> angle_radian,pi,value;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">printf</span>(<span class="string">"\nCompute a table of the sine function\n\n"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">// atan 是反正切函数</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  pi = <span class="number">4.0</span>*<span class="built_in">atan</span>(<span class="number">1.0</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">printf</span>(<span class="string">"Value of PI = %f \n\n"</span>,pi);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  <span class="built_in">printf</span>(<span class="string">"angle Sine \n"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  angle_degree = <span class="number">0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">while</span>(angle_degree&lt;=<span class="number">360</span>)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  	angle_radian = pi*angle_degree/<span class="number">180.0</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  	value = <span class="built_in">sin</span>(angle);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">  	<span class="built_in">printf</span>(<span class="string">"%3d  %f \n"</span>,angle_degree,value);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">  	</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">  	angle_degree = angle_degree+<span class="number">10</span>; <span class="comment">/*increament the loop index */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<p>这个函数同样包含了一些定义于 math 函数库的函数</p>
+<p>变量名的命名是随意的(部分编译器规定了最大长度，典型的是32个字符), C 使用以下标准的变量类型：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span></span></pre></td></tr></table></figure>
+<p>// 有点奇怪，C里面没有 byte 和 boolean 么</p>
+<p>printf(“format”,var) 格式问题：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">%.nd		integer n位表示，不足用<span class="number">0</span>补齐</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">%m.nf   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">%<span class="function">ns 		<span class="title">string</span><span class="params">(optional n=number of columns)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">%c			character</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">\n \t		to introduce <span class="keyword">new</span> <span class="built_in">line</span> <span class="keyword">or</span> tab</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">\g			ring the bell(‘<span class="built_in">beep</span><span class="number">'</span>) on the terminal</span></pre></td></tr></table></figure>
 
+
+<h2 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h2>
     </article>
     <!-- license  -->
     
@@ -430,13 +444,18 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/10/C-Language-Tutorial/">https://passedby.github.io/2019/12/10/C-Language-Tutorial/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/10/C-Language-Tutorial/">December 10th 2019, 3:38:16 am</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/10/C-Language-Tutorial/">December 10th 2019, 3:50:24 am</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/10/C-Language-Tutorial/">December 11th 2019, 5:20:34 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/12/11/Math-in-program/" title= "Math in program">
+                    <div class="nextTitle">Math in program</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -582,7 +601,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-A-First-Program"><span class="toc-number">1.</span> <span class="toc-text">1. A First Program</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Let’s-Compute"><span class="toc-number">2.</span> <span class="toc-text">2. Let’s Compute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Loops"><span class="toc-number">3.</span> <span class="toc-text">Loops</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -791,9 +810,38 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 16
+        Total : 17
         </div>
         <!-- search  -->
         
@@ -806,6 +854,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2019/12/11/Math-in-program/" >Math in program</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -868,21 +921,6 @@ top:50vh;
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Service-And-IPC/" >Service</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
-        </li>
-    
-    
     
     
     
@@ -894,6 +932,30 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Service-And-IPC/" >Service</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
     </div>
@@ -926,6 +988,8 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="View"><span class="iconfont-archer">&#xe606;</span>View</span>
     
         <span class="sidebar-tag-name" data-tags="fragment"><span class="iconfont-archer">&#xe606;</span>fragment</span>
+    
+        <span class="sidebar-tag-name" data-tags="math"><span class="iconfont-archer">&#xe606;</span>math</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -975,6 +1039,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
     
         <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
+    
+        <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
