@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>android</title>
+    <title>观察者模式 - · android</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Android Tech And Thoughts.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">观察者模式 -</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Android Tech And Thoughts.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/satelite.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            观察者模式 -
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "observer">observer</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">746</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/12/12</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,323 +399,93 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/ListView%E4%B8%8ERecyclerView%E7%94%A8%E6%B3%95/" >
-            
-                <span>ListView与RecyclerView用法</span>
-        </a>
-        <div class="abstract-content">
-            
-前言RecyclerView 是我们用的最多的控件，也是一个较为复杂的控件，本文的目的在于疏通RecyclerView的基本用法以及原理，不对源码以及内部组件进行过于深入的讨论（当然，有兴趣的话也会说一说），结合一些自己在开发中的经验，谈谈如何设计一个流畅的列表。
-带着问题来思考1.RecyclerView.Adapter的几个函数的作用（getItemCount，）
-2.Recycler的复用机制
-3.如何编写多Item，如何添加footer与header 
-4.RecyclerView滑动卡顿的优化，RecyclerView资源是如何释放的，哪些情况容易出现OOM，有没有可能出现内...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >
-            
-                <span>赤壁赋</span>
-        </a>
-        <div class="abstract-content">
-            
-壬戌 之秋，七月既望，苏子与客泛舟，游于赤壁之下。清风徐来，水波不兴。举酒属客，诵明月之诗，歌窈窕之章。少 焉，月出于东山之上，徘徊于斗牛之间。白露横江，水光接天。纵一苇之所如，凌万顷之茫然。浩浩乎如冯虚御风，而不知其所止；飘飘乎如遗世独立，羽化而登仙。
-于是饮酒乐甚，扣舷而歌之。歌曰：“桂棹兮兰桨，击空明兮溯流光。渺渺兮予怀，望美人兮天一方。”客有吹洞箫者，倚歌而和之。其声呜呜然，如怨如慕，如泣如诉，余音袅袅，不绝如缕。舞幽壑之潜蛟，泣孤舟之嫠妇。　
-苏子愀然，正襟危坐，而问客曰：“何为其然也？”客曰：“‘月明星稀，乌鹊南飞’,此非曹孟德之诗乎？西望夏口，东望武昌。山川相缪，郁乎苍苍...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "赤壁赋">赤壁赋</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" >
-            
-                <span>Class文件结构</span>
-        </a>
-        <div class="abstract-content">
-            Class文件结构说明：本文中，通俗地将任意一个有效的类或接口所应当满足的格式称为 “Class 文件格式”，实际上它并不一定以磁盘文件的形式存在。
-Class文件是一组以8位字节（对应2位16进制编码）为基础单位的二进制流，各个项目严格按照顺序紧凑地排列在Class文件之中（保证了解析地准确性），当遇到8位字节以上空间的数据项时，则会按照高位在前的方式（Big-Endian）分割成若干个8位字节进行存储。
-根据Java虚拟机规范，Class文件格式采用一种类似C语言结构体的形式来组织数据，这种伪结构体中只有两种数据类型：无符号数 和 表，后面的解析以这两种数据类型为基础。
-无符号数属于...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Class">Class</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >
-            
-                <span>View的三大流程</span>
-        </a>
-        <div class="abstract-content">
-            前言这篇文章会抛弃所有的细枝末节，聚焦在View的Measure过程上，因为这一部分是最难懂，也是最容易思维混乱的地方，由于作者水平有限，文中如果有描述错误，或者不严谨的地方，还请指正，不甚感激。
-理解MeasureSpecMeasureSpec决定了一个View的尺寸，而MeasureSpec受到父ViewGroup和自己的layoutParams的影响
-MeasureSpecMeasureSpec高2位代表SpecMode，低30位代表SpecSize（某种测量模式下的大小）
-Api
-1public static int makeMeasureSpec(int size,int mo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View">View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Service-And-IPC/" >
-            
-                <span>Service</span>
-        </a>
-        <div class="abstract-content">
-            
-本文仅列出一些需要注意的点.如果需要详细地了解 Service，请查阅官方文档：Android developer :Service
-ConceptService是一种可在后台执行长时间运行操作而不提供界面的应用组件。服务有三种类型分别为 前台、后台、绑定 。
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>观察者模式(JDK中运用最多的模式之一) - 让你的对象知悉现状<br>TODO：观察者模式是不是也利用了策略模式的因素</p>
+<p>实例分析：<br>WeatherDate 对象负责追踪目前的天气状况（温度、湿度、气压），我们希望能建立一个应用，有三种布告板，分别显示目前的状况·气象统计及简单的预报。当 WeatherObject 对象获得最新的测量数据时，三种布告板必须实时更新。<br>另外，我们希望能提供一些API，以供客户实现自己的布告板。</p>
+<p>此系统的三个部分：</p>
+<ul>
+<li>气象站（获取数据的传感器）</li>
+<li>WeatherData对象（追踪数据）</li>
+<li>布告板（显示天气状况给用户看）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherData</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getTempertura</span><span class="params">()</span></span>&#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getHumidity</span><span class="params">()</span></span>&#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">// 一旦气象测量更新，此方法会被调用</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">measurementsChanged</span><span class="params">()</span></span>&#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
-注意：服务在其托管进程的主线程中运行，它既不创建自己的线程，也不在单独的进程中运行（除非另行指定）。如果服务将执行任何 CPU 密集型工作或阻止性操作（例如 MP3 播放或联网），则应通过在服务内创建新线程来完成这项工作。通过使用单独的线程，您可以降低发生“应用无响应”(ANR) 错误的风险，而应用的主线程仍可继续专注于运行用...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "IPC service  IBinder AIDL">IPC service  IBinder AIDL</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/All-About-Fragment/" >
-            
-                <span>All About Fragment</span>
-        </a>
-        <div class="abstract-content">
-            Fragment，简称碎片，Android 3.0(11)提出，为了兼容低版本， support-v4 库中也开发了一套 fragment API，最低兼容 Android 1.6
-Fragment 定义
-A Fragment represents a behavior or a portion of user interface in an Activity. You can combine multiple fragments in a single activity to build a multi-pane UI and reuse a fragment in multiple ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "fragment">fragment</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Java-Exception/" >
-            
-                <span>Java Exception</span>
-        </a>
-        <div class="abstract-content">
-            Java的基本理念是 [构不佳的代码不能运行]
-发现错误的理想时机是在编译阶段，然而，编译期间并不能找出所有的错误，余下的问题必须在运行期间解决。这就需要错误源能通过某种方式，把适当的信息传递给某个接收者–该接收者将知道如何正确处理这个问题
-概念异常这个词有 “我对此感到意外” 的意思，问题出现了，你也许不知道该如何处理，但你的确知道不该置之不理，你要停下来，看看是不是有别人或在别的地方，能够处理这个问题。只是在当前的环境中还没有足够的信息来解决这个问题，所以就把这个问题提交到一个更高级别的环境中，在这里将做出正确的决定
-使用异常的另一个相当明显的好处是，它往往能够降低错误处理代码的复杂...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Exception">Exception</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >
-            
-                <span>Java Class Loading</span>
-        </a>
-        <div class="abstract-content">
-            
-Java代码需要先编译成 class 字节码，然后被虚拟机解释执行
-虚拟器类加载机制涉及到两个方面的内容：
-1.虚拟机如何加载class文件
-2.class文件中的信息进入到虚拟机后会发生什么变化
-不同于 C/C++ 这种编译语言生成的可执行文件，Java字节码只有基于 JVM 才能真正执行。
+<p>我们先来看一个错误的示范：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherData</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">// 实例变量声明</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">measurementsChanged</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">float</span> temp = getTemperature();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">float</span> humidity = getHumidity();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">float</span> pressure = getPressure();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">		</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">		currentConditionDisplay.update(temp,humidity,pressure);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">		statisticsDisplay,update(temp,humidity,pressure);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">		forecastDisplay.update(temp,humidity,pressure);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<p>上面的实现有两个问题<br>第一是针对具体实现编程，会导致我们以后增加布告板（客户实现的）时，必须修改程序<br>第二，update函数很统一，更像是一个接口，这里大量地重复了代码</p>
+<h2 id="认识观察者模式"><a href="#认识观察者模式" class="headerlink" title="认识观察者模式"></a>认识观察者模式</h2><p>只要联想下报纸和杂志地订阅，就能很容易地理解观察者模式<br>出版者（Subject）+订阅者 （Observer）= 观察者模式</p>
+<p>仔细思考前面的实现，你会发现，如果要批量地通知这些布告板，就必须将他们统一起来（而不是一个一个地添加，一个个地处理），他们地共性就是都是一个 “订阅者”，我们可以用 List&lt;订阅者&gt; 来组织，很棒！</p>
+<p>定义：</p>
+<blockquote>
+<p>观察者模式定义了对象之间地一对多依赖，这样一来，当一个对象改变状态时，它地所有依赖着都会收到通知并自动更新</p>
+</blockquote>
+<p>稍后你会看到，实现观察者模式地方法不止一种，但是以包含 Subject 与 Observer 接口地类设计的做法最为常见</p>
+<p>Subject接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">()</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">()</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;</span></pre></td></tr></table></figure>
+<p>Observer接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</span></pre></td></tr></table></figure>
+<p>设计原则：松耦合</p>
+<blockquote>
+<p>当两个对象之间松耦合，它们依然可以交互，但是不太清楚彼此的细节。比如，主题只知道观察者实现了某个接口（也就是Observer接口），但是主题不需要知道观察者的具体类是谁、做了些什么或其它细节。</p>
+</blockquote>
+<p>我们可以在任何时候都增加观察者，因为主题唯一依赖的东西是一个实现了 Observer 接口的对象列表，所以我们可以在运行时，随时增加观察者。</p>
 
-把字节码从class文件（或其它外部来源）加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这一过程就是虚拟机的类加载机制。  –[深入理解Java虚拟机]
-
-这里的类包括 类、接口、数组类（数组类是虚拟机内部产生的），本文主要讨论普通类的加载，无论哪...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/hello-world/" >
-            
-                <span class="stick-top iconfont-archer">&#xe63d;</span>
-                
-                <span>Common Guide</span>
-        </a>
-        <div class="abstract-content">
-            Quick StartCategories：
-Part0: OSPart1: JavaSE
-位运算与最佳实践
-字符编码的前世今生
-抽象类与接口的本质联系与区别
-Java Exception
-Generic Programming
-JVM 内存结构与 GC 机制
-
-Part2.JVM
-JVM内存结构与GC机制
-ClassLoading
-字节码执行引擎
-程序编译
-代码优化
-
-Part3.AndroidSE
-View流程
-View自定义
-All About Fragment
-RecyclerView的实现以及定制
-View的滑动与源码实现
-触摸反馈
-Binder机制
-常见的IPC方式
-Andr...
+        <div class="license-wrapper">
+            <p>Author：<a href="https://passedby.github.io">Dan</a>
+            <p>原文链接：<a href="https://passedby.github.io/2019/12/12/Observer-subscriber-Pattern/">https://passedby.github.io/2019/12/12/Observer-subscriber-Pattern/</a>
+            <p>发表日期：<a href="https://passedby.github.io/2019/12/12/Observer-subscriber-Pattern/">December 12th 2019, 2:59:44 am</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/12/Observer-subscriber-Pattern/">December 12th 2019, 5:52:09 am</a>
+            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Introduction">Introduction</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/12/11/start-design-pattern/" title= "设计模式开篇">
+                    <div class="prevTitle">设计模式开篇</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2019/">&amp;#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "KKU4IwbD2ruCqou5CVdq1czF-gzGzoHsz",
+        appKey: "FUPhhGPgBSQkGoaJ7HXBsWb8",
+        placeholder: "Lots of way to contact me for any problems.",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -743,6 +574,24 @@ Andr...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#认识观察者模式"><span class="toc-number">1.</span> <span class="toc-text">认识观察者模式</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1224,6 +1073,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

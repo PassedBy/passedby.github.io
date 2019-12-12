@@ -452,6 +452,43 @@ Andr...
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/12/Observer-subscriber-Pattern/" >
+            
+                <span>观察者模式 -</span>
+        </a>
+        <div class="abstract-content">
+            观察者模式(JDK中运用最多的模式之一) - 让你的对象知悉现状TODO：观察者模式是不是也利用了策略模式的因素
+实例分析：WeatherDate 对象负责追踪目前的天气状况（温度、湿度、气压），我们希望能建立一个应用，有三种布告板，分别显示目前的状况·气象统计及简单的预报。当 WeatherObject 对象获得最新的测量数据时，三种布告板必须实时更新。另外，我们希望能提供一些API，以供客户实现自己的布告板。
+此系统的三个部分：
+
+气象站（获取数据的传感器）
+WeatherData对象（追踪数据）
+布告板（显示天气状况给用户看）
+
+1public class WeatherData&...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/12</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "observer">observer</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/11/start-design-pattern/" >
             
                 <span>设计模式开篇</span>
@@ -690,40 +727,6 @@ Dex
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/01</span>
             </div>
             <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/01/Lint%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" >
-            
-                <span>Lint简单使用</span>
-        </a>
-        <div class="abstract-content">
-            什么是LintLint是 Android Studio 提供的 代码扫描分析工具 , 他可以帮我们发现代码结构/质量 问题，而且这个过程不需要我们手写测试用例（从代码层面直接分析）
-在使用Lint的过程中，比较需要注意的是，我们可以手动调节 问题类型 的错误级别，如 warning/error/weak warning 等等
-Lint 工作方式简单介绍Lint 会根据预先配置的检测标准检查我们 Android 项目的源文件，发现潜在的 bug 或者可以优化的地方，优化的内容主要包括以下几方面：
-
-Correctness：不够完美的编码，比如硬编码、使用过时 API 等
-Performan...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Lint">Lint</a>
-    
-</div>
             
         </div>
     </article>
@@ -1169,34 +1172,9 @@ Performan...
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 18
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -1212,6 +1190,11 @@ Performan...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2019/12/12/Observer-subscriber-Pattern/" >观察者模式 -</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2019/12/11/start-design-pattern/" >设计模式开篇</a>
         </li>
     
@@ -1219,6 +1202,29 @@ Performan...
         <li class="archive-post-item">
             <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2019/12/11/Math-in-program/" >Math in program</a>
         </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -1287,35 +1293,12 @@ Performan...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
     </div>
@@ -1335,6 +1318,8 @@ Performan...
     
         <span class="sidebar-tag-name" data-tags="math"><span class="iconfont-archer">&#xe606;</span>math</span>
     
+        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
+    
         <span class="sidebar-tag-name" data-tags="Introduction"><span class="iconfont-archer">&#xe606;</span>Introduction</span>
     
         <span class="sidebar-tag-name" data-tags="设计模式 Java"><span class="iconfont-archer">&#xe606;</span>设计模式 Java</span>
@@ -1343,9 +1328,9 @@ Performan...
     
         <span class="sidebar-tag-name" data-tags="View  Scroller"><span class="iconfont-archer">&#xe606;</span>View  Scroller</span>
     
-        <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
-    
         <span class="sidebar-tag-name" data-tags="reflect  RTTI"><span class="iconfont-archer">&#xe606;</span>reflect  RTTI</span>
+    
+        <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
         <span class="sidebar-tag-name" data-tags="IPC service  IBinder AIDL"><span class="iconfont-archer">&#xe606;</span>IPC service  IBinder AIDL</span>
     
@@ -1388,9 +1373,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
     
-        <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
-    
         <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
+    
+        <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
     
         <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
     
@@ -1400,9 +1385,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="蚊子"><span class="iconfont-archer">&#xe60a;</span>蚊子</span>
     
-        <span class="sidebar-category-name" data-categories="Java-SE"><span class="iconfont-archer">&#xe60a;</span>Java-SE</span>
-    
         <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
+    
+        <span class="sidebar-category-name" data-categories="Java-SE"><span class="iconfont-archer">&#xe60a;</span>Java-SE</span>
     
         <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
     
