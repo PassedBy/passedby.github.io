@@ -404,7 +404,7 @@ height:50vh;
         <p>译者注：这是一份C指南，目的在于指导C初学者快速开始并了解C语言，其并不能代替市面上大多数的教材。这里推荐一本非常著名且优秀的C语言教材：</p>
 <blockquote>
 <p>The C Programming Language   –ANSI C</p>
-<p>–<em>By  Brian W.C. Kernighan  &amp;  M. Ritchies</em></p>
+<p>–By  Brian W.C. Kernighan  &amp;  M. Ritchies</p>
 </blockquote>
 <p>大纲：</p>
 <ol>
@@ -460,7 +460,7 @@ height:50vh;
 <p>“*” 的理解有两个方面，我们且看下面的两种表现形式</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span>* x;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> *x;</span></pre></td></tr></table></figure>
 <p>float*  表示一个float型指针（地址类型）<br>而 float <em>x 则表示 *x是一个float变量，</em>在这种意义下表示的就是该x地址所指向的内容的值，很多书本上，将地址变量比喻成门牌号，我觉得是很贴切的，给地址变量前面加个 * 就表示了门牌号所指代的房间（内容）。实际上上面两种形式下，x 的含义也是不变的，都是一个地址变量。</p>
-<p><em>可以叠加，例如 float*</em>  p，p则为描述地址的地址。</p>
+<p><em>可以叠加，例如  “float*</em>  p”，p则为描述地址的地址。</p>
 <p>地址类型之间也可以强转，强转之后，指针的地址虽未改变，其内容（内存角度）也为改变，但其内容所代表的变量类型却改变了。看下面这个例子：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* pc;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span>* px;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> x;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">x=<span class="number">6.5</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">px = &amp;x;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">pc = (<span class="keyword">char</span>*) px;  <span class="comment">//this is a cast</span></span></pre></td></tr></table></figure>
 
@@ -474,7 +474,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/10/C-Language-Tutorial/">https://passedby.github.io/2019/12/10/C-Language-Tutorial/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/10/C-Language-Tutorial/">December 10th 2019, 3:38:16 am</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/10/C-Language-Tutorial/">December 12th 2019, 10:01:23 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/10/C-Language-Tutorial/">December 12th 2019, 10:26:04 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
