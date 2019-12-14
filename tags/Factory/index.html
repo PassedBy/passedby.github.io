@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Linux内存管理 · android</title>
+    <title>android</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Android Tech And Thoughts.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Linux内存管理</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Android Tech And Thoughts.</a>
 </header>
@@ -231,74 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/satelite.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            Linux内存管理
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Linux内存管理">Linux内存管理</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">706</span>Reading time: <span class="post-count reading-time">2 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/12/06</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,88 +338,46 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <blockquote>
-<p>这篇文章是大量基于网络资源的学习笔记，但由于所参考的即是转载过的版本（且博客作者未注明转载源，在几经寻找仍未果的情况下，仍然无法找到真实出处，特此注明，如作者见到此文，请您联系我，我将注明出处）</p>
-</blockquote>
-<p>本文着重从开发者的角度谈谈对内存管理的理解。遵循”理论来源于实践”的教条，我们不必一下子就钻入源码，那样容易迷失，所以本文从外到内（先从用户编程的范畴）来观察进程如何使用内存，等到大家有了直观的认识后，再深入到内核去学习内存如何被管理等理论知识。最后再通过一个实例融会贯通。</p>
-<h1 id="Linux-逻辑地址-线性地址-物理地址"><a href="#Linux-逻辑地址-线性地址-物理地址" class="headerlink" title="Linux 逻辑地址-线性地址-物理地址"></a>Linux 逻辑地址-线性地址-物理地址</h1><ul>
-<li>逻辑地址：机器语言中出现的内存地址，都是逻辑地址。逻辑地址是相对于段的偏移地址</li>
-<li>线性地址：逻辑地址加上段的基地址，就构成了线性地址。在Linux中，逻辑地址==线性地址，因为Linux所有的段（代码段、数据段、内核代码段、内核数据段）的线性地址都是从 0x00000000 开始，长度为 4G，这样， 线性地址 = 逻辑地址+0x00000000</li>
-<li>物理地址：cpu与总线寻址的真实地址，线性地址到物理地址的转化要通过分页机制，具体的说，就是通过页表</li>
-</ul>
-<h1 id="进程与内存"><a href="#进程与内存" class="headerlink" title="进程与内存"></a>进程与内存</h1><h2 id="进程对应的内存空间中包含5种不同的数据段"><a href="#进程对应的内存空间中包含5种不同的数据段" class="headerlink" title="进程对应的内存空间中包含5种不同的数据段"></a>进程对应的内存空间中包含5种不同的数据段</h2><ul>
-<li>代码段：存放可执行文件的操作指令</li>
-<li>数据段：可执行文件中已初始化全局变量，换句话说就是存放程序静态分配的变量和全局变量</li>
-<li>BSS段：程序中未初始化的全局变量，在内存中 bss 段全部置零</li>
-<li>堆：存放被程序动态分配的内存段，大小不固定可扩展或缩减</li>
-<li>栈：程序零食创建的局部变量，也就是函数 “{}” 中定义的变量</li>
-</ul>
-<h2 id="进程如何组织这些区域"><a href="#进程如何组织这些区域" class="headerlink" title="进程如何组织这些区域"></a>进程如何组织这些区域</h2><p><img src="https://i.loli.net/2019/12/06/AcP5nX3ClxfTp7j.png" alt="processaddress.png"></p>
-<p>从用户向内核看，所使用的内存表现形式依次会经历 “逻辑地址”–”线性地址”–”物理地址” 几种形式。</p>
-<h2 id="进程内存空间"><a href="#进程内存空间" class="headerlink" title="进程内存空间"></a>进程内存空间</h2><p>Linux操作系统采用虚拟内存管理技术，使得每个进程都有各自互不相干的进程地址空间，该空间是大小为 4G 的线性虚拟空间，用户所看到的都是该虚拟地址，无法看到实际的物理内存地址。这样一来可以保护操作系统，二来用户程序可使用比实际物理内存更大的地址空间</p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>Author：<a href="https://passedby.github.io">Dan</a>
-            <p>原文链接：<a href="https://passedby.github.io/2019/12/06/Linux-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/">https://passedby.github.io/2019/12/06/Linux-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/</a>
-            <p>发表日期：<a href="https://passedby.github.io/2019/12/06/Linux-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/">December 6th 2019, 7:08:21 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/06/Linux-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/">December 6th 2019, 9:43:00 pm</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/14/Factory-design-pattern/" >
+            
+                <span>Factory design pattern</span>
+        </a>
+        <div class="abstract-content">
+            在面向对象的世界里，工厂模式被广泛地应用于项目中，也许你没听过，但你肯定用过。简单地来说，工厂模式地出现源于增加程序的可扩展性，降低耦合度。之所以叫工厂模式，是用工厂生产产品来形象比如代码中生产对象的过程。
+
+简单工厂模式
+工厂方法模式
+抽象工厂模式
+
+简单工厂模式 | simple Factory PatternBefore patterns:首先设计两种汽车，分别实现 “Auto” 接口。
+1public interface Auto&#123;2	//所有汽车都可以驾驶3	public void drive();4&#125;56//小轿车7public class Car imp...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Factory">Factory</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/12/08/GestureDetector/" title= "GestureDetector">
-                    <div class="nextTitle">GestureDetector</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/12/04/Java-RTTI-include-reflect/" title= "Java RTTI [include reflect]">
-                    <div class="prevTitle">Java RTTI [include reflect]</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-    <div id="comment"></div>
-    <script>
-    new Valine({
-        el: '#comment' ,
-        notify:false, 
-        verify:false, 
-        appId: "KKU4IwbD2ruCqou5CVdq1czF-gzGzoHsz",
-        appKey: "FUPhhGPgBSQkGoaJ7HXBsWb8",
-        placeholder: "Lots of way to contact me for any problems.",
-        path:window.location.pathname, 
-        avatar:'mm' 
-    });
-    </script>
-
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -569,24 +466,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-逻辑地址-线性地址-物理地址"><span class="toc-number">1.</span> <span class="toc-text">Linux 逻辑地址-线性地址-物理地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进程与内存"><span class="toc-number">2.</span> <span class="toc-text">进程与内存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程对应的内存空间中包含5种不同的数据段"><span class="toc-number">2.1.</span> <span class="toc-text">进程对应的内存空间中包含5种不同的数据段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程如何组织这些区域"><span class="toc-number">2.2.</span> <span class="toc-text">进程如何组织这些区域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程内存空间"><span class="toc-number">2.3.</span> <span class="toc-text">进程内存空间</span></a></li></ol></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1128,8 +1007,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
