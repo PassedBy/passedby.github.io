@@ -78,6 +78,8 @@
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -201,10 +203,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -220,34 +220,21 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/planets.jpeg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Android Tech And Thoughts.
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                Recording myself sometimes helping others
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -359,99 +346,6 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/hello-world/" >
-            
-                <span class="stick-top iconfont-archer">&#xe63d;</span>
-                
-                <span>Common Guide</span>
-        </a>
-        <div class="abstract-content">
-            Quick StartCategories：
-Part0: OSPart1: JavaSE
-位运算与最佳实践
-字符编码的前世今生
-抽象类与接口的本质联系与区别
-Java Exception
-Generic Programming
-JVM 内存结构与 GC 机制
-
-Part2.JVM
-JVM内存结构与GC机制
-ClassLoading
-字节码执行引擎
-程序编译
-代码优化
-
-Part3.AndroidSE
-View流程
-View自定义
-All About Fragment
-RecyclerView的实现以及定制
-View的滑动与源码实现
-触摸反馈
-Binder机制
-常见的IPC方式
-Andr...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Introduction">Introduction</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/08/GestureDetector/" >
-            
-                <span class="stick-top iconfont-archer">&#xe63d;</span>
-                
-                <span>GestureDetector</span>
-        </a>
-        <div class="abstract-content">
-            Base On Android Developer Guide
-尽管应用不应依赖轻触手势来执行基本行为（因为手势可能无法在所有上下文中供所有用户使用，用户可能不知道需要轻触手势来执行某些操作），但向应用添加基于轻触的互动可以极大地提升其实用性和吸引力（可以考虑做一个行为备份，即用户可以同时通过更常见的方式来执行这些基本操作）。
-本文中，我们主要介绍以下几个方面的内容
-
-检测常用手势：了解如何使用 GestureDetector 检测基本轻触手势，例如滚动、滑动和点按两次。
-跟踪轻触和指针移动：了解如何跟踪指针移动。
-以动画方式显示滚动手势：了解如何使用滚动条（Scroller 或 Ove...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "GestureDetector  View">GestureDetector  View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/15/Slide-Conflict-part-one/" >
             
                 <span>Slide Conflict part one</span>
@@ -484,392 +378,10 @@ Andr...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/14/Factory-design-pattern/" >
-            
-                <span>Factory design pattern</span>
-        </a>
-        <div class="abstract-content">
-            在面向对象的世界里，工厂模式被广泛地应用于项目中，也许你没听过，但你肯定用过。简单地来说，工厂模式地出现源于增加程序的可扩展性，降低耦合度。之所以叫工厂模式，是用工厂生产产品来形象比如代码中生产对象的过程。
-
-简单工厂模式
-工厂方法模式
-抽象工厂模式
-
-简单工厂模式 | simple Factory PatternBefore patterns:首先设计两种汽车，分别实现 “Auto” 接口。
-1public interface Auto&#123;2	//所有汽车都可以驾驶3	public void drive();4&#125;56//小轿车7public class Car imp...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Factory">Factory</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/12/Observer-subscriber-Pattern/" >
-            
-                <span>观察者模式</span>
-        </a>
-        <div class="abstract-content">
-            观察者模式(JDK中运用最多的模式之一) - 让你的对象知悉现状TODO：观察者模式是不是也利用了策略模式的因素
-实例分析：WeatherDate 对象负责追踪目前的天气状况（温度、湿度、气压），我们希望能建立一个应用，有三种布告板，分别显示目前的状况·气象统计及简单的预报。当 WeatherObject 对象获得最新的测量数据时，三种布告板必须实时更新。另外，我们希望能提供一些API，以供客户实现自己的布告板。
-此系统的三个部分：
-
-气象站（获取数据的传感器）
-WeatherData对象（追踪数据）
-布告板（显示天气状况给用户看）
-
-1public class WeatherData&...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "observer">observer</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/11/start-design-pattern/" >
-            
-                <span>设计模式开篇</span>
-        </a>
-        <div class="abstract-content">
-            设计模式解决什么样的问题我们通过继承来实现代码复用，通过扩展接口来实现功能扩展。不过当需求不断地变更，代码量越来越庞大地时候，仅仅靠这两种方式并不能很好地解决问题，例如通过复写改变子类行为会导致代码在多个子类重复。单纯地使用接口，则带来改变的困难，如果接口改变了，可能要在多处修改。
-封装变化是每一个设计模式背后共有的思想设计原则：
-
-把变化的部分取出来并封装起来，以便以后可以轻易地改动或者扩展此部分，而不影响不需要变化的其它部分    ·
-
-例如一个Duck有很多飞行行为，如果我们在每个子类去实现接口，我们就被实现绑的死死的，所以，从另一个角度来说，我们可以将飞行行为与子类分离（不是通过...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "设计模式 Java">设计模式 Java</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/11/Math-in-program/" >
-            
-                <span>Math in program</span>
-        </a>
-        <div class="abstract-content">
-            
-代数：几何：三角函数：
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "math">math</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/10/C-Language-Tutorial/" >
-            
-                <span>C Language Tutorial</span>
-        </a>
-        <div class="abstract-content">
-            译者注：这是一份C指南，目的在于指导C初学者快速开始并了解C语言，其并不能代替市面上大多数的教材。这里推荐一本非常著名且优秀的C语言教材：
-
-The C Programming Language   –ANSI C
-–By  Brian W.C. Kernighan  &amp;  M. Ritchies
-
-大纲：
-
-第一个程序
-计算
-循环
-宏常量
-条件语句
-指针
-数组
-字符数组
-I/O功能
-函数
-命令行参数
-图形接口
-
-1. A First Program1#include&lt;stdio.h&gt;23void main()&#123;4	printf("\nHello world...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "C">C</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/09/View%E5%B8%B8%E8%A7%81%E6%BB%91%E5%8A%A8%E6%96%B9%E5%BC%8F%E4%B8%8E%E6%AF%94%E8%BE%83/" >
-            
-                <span>View常见滑动方式与比较</span>
-        </a>
-        <div class="abstract-content">
-            常见滑动方式掌握滑动的方法是实现自定义 View 的基础，常见的实现滑动的方式有三种
-
-ScrollTo/SrollBy
-动画
-改变View的LayoutParams使得View重新布局从而实现滑动
-
-使用ScrollTo/ScrollBy1public void scrollTo(int x,int y)
-
-x: 滑动到的距离，这个距离指的是相对于初始位置（并非上一次的位置，而是View内容最初的位置，最初是0）
-y: 同上
-View内部会有两个变量来记录当前内容的位置 ： mScrollX 和 mScrollY ,向左或者向上为正，反之为负
-1public void scrollBy...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View  Scroller">View  Scroller</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/06/Linux-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" >
-            
-                <span>Linux内存管理</span>
-        </a>
-        <div class="abstract-content">
-            
-这篇文章是大量基于网络资源的学习笔记，但由于所参考的即是转载过的版本（且博客作者未注明转载源，在几经寻找仍未果的情况下，仍然无法找到真实出处，特此注明，如作者见到此文，请您联系我，我将注明出处）
-
-本文着重从开发者的角度谈谈对内存管理的理解。遵循”理论来源于实践”的教条，我们不必一下子就钻入源码，那样容易迷失，所以本文从外到内（先从用户编程的范畴）来观察进程如何使用内存，等到大家有了直观的认识后，再深入到内核去学习内存如何被管理等理论知识。最后再通过一个实例融会贯通。
-Linux 逻辑地址-线性地址-物理地址
-逻辑地址：机器语言中出现的内存地址，都是逻辑地址。逻辑地址是相对于段的偏移地...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Linux内存管理">Linux内存管理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">NEXT &amp;#62;</a>
-    </nav>
     
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/avatar.jpg >
-    <div class="profile-name">YD</div>
-    
-    <div class="profile-signature">
-        Too many mistakes
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:coderliantang@gmail.com" target="_blank" rel="noopener" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="https://github.com/PassedBy" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title=wechat>
-                  
-                  <img class="profile-qr" src="/assets/qrcode.jpg" />
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="https://www.zhihu.com/people/west_wind/activities" class="iconfont-archer zhihu" target="_blank" title=zhihu></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= https://www.androidperformance.com/ target="_black">Gracker</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= http://gityuan.com/ target="_black">Gityuan</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= http://www.yinwang.org/ target="_black">王垠</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= https://droidyue.com/blog/2017/10/22/to-way-to-learning-android/ target="_black">技术小黑屋</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= http://yifeiyuan.me/ target="_black">程序亦非猿</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
