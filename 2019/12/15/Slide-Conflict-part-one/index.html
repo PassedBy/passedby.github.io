@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">592</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">618</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -415,7 +415,8 @@ height:50vh;
 <p>具体来说，这意味着需要做两件事：</p>
 <h3 id="在导航栏后面绘制内容"><a href="#在导航栏后面绘制内容" class="headerlink" title="在导航栏后面绘制内容"></a>在导航栏后面绘制内容</h3><p>由于导航栏自身的大小和突出程度已经相比以前缩小了，因此我们强烈建议，当应用在 Android 10 及以上设备中运行时，将内容拓展至导航栏后方，以提供更具吸引力的现代化 UX。<br>在搭载 Android 9 以及以下的设备上运行时，导航栏后绘制内容是可选的，方便根据应用情况酌情选择。做到这些事情所需的API也都向后兼容至 API 21（或AndroidX的对应版本），因此支持 Android 10 以下设备所需的额外工作量很小。</p>
 <h3 id="在状态栏后面绘制内容"><a href="#在状态栏后面绘制内容" class="headerlink" title="在状态栏后面绘制内容"></a>在状态栏后面绘制内容</h3><p>仅仅强调一下，是否扩展应用内容的绘制区域取决于开发者，有些情况并不适合，会影响到用户体验。</p>
-<h2 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h2><h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p><a href="https://mp.weixin.qq.com/s?__biz=MzAwODY4OTk2Mg==&mid=2652051441&idx=1&sn=1443ac0f269935e110af85c0098e1c67&chksm=808cb7b4b7fb3ea2b2917aef336952a23fa39ffc957c0d96562827a45cc29c26d8b5b8c453ef&mpshare=1&scene=1&srcid=&sharer_sharetime=1576417055309&sharer_shareid=08ba63d7941407ca4bef8973bd4a8a3b#rd" target="_blank" rel="noopener">Google Dev:开启全面屏体验|手势导航(一)</a></p>
+<h2 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h2><p>实现边到边的全面屏体验共分为三步：</p>
+<h3 id="1-请求进行全面屏布局"><a href="#1-请求进行全面屏布局" class="headerlink" title="1.请求进行全面屏布局"></a>1.请求进行全面屏布局</h3><h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p><a href="https://mp.weixin.qq.com/s?__biz=MzAwODY4OTk2Mg==&mid=2652051441&idx=1&sn=1443ac0f269935e110af85c0098e1c67&chksm=808cb7b4b7fb3ea2b2917aef336952a23fa39ffc957c0d96562827a45cc29c26d8b5b8c453ef&mpshare=1&scene=1&srcid=&sharer_sharetime=1576417055309&sharer_shareid=08ba63d7941407ca4bef8973bd4a8a3b#rd" target="_blank" rel="noopener">Google Dev:开启全面屏体验|手势导航(一)</a></p>
 
     </article>
     <!-- license  -->
@@ -424,13 +425,18 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/15/Slide-Conflict-part-one/">https://passedby.github.io/2019/12/15/Slide-Conflict-part-one/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/15/Slide-Conflict-part-one/">December 15th 2019, 8:51:42 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/15/Slide-Conflict-part-one/">December 15th 2019, 10:06:45 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/15/Slide-Conflict-part-one/">December 15th 2019, 10:22:00 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/12/18/Decorator-Pattern/" title= "Decorator Pattern">
+                    <div class="nextTitle">Decorator Pattern</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -576,7 +582,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开启全面屏体验-手势导航-一"><span class="toc-number">1.</span> <span class="toc-text">开启全面屏体验 | 手势导航(一)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#全面屏体验"><span class="toc-number">1.1.</span> <span class="toc-text">全面屏体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在导航栏后面绘制内容"><span class="toc-number">1.1.1.</span> <span class="toc-text">在导航栏后面绘制内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在状态栏后面绘制内容"><span class="toc-number">1.1.2.</span> <span class="toc-text">在状态栏后面绘制内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何实现"><span class="toc-number">1.2.</span> <span class="toc-text">如何实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">1.3.</span> <span class="toc-text">Thanks</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开启全面屏体验-手势导航-一"><span class="toc-number">1.</span> <span class="toc-text">开启全面屏体验 | 手势导航(一)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#全面屏体验"><span class="toc-number">1.1.</span> <span class="toc-text">全面屏体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在导航栏后面绘制内容"><span class="toc-number">1.1.1.</span> <span class="toc-text">在导航栏后面绘制内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在状态栏后面绘制内容"><span class="toc-number">1.1.2.</span> <span class="toc-text">在状态栏后面绘制内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何实现"><span class="toc-number">1.2.</span> <span class="toc-text">如何实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-请求进行全面屏布局"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.请求进行全面屏布局</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">1.3.</span> <span class="toc-text">Thanks</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -856,9 +862,35 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 21
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -871,6 +903,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2019/12/19/Window/" >Window</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span><a class="archive-post-title" href= "/2019/12/18/Decorator-Pattern/" >Decorator Pattern</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -891,29 +933,6 @@ top:50vh;
         <li class="archive-post-item">
             <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2019/12/11/start-design-pattern/" >设计模式开篇</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -959,6 +978,29 @@ top:50vh;
         <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/ListView%E4%B8%8ERecyclerView%E7%94%A8%E6%B3%95/" >ListView与RecyclerView用法</a>
         </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -1008,13 +1050,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="GestureDetector  View"><span class="iconfont-archer">&#xe606;</span>GestureDetector  View</span>
     
-        <span class="sidebar-tag-name" data-tags="全面屏  手势导航  View"><span class="iconfont-archer">&#xe606;</span>全面屏  手势导航  View</span>
+        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
     
         <span class="sidebar-tag-name" data-tags="Linux内存管理"><span class="iconfont-archer">&#xe606;</span>Linux内存管理</span>
     
         <span class="sidebar-tag-name" data-tags="math"><span class="iconfont-archer">&#xe606;</span>math</span>
     
-        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
+        <span class="sidebar-tag-name" data-tags="全面屏  手势导航  View"><span class="iconfont-archer">&#xe606;</span>全面屏  手势导航  View</span>
     
         <span class="sidebar-tag-name" data-tags="Introduction"><span class="iconfont-archer">&#xe606;</span>Introduction</span>
     
@@ -1026,13 +1068,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="View  Scroller"><span class="iconfont-archer">&#xe606;</span>View  Scroller</span>
     
-        <span class="sidebar-tag-name" data-tags="reflect  RTTI"><span class="iconfont-archer">&#xe606;</span>reflect  RTTI</span>
-    
         <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
-        <span class="sidebar-tag-name" data-tags="IPC service  IBinder AIDL"><span class="iconfont-archer">&#xe606;</span>IPC service  IBinder AIDL</span>
+        <span class="sidebar-tag-name" data-tags="reflect  RTTI"><span class="iconfont-archer">&#xe606;</span>reflect  RTTI</span>
     
         <span class="sidebar-tag-name" data-tags="View"><span class="iconfont-archer">&#xe606;</span>View</span>
+    
+        <span class="sidebar-tag-name" data-tags="IPC service  IBinder AIDL"><span class="iconfont-archer">&#xe606;</span>IPC service  IBinder AIDL</span>
     
         <span class="sidebar-tag-name" data-tags="fragment"><span class="iconfont-archer">&#xe606;</span>fragment</span>
     
@@ -1069,23 +1111,23 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
-    
         <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
+    
+        <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
     
         <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
     
         <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
     
-        <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
-    
         <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
+    
+        <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
     
         <span class="sidebar-category-name" data-categories="蚊子"><span class="iconfont-archer">&#xe60a;</span>蚊子</span>
     
-        <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
-    
         <span class="sidebar-category-name" data-categories="Java-SE"><span class="iconfont-archer">&#xe60a;</span>Java-SE</span>
+    
+        <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
     
         <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
     
