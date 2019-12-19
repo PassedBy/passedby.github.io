@@ -351,7 +351,12 @@
                 <span>Window</span>
         </a>
         <div class="abstract-content">
-            
+            什么是Window一台Android手机屏幕上显示的内容就是由一个个Window组合而成的，顶部的状态栏是一个WIndow，底部的导航栏也是一个Window，中间自己的应用显示区域也是一块大Window，Toast，Dialog也都对应一个自己的WIndow。而Android中对这些Window的管理是通过一个框架的服务–WMS。
+几个概念
+Window: 代表了屏幕上某块显示区域，用来承载 View
+WMS：Android框架层的一个服务进程，用来管理 Window
+Surface：对应一块屏幕缓冲区，每个 Window对应一个Surface
+Canvas：提供了一系列绘制接口，用来在...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -359,6 +364,12 @@
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/19</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Window  WMS WindowManager Surface">Window  WMS WindowManager Surface</a>
+    
+</div>
             
         </div>
     </article>
@@ -1275,6 +1286,8 @@ View内部会有两个变量来记录当前内容的位置 ： mScrollX 和 mScr
         <span class="sidebar-tag-name" data-tags="IPC service  IBinder AIDL"><span class="iconfont-archer">&#xe606;</span>IPC service  IBinder AIDL</span>
     
         <span class="sidebar-tag-name" data-tags="fragment"><span class="iconfont-archer">&#xe606;</span>fragment</span>
+    
+        <span class="sidebar-tag-name" data-tags="Window  WMS WindowManager Surface"><span class="iconfont-archer">&#xe606;</span>Window  WMS WindowManager Surface</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
