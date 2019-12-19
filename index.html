@@ -459,9 +459,7 @@ Andr...
         <div class="abstract-content">
             什么是Window一台Android手机屏幕上显示的内容就是由一个个Window组合而成的，顶部的状态栏是一个WIndow，底部的导航栏也是一个Window，中间自己的应用显示区域也是一块大Window，Toast，Dialog也都对应一个自己的WIndow。而Android中对这些Window的管理是通过一个框架的服务–WMS。
 
-上面展示了通常状况下，屏幕中可见的 Window，其中Activity对应中间的那个Window，该 Window对应着DecorView，DecorView包含了标题栏和内容类栏（contentView实际上是一个FrameLayout）
-几个概念
-Win...
+上面展示了通常状况下，屏幕中可见的 Window，其中Activity对应中间的那个Window，该 Window对应着DecorView，它也是Activity中的顶级View，DecorView包含了标题栏和内容类栏。状态栏和导航栏都对应于 System...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->

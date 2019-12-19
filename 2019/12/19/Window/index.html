@@ -403,7 +403,7 @@ height:50vh;
     <article class="article-entry">
         <h1 id="什么是Window"><a href="#什么是Window" class="headerlink" title="什么是Window"></a>什么是Window</h1><p>一台Android手机屏幕上显示的内容就是由一个个Window组合而成的，顶部的状态栏是一个WIndow，底部的导航栏也是一个Window，中间自己的应用显示区域也是一块大Window，Toast，Dialog也都对应一个自己的WIndow。而Android中对这些Window的管理是通过一个框架的服务–WMS。</p>
 <p><img src="https://i.loli.net/2019/12/19/irTbOfZmqyk2sCY.png" alt="可见的WIndow.png"></p>
-<p>上面展示了通常状况下，屏幕中可见的 Window，其中Activity对应中间的那个Window，该 Window对应着DecorView，DecorView包含了标题栏和内容类栏（contentView实际上是一个FrameLayout）</p>
+<p>上面展示了通常状况下，屏幕中可见的 Window，其中Activity对应中间的那个Window，该 Window对应着DecorView，它也是Activity中的顶级View，DecorView包含了标题栏和内容类栏。状态栏和导航栏都对应于 SystemUI 这个系统App。</p>
 <h1 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念"></a>几个概念</h1><ul>
 <li>Window: 代表了屏幕上某块显示区域，用来承载 View</li>
 <li>WMS：Android框架层的一个服务进程，用来管理 Window</li>
@@ -505,7 +505,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/19/Window/">https://passedby.github.io/2019/12/19/Window/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/19/Window/">December 19th 2019, 10:15:41 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/19/Window/">December 19th 2019, 11:01:32 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/19/Window/">December 19th 2019, 11:05:21 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
