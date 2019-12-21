@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">2.9k</span>Reading time: <span class="post-count reading-time">12 min</span></span>
+                        <span>Word count: <span class="post-count word-count">3k</span>Reading time: <span class="post-count reading-time">12 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -499,8 +499,7 @@ height:50vh;
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">mWM=(WIndowManager)context.getSystemService(Context.WINDOW_SERVICE);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">mWM.addView(mView,mParams);</span></pre></td></tr></table></figure>
 
 
-
-<p>为什么需要用NotificationManagerService?  // 非官方，先权当参考下<br>Toast的效果要求浮在所有的视图（包括Activity、Dialog）最上方，以及其他应用(非本应用进程)的上方，所以要用系统级别的Window。虽然普通应用没有权限使用系统级window，但是普通应用有权限获得NMS的对象。所以就委托NMS来代为创建系统级window来实现Toast。</p>
+<p>好像在某个API级别之后，系统拒绝用户创建系统级别的窗口，所以通过申请permission已经不可行<br>为什么需要用NotificationManagerService?  // 非官方，先权当参考下<br>Toast的效果要求浮在所有的视图（包括Activity、Dialog）最上方，以及其他应用(非本应用进程)的上方，所以要用系统级别的Window。虽然普通应用没有权限使用系统级window，但是普通应用有权限获得NMS的对象。所以就委托NMS来代为创建系统级window来实现Toast。</p>
 <h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p><a href="https://blog.csdn.net/yhaolpz/article/details/68936932" target="_blank" rel="noopener">带你彻底理解Window和WindowManager</a></p>
 
     </article>
@@ -510,7 +509,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/19/Window/">https://passedby.github.io/2019/12/19/Window/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/19/Window/">December 19th 2019, 10:15:41 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/19/Window/">December 21st 2019, 7:09:18 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/19/Window/">December 21st 2019, 7:18:06 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
