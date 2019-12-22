@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">41</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">411</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,7 +401,19 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>装饰者模式的作用主要在于控制类的数量。其核心思想是利用组合来代替继承，从而扩展类的功能。</p>
+        <p>装饰者模式的作用主要在于控制类的数量。其核心思想是利用组合来代替继承，从而动态地扩展类的功能。</p>
+<p>我们先来对比下使用继承和装饰着模式的区别,以Java IO 类库为例<br><img src="https://i.loli.net/2019/12/22/YVaAMI1K3cfuSv8.jpg" alt="inherate.jpg"><br><img src="https://i.loli.net/2019/12/22/ur5Ky3CB4t2pVIZ.jpg" alt="decorator.jpg"></p>
+<p>可以看到，明显地后者更好地控制了类的数量，假设需要扩展 n 个功能，那么继承所需的类的数量为 n! 数量级<br>而采用装饰着模式则为 O(n)</p>
+<p>先给出以下结论，带着为什么来思考：</p>
+<ul>
+<li>装饰者和被装饰对象有相同的超类型(接口或者类都ok)</li>
+<li>可以使用一个或者多个装饰者包装一个对象</li>
+<li>既然装饰者和被装饰者具有相同的超类型，所以在任何需要原始对象(被包装的)的场合，可以用装饰过的对象代替它</li>
+<li>装饰者可以在所委托被装饰者的行为之前/或之后，加上自己的行为，以达到特定的目的</li>
+<li>对象可以在任何时候被装饰，所以可以在运行时动态地、不限量地用你喜欢地装饰者来装饰对象</li>
+</ul>
+<p>如何装饰者模式：<br>把类的核心职责和装饰功能区分开来<br><strong>装饰者可以添加新的方法，但是能继续被装饰的方法只能是共同超类中的接口方法</strong></p>
+<h1 id="实例探究Decorator"><a href="#实例探究Decorator" class="headerlink" title="实例探究Decorator"></a>实例探究Decorator</h1><p>Head First Design Pattern 中谈到一个非常适合使用装饰者模式的案例，就是饮料店的案例，我们先来看一下需求：</p>
 
     </article>
     <!-- license  -->
@@ -410,7 +422,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/18/Decorator-Pattern/">https://passedby.github.io/2019/12/18/Decorator-Pattern/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/18/Decorator-Pattern/">December 18th 2019, 11:44:27 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/18/Decorator-Pattern/">December 22nd 2019, 11:44:21 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/18/Decorator-Pattern/">December 23rd 2019, 12:34:42 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -567,7 +579,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实例探究Decorator"><span class="toc-number">1.</span> <span class="toc-text">实例探究Decorator</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
