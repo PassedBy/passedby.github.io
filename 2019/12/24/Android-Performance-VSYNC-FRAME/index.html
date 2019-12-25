@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">787</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.1k</span>Reading time: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -410,7 +410,15 @@ height:50vh;
 <p>用户容易在UI执行动画或者滑动ListView的时候感到卡顿和不流畅，是因为这里的操作相对复杂，容易发生丢帧的现象。<strong>有很多原因可能导致丢帧，有可能是layout过于复杂，无法在16ms内完成渲染，有可能是因为你的UI上有层叠太多的绘制单元(Overdraw)，还有可能是动画执行的次数过多（动画往往涉及到大量计算）</strong></p>
 <p>发现并定位问题：<br>比如可以使用 HierarchyViewer来观察Activity中的布局是否过于复杂，也可以使用手机设置里提供的开发者工具：打开<strong>Show GPU Overdraw</strong>等选项进行观察；你还可以使用TraceView来观察CPU的执行情况，更加快捷地找到性能瓶颈。</p>
 <h1 id="1-Understanding-Overdraw"><a href="#1-Understanding-Overdraw" class="headerlink" title="1. Understanding Overdraw"></a>1. Understanding Overdraw</h1><p>Overdraw描述的是屏幕上的某个像素在同一帧的时间内被绘制了多次。在多层次的UI结构里面，如果不可见的UI也在做绘制的操作，这就会导致某些像素区域被绘制了多次。这就浪费了大量的CPU以及GPU资源。<br><img src="https://i.loli.net/2019/12/26/9w2NukzVPQBdgR4.png" alt="vsync.png"><br>幸运的是，我们可以通过手机设置里面的开发者选项打开Show GPU Overdraw，可以观察UI上的Overdraw情况<br><img src="https://i.loli.net/2019/12/26/m3kT2NaKEjzRU5l.png" alt="developer.png"><br>容易忽略的原因是，非必须的重叠背景，例如某个Activity有一个背景，然后里面的Layout区域又有自己的背景，同时子View又分别有自己的背景。例如子View设置”背景”的几种不同方法有什么区别，对性能有什么影响，都需要理清楚。</p>
-<h1 id="2-Understanding-VSYNC"><a href="#2-Understanding-VSYNC" class="headerlink" title="2. Understanding VSYNC"></a>2. Understanding VSYNC</h1><h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks:"></a>Thanks:</h2><p><a href="http://hukai.me/android-performance-patterns/" target="_blank" rel="noopener">Android性能优化典范第一季</a><br><a href="https://blog.csdn.net/zhuawalibai/article/details/87710923" target="_blank" rel="noopener">快速理解VSYNC</a></p>
+<h1 id="2-Understanding-VSYNC"><a href="#2-Understanding-VSYNC" class="headerlink" title="2. Understanding VSYNC"></a>2. Understanding VSYNC</h1><p>为了理解App是如何进行渲染的，我们必须了解手机硬件是如何工作的，那么就必须理解什么是VSYNC。在讲解VSYNC之前，我们需要先了解两个相关的概念：</p>
+<ul>
+<li><strong>RefreshRate</strong>: 代表了屏幕一秒内刷新屏幕的次数，这取决于硬件的固定参数，例如60Hz</li>
+<li><strong>Frame Rate</strong>: 代表了GPU在一秒内绘制操作的帧数，例如30fps，60fps</li>
+</ul>
+<p>对于上面所讲，有点疑惑的地方是，VSYNC时间间隔和 RefreshRate之间的关系，因为前者一般都说的固定的，后者又说取决于硬件参数，还是可能VSYNC就是取决于RefreshRate，它也是可变的，只是通常是间隔16ms，也就是RefreshRate=60Hz的时候</p>
+<p>GPU会获取图形数据进行渲染，然后硬件负责把渲染后的内容呈现在屏幕上，他们二者间不停地进行协作<br><img src="https://i.loli.net/2019/12/26/K15NaclSFtfo6Xw.png" alt="1577305089_1_.png"></p>
+<p>上面仅仅是理想情况，刷新频率并不总是能和帧率保持相同的节奏，如果发生它们不一致的情况，就会容易出现Tearing的现象(画面上下两部分显示内容发生断裂，来自不同的两帧数据发生重叠)</p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks:"></a>Thanks:</h2><p><a href="http://hukai.me/android-performance-patterns/" target="_blank" rel="noopener">Android性能优化典范第一季</a><br><a href="https://blog.csdn.net/zhuawalibai/article/details/87710923" target="_blank" rel="noopener">快速理解VSYNC</a><br><a href="https://www.cnblogs.com/dasusu/p/8311324.html" target="_blank" rel="noopener">Android屏幕刷新机制</a></p>
 
     </article>
     <!-- license  -->
@@ -419,7 +427,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 24th 2019, 11:26:43 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 26th 2019, 4:08:17 am</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 26th 2019, 4:33:42 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
