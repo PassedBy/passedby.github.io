@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">483</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">787</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -404,11 +404,13 @@ height:50vh;
         <blockquote>
 <p>2015新年伊始，Google发布了关于<a href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE" target="_blank" rel="noopener">Android性能优化典范的专题</a>，一共16个短视频，每个3-5分钟，帮助开发者创建更快更优秀的Android App。课程专题不仅仅介绍了Android系统中有关性能问题的底层工作原理，同时也介绍了如何通过工具来找出性能问题以及提升性能的建议。主要从三个方面展开，Android的渲染机制，内存与GC，电量优化。下面是对这些问题和建议的总结梳理。</p>
 </blockquote>
-<h1 id="0-Render-Performance"><a href="#0-Render-Performance" class="headerlink" title="0)Render Performance"></a>0)Render Performance</h1><p>大多数用户感知到的卡顿等性能问题的直接根源都是因为渲染性能。从设计师的角度来说，他们希望App能有更多的动画，图片等时尚元素来实现丰富而”流畅”的用户体验，但是Android系统很可能无法及时完成那些复杂的界面渲染操作。<strong>Android每隔16ms发出VSYNC信号，触发对UI的渲染，如果每次都渲染成功，这样就能够达到流畅的画面所需的60fps，反过来，为了实现60fps，这意味着程序的大多数操作必须在16ms内完成。</strong></p>
+<h1 id="0-Render-Performance"><a href="#0-Render-Performance" class="headerlink" title="0. Render Performance"></a>0. Render Performance</h1><p>大多数用户感知到的卡顿等性能问题的直接根源都是因为渲染性能。从设计师的角度来说，他们希望App能有更多的动画，图片等时尚元素来实现丰富而”流畅”的用户体验，但是Android系统很可能无法及时完成那些复杂的界面渲染操作。<strong>Android每隔16ms发出VSYNC信号，触发对UI的渲染，如果每次都渲染成功，这样就能够达到流畅的画面所需的60fps，反过来，为了实现60fps，这意味着程序的大多数操作必须在16ms内完成。</strong></p>
 <p><img src="http://hukai.me/images/draw_per_16ms.png" alt="vsync"></p>
 <p>理想的情况是每隔16ms都能计算出相应的帧，以提供给系统进行渲染，然而并不是所有的情况都是理想的，还有很多情况不理想。<br><img src="https://i.loli.net/2019/12/26/9w2NukzVPQBdgR4.png" alt="vsync.png"></p>
-<p>用户容易在UI执行动画或者滑动ListView的时候感到卡顿和不流畅，是因为这里的操作相对复杂，容易发生丢帧的现象。**有很多原因可能导致丢帧，有可能是layout过于复杂，无法在16ms内完成渲染，有可能是因为你的UI上有层叠太多的绘制单元(Overdraw)，还有可能是动画执行的次数过多</p>
-<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks:"></a>Thanks:</h2><p><a href="http://hukai.me/android-performance-patterns/" target="_blank" rel="noopener">Android性能优化典范第一季</a><br><a href="https://blog.csdn.net/zhuawalibai/article/details/87710923" target="_blank" rel="noopener">快速理解VSYNC</a></p>
+<p>用户容易在UI执行动画或者滑动ListView的时候感到卡顿和不流畅，是因为这里的操作相对复杂，容易发生丢帧的现象。<strong>有很多原因可能导致丢帧，有可能是layout过于复杂，无法在16ms内完成渲染，有可能是因为你的UI上有层叠太多的绘制单元(Overdraw)，还有可能是动画执行的次数过多（动画往往涉及到大量计算）</strong></p>
+<p>发现并定位问题：<br>比如可以使用 HierarchyViewer来观察Activity中的布局是否过于复杂，也可以使用手机设置里提供的开发者工具：打开<strong>Show GPU Overdraw</strong>等选项进行观察；你还可以使用TraceView来观察CPU的执行情况，更加快捷地找到性能瓶颈。</p>
+<h1 id="1-Understanding-Overdraw"><a href="#1-Understanding-Overdraw" class="headerlink" title="1. Understanding Overdraw"></a>1. Understanding Overdraw</h1><p>Overdraw描述的是屏幕上的某个像素在同一帧的时间内被绘制了多次。在多层次的UI结构里面，如果不可见的UI也在做绘制的操作，这就会导致某些像素区域被绘制了多次。这就浪费了大量的CPU以及GPU资源。<br><img src="https://i.loli.net/2019/12/26/9w2NukzVPQBdgR4.png" alt="vsync.png"><br>幸运的是，我们可以通过手机设置里面的开发者选项打开Show GPU Overdraw，可以观察UI上的Overdraw情况<br><img src="https://i.loli.net/2019/12/26/m3kT2NaKEjzRU5l.png" alt="developer.png"><br>容易忽略的原因是，非必须的重叠背景，例如某个Activity有一个背景，然后里面的Layout区域又有自己的背景，同时子View又分别有自己的背景。例如子View设置”背景”的几种不同方法有什么区别，对性能有什么影响，都需要理清楚。</p>
+<h1 id="2-Understanding-VSYNC"><a href="#2-Understanding-VSYNC" class="headerlink" title="2. Understanding VSYNC"></a>2. Understanding VSYNC</h1><h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks:"></a>Thanks:</h2><p><a href="http://hukai.me/android-performance-patterns/" target="_blank" rel="noopener">Android性能优化典范第一季</a><br><a href="https://blog.csdn.net/zhuawalibai/article/details/87710923" target="_blank" rel="noopener">快速理解VSYNC</a></p>
 
     </article>
     <!-- license  -->
@@ -417,7 +419,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 24th 2019, 11:26:43 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 26th 2019, 3:48:18 am</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 26th 2019, 4:08:17 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -569,7 +571,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-Render-Performance"><span class="toc-number">1.</span> <span class="toc-text">0)Render Performance</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">1.1.</span> <span class="toc-text">Thanks:</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-Render-Performance"><span class="toc-number">1.</span> <span class="toc-text">0. Render Performance</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Understanding-Overdraw"><span class="toc-number">2.</span> <span class="toc-text">1. Understanding Overdraw</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Understanding-VSYNC"><span class="toc-number">3.</span> <span class="toc-text">2. Understanding VSYNC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">3.1.</span> <span class="toc-text">Thanks:</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
