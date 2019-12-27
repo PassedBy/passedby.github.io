@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">2.1k</span>Reading time: <span class="post-count reading-time">7 min</span></span>
+                        <span>Word count: <span class="post-count word-count">2.3k</span>Reading time: <span class="post-count reading-time">8 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -434,6 +434,8 @@ height:50vh;
 <blockquote>
 <p><strong>C接管了原来A应该绘制的帧 , 所以A后来渲染的其实是原本的A后面的一帧</strong></p>
 </blockquote>
+<h1 id="3-Tool-Profile-Gpu-Rendering"><a href="#3-Tool-Profile-Gpu-Rendering" class="headerlink" title="3.Tool:Profile Gpu Rendering"></a>3.Tool:Profile Gpu Rendering</h1><p>我们可以在手机画面上看到丰富的GPU绘制图形信息，分别关于StatusBar，NavBar，激活的程序Activity区域的GPU Rending信息。<br><strong>每一条柱状线都包含三部分，蓝色代表测量绘制Display List的时间，红色代表OpenGL渲染Display List所需要的时间，黄色代表CPU等待GPU处理的时间(?)。</strong><br><img src="https://i.loli.net/2019/12/28/eQ8XCt6yBrui7gl.png" alt="Gpurendering.png"></p>
+<h1 id="4-Android-UI-and-the-GPU"><a href="#4-Android-UI-and-the-GPU" class="headerlink" title="4.Android , UI and the GPU"></a>4.Android , UI and the GPU</h1><p>了解Android是如何利用GPU进行画面渲染有助于我们更好地理解性能问题。那么一个最实际的问题：<br><strong>Activity的画面是如何绘制到屏幕上的，那些复杂的XML布局文件又是如何能够被识别并绘制出来的？</strong></p>
 <h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks:"></a>Thanks:</h2><p><a href="http://hukai.me/android-performance-patterns/" target="_blank" rel="noopener">Android性能优化典范第一季</a><br><a href="https://www.cnblogs.com/frrj/archive/2018/07/30/brief-info-of-android-display.html" target="_blank" rel="noopener">Android VSYNC原理浅析</a><br><a href="https://blog.csdn.net/zhuawalibai/article/details/87710923" target="_blank" rel="noopener">快速理解VSYNC</a><br><a href="https://www.cnblogs.com/dasusu/p/8311324.html" target="_blank" rel="noopener">Android屏幕刷新机制</a></p>
 
     </article>
@@ -443,7 +445,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 24th 2019, 11:26:43 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 27th 2019, 9:05:57 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 28th 2019, 1:35:42 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -595,7 +597,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-Render-Performance"><span class="toc-number">1.</span> <span class="toc-text">0. Render Performance</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Understanding-Overdraw"><span class="toc-number">2.</span> <span class="toc-text">1. Understanding Overdraw</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Understanding-VSYNC"><span class="toc-number">3.</span> <span class="toc-text">2. Understanding VSYNC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单Buffer"><span class="toc-number">3.1.</span> <span class="toc-text">单Buffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双重缓存"><span class="toc-number">3.2.</span> <span class="toc-text">双重缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三重缓存"><span class="toc-number">3.3.</span> <span class="toc-text">三重缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">3.4.</span> <span class="toc-text">Thanks:</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-Render-Performance"><span class="toc-number">1.</span> <span class="toc-text">0. Render Performance</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Understanding-Overdraw"><span class="toc-number">2.</span> <span class="toc-text">1. Understanding Overdraw</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Understanding-VSYNC"><span class="toc-number">3.</span> <span class="toc-text">2. Understanding VSYNC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单Buffer"><span class="toc-number">3.1.</span> <span class="toc-text">单Buffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双重缓存"><span class="toc-number">3.2.</span> <span class="toc-text">双重缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三重缓存"><span class="toc-number">3.3.</span> <span class="toc-text">三重缓存</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Tool-Profile-Gpu-Rendering"><span class="toc-number">4.</span> <span class="toc-text">3.Tool:Profile Gpu Rendering</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Android-UI-and-the-GPU"><span class="toc-number">5.</span> <span class="toc-text">4.Android , UI and the GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">5.1.</span> <span class="toc-text">Thanks:</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
