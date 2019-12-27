@@ -429,7 +429,7 @@ height:50vh;
 </blockquote>
 <p>假设这是某个Vsync到来时的当前状态：</p>
 <p>Display: N<br>FrameBuffer: N<br>BackBuffer_1 :  N+1 （还未渲染完毕）</p>
-<p>实际上，往细了想，因为此时Back Buffer还没有写完，如果交换到了 Frame Buffer，则display是显示不完整的。不能计算下一个帧，是因为我们不能让此时的残缺的Back Buffer就交换到FrameBuffer，<strong>那么我们可不可以引入一个新的 Buffer_2呢，用它来绘制第N+2帧的数据</strong>（接管了原本下一次Buffer_1的任务），这样就相当于有两个 Back Buffer了，在不需要Swap的情况下开辟一个新的Buffer_2来绘制下一帧 N+2 的数据. 等到N+1帧的数据渲染完毕，此时交换FrameBufefr和BackBuffer_1 ,等下一个周期，如果 Buffer_2已经渲染完毕，那么再将 Buffer_2 Swap 到前面去显示。这样就解决了掉帧的问题，虽然在第一帧的时候还是掉了，但是后面是流畅的。<br><img src="http://www.androidpolice.com/wp-content/uploads/2012/07/0000_Layer-82.png" alt="Tripple"></p>
+<p>实际上，往细了想，因为此时Back Buffer还没有写完，如果交换到了 Frame Buffer，则display是显示不完整的。<strong>不能计算下一个帧，是因为我们不能让此时的残缺的Back Buffer就交换到FrameBuffer</strong>，<strong>那么我们可不可以引入一个新的 Buffer_2呢，用它来绘制第N+2帧的数据</strong>（接管了原本下一次Buffer_1的任务），这样就相当于有两个 Back Buffer了，在不需要Swap的情况下（Framebuffer和display不用接收破东西了）开辟一个新的Buffer_2来绘制下一帧 N+2 的数据. 等到N+1帧的数据渲染完毕，此时交换FrameBufefr和BackBuffer_1 ,等下一个周期，如果 Buffer_2已经渲染完毕，那么再将 Buffer_2 Swap 到前面去显示。这样就解决了掉帧的问题，虽然在第一帧的时候还是掉了，但是后面是流畅的。<br><img src="http://www.androidpolice.com/wp-content/uploads/2012/07/0000_Layer-82.png" alt="Tripple"></p>
 <p>在讲解三重buff的时候，容易产生误解的是帧的先后顺序，比如上图，记住理解下面这句话：</p>
 <blockquote>
 <p><strong>C接管了原来A应该绘制的帧 , 所以A后来渲染的其实是原本的A后面的一帧</strong></p>
@@ -443,7 +443,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 24th 2019, 11:26:43 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 27th 2019, 9:03:44 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Android-Performance-VSYNC-FRAME/">December 27th 2019, 9:05:57 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
