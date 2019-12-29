@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">0</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">400</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -402,6 +402,47 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p><img src="https://i.loli.net/2019/12/24/62HdvagDOcRBpZj.png" alt="producer-consumer.png"></p>
+<p>Producer-Consumer模式在很多场景种都有相应的体现，比如线程池，对象池，MQ等，Pro-Con的本质是在生产者与消费者之间引入一个通道(Channel暂且理解为一个队列)，该通道主要用于 ①<strong>控制生产者与消费者的相对速率</strong>，尽可能地保证生产的Product尽快被消费，另一方面②<strong>对二者进行解耦</strong> ，生产者和消费者在各自的线程中，通过Channel连接，二者无直接关联。</p>
+<h1 id="Producer-Consumer中的角色"><a href="#Producer-Consumer中的角色" class="headerlink" title="Producer-Consumer中的角色"></a>Producer-Consumer中的角色</h1><p>1.Product：生产者线程锁需要的产品<br>2.Producer：负责生产Product，并将其放入到队列Channel中<br>3.Consumer：从队列Channel中获取对应的产品，获取之后对其进行业务处理<br>4.<strong>Channel</strong>：这是最重要的概念，Channel就是二者共享的区域，Channel有着调控生产者与消费者相对速率的功能</p>
+<p>Channel的调控功能</p>
+<ul>
+<li>Vp&gt;Vc : 生产者放缓速度，反映到代码就是 生产者线程休眠</li>
+<li>Vp&lt;Vc: 消费者放缓速度，反映到代码就是 消费者线程休眠</li>
+</ul>
+<p>需要注意的是，不是说比较下速度就立即休眠，而是有更具体的策略</p>
+<h1 id="Channel的实现方案"><a href="#Channel的实现方案" class="headerlink" title="Channel的实现方案"></a>Channel的实现方案</h1><h2 id="BlockingQueue"><a href="#BlockingQueue" class="headerlink" title="BlockingQueue"></a>BlockingQueue</h2><p>阻塞队列是一种常见的实现方案，在JDK中提供了多种BlockingQueue的数据结构。<br>BlockingQueue接口总览</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>抛出异常</th>
+<th>返回特殊值</th>
+<th>一直阻塞</th>
+<th>超时退出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>入队方法</td>
+<td>add(e)</td>
+<td>offer(e)</td>
+<td>put(e)</td>
+<td>offer(e,time,unit)</td>
+</tr>
+<tr>
+<td>出队方法</td>
+<td>remove()</td>
+<td>poll()</td>
+<td>take()</td>
+<td>poll(time,unit)</td>
+</tr>
+<tr>
+<td>检查方法</td>
+<td>element()</td>
+<td>peek()</td>
+<td>//</td>
+<td>//</td>
+</tr>
+</tbody></table>
 
     </article>
     <!-- license  -->
@@ -410,7 +451,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/24/Producer-consumer-model/">https://passedby.github.io/2019/12/24/Producer-consumer-model/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/24/Producer-consumer-model/">December 24th 2019, 10:42:05 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Producer-consumer-model/">December 24th 2019, 10:52:14 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Producer-consumer-model/">December 29th 2019, 1:42:45 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -567,7 +608,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Producer-Consumer中的角色"><span class="toc-number">1.</span> <span class="toc-text">Producer-Consumer中的角色</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Channel的实现方案"><span class="toc-number">2.</span> <span class="toc-text">Channel的实现方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BlockingQueue"><span class="toc-number">2.1.</span> <span class="toc-text">BlockingQueue</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

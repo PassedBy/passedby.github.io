@@ -384,7 +384,8 @@
         </a>
         <div class="abstract-content">
             
-
+Producer-Consumer模式在很多场景种都有相应的体现，比如线程池，对象池，MQ等，Pro-Con的本质是在生产者与消费者之间引入一个通道(Channel暂且理解为一个队列)，该通道主要用于 ①控制生产者与消费者的相对速率，尽可能地保证生产的Product尽快被消费，另一方面②对二者进行解耦 ，生产者和消费者在各自的线程中，通过Channel连接，二者无直接关联。
+Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Producer：负责生产Product，并将其放入到队列Channel中3.Consumer：从队列Channel中获取对应...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
