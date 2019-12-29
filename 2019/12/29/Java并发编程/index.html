@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">1.1k</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">2.1k</span>Reading time: <span class="post-count reading-time">7 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -417,7 +417,17 @@ height:50vh;
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(server is active)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    listen <span class="keyword">for</span> request</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    hand request to worker thread</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 <p>这种方式，服务端线程迅速地返回去监听。因此，更多的客户端能够发送请求给服务端。这个服务也变得响应更快。</p>
 <p>桌面应用也是同样如此。如果你点击一个按钮开始运行一个耗时的任务，这个线程既要执行任务又要更新窗口和按钮，那么在任务执行的过程中，这个应用程序看起来好像没有反应一样。相反，任务可以传递给工作者线程（word thread)。当工作者线程在繁忙地处理任务的时候，窗口线程可以自由地响应其他用户的请求。当工作者线程完成任务的时候，它发送信号给窗口线程。窗口线程便可以更新应用程序窗口，并显示任务的结果。对用户而言，这种具有工作者线程设计的程序显得响应速度更快。</p>
-<h2 id="多线程的代价"><a href="#多线程的代价" class="headerlink" title="多线程的代价"></a>多线程的代价</h2>
+<h2 id="多线程的代价"><a href="#多线程的代价" class="headerlink" title="多线程的代价"></a>多线程的代价</h2><p>从一个单线程的应用到一个多线程的应用并不仅仅带来好处，它也会有一些代价。不要仅仅为了使用多线程而使用多线程，而应该明确在使用多线程的好处比所付出的代价大的时候，才使用多线程。如果有疑问，可以尝试测量一下应用程序的性能和响应能力，而不只是猜测</p>
+<h3 id="设计更复杂"><a href="#设计更复杂" class="headerlink" title="设计更复杂"></a>设计更复杂</h3><p>虽然有一些多线程应用程序比单线程的更简单，但其它的一般更复杂，在多线程访问共享数据的时候，这部分代码要特别注意，线程之间交互非常复杂，不正确的线程同步产生的错误非常难以被发现，并且重现以修复</p>
+<h3 id="上下文切换的开销"><a href="#上下文切换的开销" class="headerlink" title="上下文切换的开销"></a>上下文切换的开销</h3><p>当CPU从执行一个线程切换到另一个线程的时候，它需要存储当前线程的本地的数据，程序指针等，然后载入另一个线程的本地数据，程序指针等，最后才开始执行。这种切换称为 “上下文切换” ，context switch。上下文切换并不廉价，如果没有必要，应该减少上下文切换的发生</p>
+<h3 id="增加资源消耗"><a href="#增加资源消耗" class="headerlink" title="增加资源消耗"></a>增加资源消耗</h3><p>线程在运行的时候需要从计算机里面的到一些资源，除了CPU，线程还需要一些内存来维持它本地的栈，它也需要占用操作系统中一些资源来管理线程。我们可以尝试编写一个程序，让他创建100个线程，这些线程什么也不做，只是在等待，然后看看这个程序在运行的时候占用了多少内存。</p>
+<h3 id="锁带来的性能影响"><a href="#锁带来的性能影响" class="headerlink" title="锁带来的性能影响"></a>锁带来的性能影响</h3><p>什么时候该用锁，什么时候不用，往往要决定好，锁的粒度也很重要，只对必要的数据枷锁</p>
+<h1 id="并发编程模型"><a href="#并发编程模型" class="headerlink" title="并发编程模型"></a>并发编程模型</h1><p>并发系统可以采用多种并发编程模型来实现。并发模型制定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不同。这部分将会介绍目前比较流行的几种并发编程模型。<br>本文所描述的多种并发模型类似于分布式系统中使用的很多体系结构。在并发系统中线程间可以相互通信，在分布式系统中，进程可以相互通信(进程可能在不同的机器中)。线程和进程间具有很多相似的特性，这也就是为什么很多并发模型通常类似于各种分布式系统架构（当然，分布式系统在处理网络失效、远程主机或进程宕掉等方面还面临额外的挑战）</p>
+<h2 id="并行工作者模型"><a href="#并行工作者模型" class="headerlink" title="并行工作者模型"></a>并行工作者模型</h2><p><img src="https://i.loli.net/2019/12/29/RYlNqaKkIO3dXnJ.png" alt="1577622050_1_.png"><br><strong>在并行工作者模型中，委派者(Delegator)将传入的作业分配给不同的工作者，每个工作者完成整个任务，工作者们并行地运行在不同的线程上，甚至可能在不同的CPU上</strong><br>比如在某个汽车厂里实现了并行工作者模型，每台车都会由一个工人来生产，工人们拿到汽车的生产规格，并且从头到尾负责所有工作。在Java应用系统中，并性工作者模型是最常见的并发模型(即使正在改变)。java,util.concurrent包中的许多工具都是设计用于这个模型的</p>
+<h3 id="并发工作模型的优点"><a href="#并发工作模型的优点" class="headerlink" title="并发工作模型的优点"></a>并发工作模型的优点</h3><p>并行工作者模型的优点是它很容易理解和操作，你只需要添加更多的工作者来提高系统的并行度</p>
+<h3 id="并行工作者模型的缺点"><a href="#并行工作者模型的缺点" class="headerlink" title="并行工作者模型的缺点"></a>并行工作者模型的缺点</h3><p>1.共享状态可能会很复杂<br><img src="https://i.loli.net/2019/12/29/RYlNqaKkIO3dXnJ.png" alt="1577622050_1_.png"></p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p><a href="http://ifeve.com/java-concurrency-thread-directory/" target="_blank" rel="noopener">并发编程系列文章</a></p>
+
     </article>
     <!-- license  -->
     
@@ -425,7 +435,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 29th 2019, 6:16:32 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 29th 2019, 6:58:39 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 29th 2019, 10:23:12 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -577,7 +587,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java并发性和多线程介绍"><span class="toc-number">1.</span> <span class="toc-text">Java并发性和多线程介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程的优点"><span class="toc-number">2.</span> <span class="toc-text">多线程的优点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#资源利用率更好"><span class="toc-number">2.1.</span> <span class="toc-text">资源利用率更好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序设计更简单"><span class="toc-number">2.2.</span> <span class="toc-text">程序设计更简单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序响应更快"><span class="toc-number">2.3.</span> <span class="toc-text">程序响应更快</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程的代价"><span class="toc-number">2.4.</span> <span class="toc-text">多线程的代价</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java并发性和多线程介绍"><span class="toc-number">1.</span> <span class="toc-text">Java并发性和多线程介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程的优点"><span class="toc-number">2.</span> <span class="toc-text">多线程的优点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#资源利用率更好"><span class="toc-number">2.1.</span> <span class="toc-text">资源利用率更好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序设计更简单"><span class="toc-number">2.2.</span> <span class="toc-text">程序设计更简单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序响应更快"><span class="toc-number">2.3.</span> <span class="toc-text">程序响应更快</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程的代价"><span class="toc-number">2.4.</span> <span class="toc-text">多线程的代价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设计更复杂"><span class="toc-number">2.4.1.</span> <span class="toc-text">设计更复杂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上下文切换的开销"><span class="toc-number">2.4.2.</span> <span class="toc-text">上下文切换的开销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加资源消耗"><span class="toc-number">2.4.3.</span> <span class="toc-text">增加资源消耗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁带来的性能影响"><span class="toc-number">2.4.4.</span> <span class="toc-text">锁带来的性能影响</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#并发编程模型"><span class="toc-number">3.</span> <span class="toc-text">并发编程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#并行工作者模型"><span class="toc-number">3.1.</span> <span class="toc-text">并行工作者模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#并发工作模型的优点"><span class="toc-number">3.1.1.</span> <span class="toc-text">并发工作模型的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并行工作者模型的缺点"><span class="toc-number">3.1.2.</span> <span class="toc-text">并行工作者模型的缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thanks"><span class="toc-number">3.2.</span> <span class="toc-text">Thanks</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
