@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>android</title>
+    <title>Java并发编程 · android</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Android Tech And Thoughts.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Java并发编程</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Android Tech And Thoughts.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/satelite.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Java并发编程
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Java并发">Java并发</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">1.1k</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/12/29</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,359 +399,80 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/11/Math-in-program/" >
-            
-                <span>Math in program</span>
-        </a>
-        <div class="abstract-content">
-            
-代数：几何：三角函数：
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "math">math</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="Java并发性和多线程介绍"><a href="#Java并发性和多线程介绍" class="headerlink" title="Java并发性和多线程介绍"></a>Java并发性和多线程介绍</h1><p>多线程技术，使得在一个程序内部能拥有多个线程并行执行。一个线程的执行可以被认为是一个CPU在执行该程序。当一个程序运行在多线程下，就好像有多个CPU在同时执行该程序。</p>
+<p>如果一个线程在读一个内存时，另一个线程正向该内存进行写操作，那进行读操作的那个线程将获得什么结果呢？是写操作之前旧的值？还是写操作成功之后的新值？或是一半新一半旧的值？或者，如果是两个线程同时写同一个内存，在操作完成后将会是什么结果呢？是第一个线程写入的值？还是第二个线程写入的值？还是两个线程写入的一个混合值？因此如没有合适的预防措施，任何结果都是可能的。而且这种行为的发生甚至不能预测，所以结果也是不确定性的。</p>
+<p>Java是最先支持多线程的开发的语言之一，Java从一开始就支持了多线程能力</p>
+<h1 id="多线程的优点"><a href="#多线程的优点" class="headerlink" title="多线程的优点"></a>多线程的优点</h1><ul>
+<li>资源利用率更好</li>
+<li>程序设计在某些情况下更简单</li>
+<li>程序响应更快</li>
+</ul>
+<h2 id="资源利用率更好"><a href="#资源利用率更好" class="headerlink" title="资源利用率更好"></a>资源利用率更好</h2><p>CPU能在等待IO的时候做一些其它事情，这个也不一定就是磁盘IO，它也可以是网络IO，或者用户输入，通常，网络和磁盘的IO要比CPU和内存的IO慢得多</p>
+<h2 id="程序设计更简单"><a href="#程序设计更简单" class="headerlink" title="程序设计更简单"></a>程序设计更简单</h2><p>在单线程应用程序中，如果你想编写程序手动处理多个文件的读取和处理的顺序，你必须记录每个文件读取和处理的状态。相反，你可以启动两个线程，每个线程处理一个文件的读取和操作。线程会在等待磁盘读取文件的过程中被阻塞。在等待的时候，其他的线程能够使用CPU去处理已经读取完的文件。其结果就是，磁盘总是在繁忙地读取不同的文件到内存中。这会带来磁盘和CPU利用率的提升。而且每个线程只需要记录一个文件，因此这种方式也很容易编程实现。</p>
+<h2 id="程序响应更快"><a href="#程序响应更快" class="headerlink" title="程序响应更快"></a>程序响应更快</h2><p>将一个单线程应用程序变成多线程应用程序的另一个常见的目的是实现一个响应更快的应用程序。设想一个服务器应用，它在某一个端口监听进来的请求。当一个请求到来时，它去处理这个请求，然后再返回去监听。<br>服务器的流程如下所述：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(server is active)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    listen <span class="keyword">for</span> request</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    process request</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<p>如果一个请求需要占用大量的时间来处理，在这段时间内新的客户端就无法发送请求给服务端。只有服务器在监听的时候，请求才能被接收。另一种设计是，监听线程把请求传递给工作者线程(worker thread)，然后立刻返回去监听。而工作者线程则能够处理这个请求并发送一个回复给客户端。这种设计如下所述：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(server is active)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    listen <span class="keyword">for</span> request</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    hand request to worker thread</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<p>这种方式，服务端线程迅速地返回去监听。因此，更多的客户端能够发送请求给服务端。这个服务也变得响应更快。</p>
+<p>桌面应用也是同样如此。如果你点击一个按钮开始运行一个耗时的任务，这个线程既要执行任务又要更新窗口和按钮，那么在任务执行的过程中，这个应用程序看起来好像没有反应一样。相反，任务可以传递给工作者线程（word thread)。当工作者线程在繁忙地处理任务的时候，窗口线程可以自由地响应其他用户的请求。当工作者线程完成任务的时候，它发送信号给窗口线程。窗口线程便可以更新应用程序窗口，并显示任务的结果。对用户而言，这种具有工作者线程设计的程序显得响应速度更快。</p>
+<h2 id="多线程的代价"><a href="#多线程的代价" class="headerlink" title="多线程的代价"></a>多线程的代价</h2>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/10/C-Language-Tutorial/" >
-            
-                <span>C Language Tutorial</span>
-        </a>
-        <div class="abstract-content">
-            译者注：这是一份C指南，目的在于指导C初学者快速开始并了解C语言，其并不能代替市面上大多数的教材。这里推荐一本非常著名且优秀的C语言教材：
-
-The C Programming Language   –ANSI C
-–By  Brian W.C. Kernighan  &amp;  M. Ritchies
-
-大纲：
-
-第一个程序
-计算
-循环
-宏常量
-条件语句
-指针
-数组
-字符数组
-I/O功能
-函数
-命令行参数
-图形接口
-
-1. A First Program1#include&lt;stdio.h&gt;23void main()&#123;4	printf("\nHello world...
+        <div class="license-wrapper">
+            <p>Author：<a href="https://passedby.github.io">Dan</a>
+            <p>原文链接：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</a>
+            <p>发表日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 29th 2019, 6:16:32 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 29th 2019, 6:58:39 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "C">C</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/09/View%E5%B8%B8%E8%A7%81%E6%BB%91%E5%8A%A8%E6%96%B9%E5%BC%8F%E4%B8%8E%E6%AF%94%E8%BE%83/" >
-            
-                <span>View常见滑动方式与比较</span>
-        </a>
-        <div class="abstract-content">
-            常见滑动方式掌握滑动的方法是实现自定义 View 的基础，常见的实现滑动的方式有三种
-
-ScrollTo/SrollBy
-动画
-改变View的LayoutParams使得View重新布局从而实现滑动
-
-使用ScrollTo/ScrollBy1public void scrollTo(int x,int y)
-
-x: 滑动到的距离，这个距离指的是相对于初始位置（并非上一次的位置，而是View内容最初的位置，最初是0）
-y: 同上
-View内部会有两个变量来记录当前内容的位置 ： mScrollX 和 mScrollY ,向左或者向上为正，反之为负
-1public void scrollBy...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View  Scroller">View  Scroller</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/08/GestureDetector/" >
-            
-                <span class="stick-top iconfont-archer">&#xe63d;</span>
-                
-                <span>GestureDetector</span>
-        </a>
-        <div class="abstract-content">
-            Base On Android Developer Guide
-尽管应用不应依赖轻触手势来执行基本行为（因为手势可能无法在所有上下文中供所有用户使用，用户可能不知道需要轻触手势来执行某些操作），但向应用添加基于轻触的互动可以极大地提升其实用性和吸引力（可以考虑做一个行为备份，即用户可以同时通过更常见的方式来执行这些基本操作）。
-本文中，我们主要介绍以下几个方面的内容
-
-检测常用手势：了解如何使用 GestureDetector 检测基本轻触手势，例如滚动、滑动和点按两次。
-跟踪轻触和指针移动：了解如何跟踪指针移动。
-以动画方式显示滚动手势：了解如何使用滚动条（Scroller 或 Ove...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "GestureDetector  View">GestureDetector  View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/06/Linux-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" >
-            
-                <span>Linux内存管理</span>
-        </a>
-        <div class="abstract-content">
-            
-这篇文章是大量基于网络资源的学习笔记，但由于所参考的即是转载过的版本（且博客作者未注明转载源，在几经寻找仍未果的情况下，仍然无法找到真实出处，特此注明，如作者见到此文，请您联系我，我将注明出处）
-
-本文着重从开发者的角度谈谈对内存管理的理解。遵循”理论来源于实践”的教条，我们不必一下子就钻入源码，那样容易迷失，所以本文从外到内（先从用户编程的范畴）来观察进程如何使用内存，等到大家有了直观的认识后，再深入到内核去学习内存如何被管理等理论知识。最后再通过一个实例融会贯通。
-Linux 逻辑地址-线性地址-物理地址
-逻辑地址：机器语言中出现的内存地址，都是逻辑地址。逻辑地址是相对于段的偏移地...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Linux内存管理">Linux内存管理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/04/Java-RTTI-include-reflect/" >
-            
-                <span>Java RTTI [include reflect]</span>
-        </a>
-        <div class="abstract-content">
-            RTTI - 运行期类型识别
-RTTI的概念：当我们手上只有基类型的一个引用时，利用它判断一个对象的正确类型。
-
-本章将讨论如何利用 Java 在运行期间查找对象和类信息。这主要采取两种形式
-01) 一种是传统 RTTI ，它假定我们已在编译和运行期拥有所有类型
-02) 另一种是 Java 1.1 特有的 “反射” 机制，利用它可以在运行期独立查找类信息
-Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型信息在运行时是如何表示的。这项工作是由称为 Class 对象的特殊对象完成的，它包含了与类有关的信息。事实上，Class对象就是用来创建所有的”常规”对象的。J...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "reflect  RTTI">reflect  RTTI</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/01/Android%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A6%82%E5%BF%B5%E5%92%8C%E9%97%AE%E9%A2%98/" >
-            
-                <span>Android项目中的常见概念和问题</span>
-        </a>
-        <div class="abstract-content">
-            目录：Dex
-Libiary与moduleLibrary
-Dex
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/01/Lint%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" >
-            
-                <span>Lint简单使用</span>
-        </a>
-        <div class="abstract-content">
-            什么是LintLint是 Android Studio 提供的 代码扫描分析工具 , 他可以帮我们发现代码结构/质量 问题，而且这个过程不需要我们手写测试用例（从代码层面直接分析）
-在使用Lint的过程中，比较需要注意的是，我们可以手动调节 问题类型 的错误级别，如 warning/error/weak warning 等等
-Lint 工作方式简单介绍Lint 会根据预先配置的检测标准检查我们 Android 项目的源文件，发现潜在的 bug 或者可以优化的地方，优化的内容主要包括以下几方面：
-
-Correctness：不够完美的编码，比如硬编码、使用过时 API 等
-Performan...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Lint">Lint</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/ListView%E4%B8%8ERecyclerView%E7%94%A8%E6%B3%95/" >
-            
-                <span>ListView与RecyclerView用法</span>
-        </a>
-        <div class="abstract-content">
-            
-前言RecyclerView 是我们用的最多的控件，也是一个较为复杂的控件，本文的目的在于疏通RecyclerView的基本用法以及原理，不对源码以及内部组件进行过于深入的讨论（当然，有兴趣的话也会说一说），结合一些自己在开发中的经验，谈谈如何设计一个流畅的列表。
-带着问题来思考1.RecyclerView.Adapter的几个函数的作用（getItemCount，）
-2.Recycler的复用机制
-3.如何编写多Item，如何添加footer与header 
-4.RecyclerView滑动卡顿的优化，RecyclerView资源是如何释放的，哪些情况容易出现OOM，有没有可能出现内...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >
-            
-                <span>赤壁赋</span>
-        </a>
-        <div class="abstract-content">
-            
-壬戌 之秋，七月既望，苏子与客泛舟，游于赤壁之下。清风徐来，水波不兴。举酒属客，诵明月之诗，歌窈窕之章。少 焉，月出于东山之上，徘徊于斗牛之间。白露横江，水光接天。纵一苇之所如，凌万顷之茫然。浩浩乎如冯虚御风，而不知其所止；飘飘乎如遗世独立，羽化而登仙。
-于是饮酒乐甚，扣舷而歌之。歌曰：“桂棹兮兰桨，击空明兮溯流光。渺渺兮予怀，望美人兮天一方。”客有吹洞箫者，倚歌而和之。其声呜呜然，如怨如慕，如泣如诉，余音袅袅，不绝如缕。舞幽壑之潜蛟，泣孤舟之嫠妇。　
-苏子愀然，正襟危坐，而问客曰：“何为其然也？”客曰：“‘月明星稀，乌鹊南飞’,此非曹孟德之诗乎？西望夏口，东望武昌。山川相缪，郁乎苍苍...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "赤壁赋">赤壁赋</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/12/24/Android-Performance-VSYNC-FRAME/" title= "Android Performance : VSYNC/FRAME">
+                    <div class="prevTitle">Android Performance : VSYNC/FRAME</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2019/">&amp;#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/3/">NEXT &amp;#62;</a>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "KKU4IwbD2ruCqou5CVdq1czF-gzGzoHsz",
+        appKey: "FUPhhGPgBSQkGoaJ7HXBsWb8",
+        placeholder: "Lots of way to contact me for any problems.",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -779,6 +561,24 @@ Performan...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java并发性和多线程介绍"><span class="toc-number">1.</span> <span class="toc-text">Java并发性和多线程介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多线程的优点"><span class="toc-number">2.</span> <span class="toc-text">多线程的优点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#资源利用率更好"><span class="toc-number">2.1.</span> <span class="toc-text">资源利用率更好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序设计更简单"><span class="toc-number">2.2.</span> <span class="toc-text">程序设计更简单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序响应更快"><span class="toc-number">2.3.</span> <span class="toc-text">程序响应更快</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程的代价"><span class="toc-number">2.4.</span> <span class="toc-text">多线程的代价</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1456,6 +1256,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
