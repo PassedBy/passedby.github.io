@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">2.1k</span>Reading time: <span class="post-count reading-time">7 min</span></span>
+                        <span>Word count: <span class="post-count word-count">2.5k</span>Reading time: <span class="post-count reading-time">8 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -425,7 +425,13 @@ height:50vh;
 <h1 id="并发编程模型"><a href="#并发编程模型" class="headerlink" title="并发编程模型"></a>并发编程模型</h1><p>并发系统可以采用多种并发编程模型来实现。并发模型制定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不同。这部分将会介绍目前比较流行的几种并发编程模型。<br>本文所描述的多种并发模型类似于分布式系统中使用的很多体系结构。在并发系统中线程间可以相互通信，在分布式系统中，进程可以相互通信(进程可能在不同的机器中)。线程和进程间具有很多相似的特性，这也就是为什么很多并发模型通常类似于各种分布式系统架构（当然，分布式系统在处理网络失效、远程主机或进程宕掉等方面还面临额外的挑战）</p>
 <h2 id="并行工作者模型"><a href="#并行工作者模型" class="headerlink" title="并行工作者模型"></a>并行工作者模型</h2><p><img src="https://i.loli.net/2019/12/29/RYlNqaKkIO3dXnJ.png" alt="1577622050_1_.png"><br><strong>在并行工作者模型中，委派者(Delegator)将传入的作业分配给不同的工作者，每个工作者完成整个任务，工作者们并行地运行在不同的线程上，甚至可能在不同的CPU上</strong><br>比如在某个汽车厂里实现了并行工作者模型，每台车都会由一个工人来生产，工人们拿到汽车的生产规格，并且从头到尾负责所有工作。在Java应用系统中，并性工作者模型是最常见的并发模型(即使正在改变)。java,util.concurrent包中的许多工具都是设计用于这个模型的</p>
 <h3 id="并发工作模型的优点"><a href="#并发工作模型的优点" class="headerlink" title="并发工作模型的优点"></a>并发工作模型的优点</h3><p>并行工作者模型的优点是它很容易理解和操作，你只需要添加更多的工作者来提高系统的并行度</p>
-<h3 id="并行工作者模型的缺点"><a href="#并行工作者模型的缺点" class="headerlink" title="并行工作者模型的缺点"></a>并行工作者模型的缺点</h3><p>1.共享状态可能会很复杂<br><img src="https://i.loli.net/2019/12/29/RYlNqaKkIO3dXnJ.png" alt="1577622050_1_.png"></p>
+<h3 id="并行工作者模型的缺点"><a href="#并行工作者模型的缺点" class="headerlink" title="并行工作者模型的缺点"></a>并行工作者模型的缺点</h3><p>1.共享状态可能会很复杂<br><img src="http://tutorials.jenkov.com/images/java-concurrency/concurrency-models-2.png" alt="quedian"></p>
+<p>一旦共享状态潜入到并行工作者模型中，将会使情况变得复杂起来。线程需要以某种方式存取共享数据，以确保某个线程的修改能够对其他线程可见（数据修改需要同步到主存中，不仅仅将数据保存在执行这个线程的CPU的缓存中）。线程需要避免竟态，死锁以及很多其他共享状态的并发性问题。<br>此外，再等待访问共享数据时，线程之间的等待将会丢失部分并行性。许多并发数据结构是阻塞的，意味着在任何时候，只有一个或者很少的线程能够访问，这样会导致在这些共享数据结构上出现竞争状态。在执行需要访问共享数据结构部分的代码时，高竞争态基本上会导致执行时出现一定程序的串行化(TODO)。</p>
+<p>现在的<strong>非阻塞并发算法</strong>也许可以降低竞争并提升性能，但是非阻塞算法的实现比较困难。</p>
+<p><strong>可持久化的数据结构</strong>是另一种选择</p>
+<blockquote>
+<p>在修改的时候，可持久化的数据结构总是保护它的前一个版本不受影响。因此，如果多个线程指向同一个可持久化的数据结构，并且在其中一个线程做了修改，进行修改的线程会获得一个指向新结构的引用。所有其他线程保持对旧结构的引用</p>
+</blockquote>
 <h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p><a href="http://ifeve.com/java-concurrency-thread-directory/" target="_blank" rel="noopener">并发编程系列文章</a><br><a href="https://www.cnblogs.com/orez88/articles/2513460.html" target="_blank" rel="noopener">阻塞与非阻塞</a><br><a href="https://www.cnblogs.com/tedzhao/archive/2008/11/12/1332112.html" target="_blank" rel="noopener">可持续化的数据结构</a></p>
 
     </article>
@@ -435,7 +441,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 29th 2019, 6:16:32 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 29th 2019, 10:25:13 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 31st 2019, 8:17:47 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
