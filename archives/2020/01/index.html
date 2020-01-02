@@ -346,36 +346,23 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/09/View%E5%B8%B8%E8%A7%81%E6%BB%91%E5%8A%A8%E6%96%B9%E5%BC%8F%E4%B8%8E%E6%AF%94%E8%BE%83/" >
+        <a class="abstract-title" href = "/2020/01/02/Java-Concurrency-Learning-core-Java/" >
             
-                <span>View常见滑动方式与比较</span>
+                <span>Java Concurrency - Learning core Java</span>
         </a>
         <div class="abstract-content">
-            常见滑动方式掌握滑动的方法是实现自定义 View 的基础，常见的实现滑动的方式有三种
+            中断中断线程在Java的早期版本中，stop方法可以终止某个线程，但是现在已被弃用。没有强制线程终止的办法，然而，interrupt方法可以用来请求终止线程。
+中断状态是每一个线程都具有的boolean标志。每个线程都应该不时地检查这个标志，以判断线程是否被中断。而interrupt方法则会将线程的中断状态置位，所以interrupt方法可以用来请求终止线程，注意，是请求，而非要求。
+1while(!Thread.currentThread().isInterrupted() &amp;&amp; more work todo)&#123;2	do more work;3&#125;
 
-ScrollTo/SrollBy
-动画
-改变View的LayoutParams使得View重新布局从而实现滑动
-
-使用ScrollTo/ScrollBy1public void scrollTo(int x,int y)
-
-x: 滑动到的距离，这个距离指的是相对于初始位置（并非上一次的位置，而是View内容最初的位置，最初是0）
-y: 同上
-View内部会有两个变量来记录当前内容的位置 ： mScrollX 和 mScrollY ,向左或者向上为正，反之为负
-1public void scrollBy...
+...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/09</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/02</span>
             </div>
             <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View  Scroller">View  Scroller</a>
-    
-</div>
             
         </div>
     </article>

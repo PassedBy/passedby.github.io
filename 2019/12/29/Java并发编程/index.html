@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">6.8k</span>Reading time: <span class="post-count reading-time">24 min</span></span>
+                        <span>Word count: <span class="post-count word-count">7k</span>Reading time: <span class="post-count reading-time">25 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -518,6 +518,10 @@ height:50vh;
 <h2 id="3-代码块同步"><a href="#3-代码块同步" class="headerlink" title="3.代码块同步"></a>3.代码块同步</h2><p>有时你不需要整个方法，而是同步方法中的一部分。Java可以对方法的一部分进行同步</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	sychronized(<span class="keyword">this</span>)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">this</span>.count+=value;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 <p>请注意Java同步块构造器用括号将对象括起来，该对象被称为 “<strong>监视器</strong>“。在上面的例子使用的是 “this”，即将调用方法本身的实例作为 监视器对象。</p>
+<p><strong>一次只有一个线程能够在同步于同一个监视器对象的Java方法内（包含多个方法同步于同一个对象的情况）执行</strong></p>
+<p>对比： [method]  Vs  [code block]</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">log1</span><span class="params">(String msg1, String msg2)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      log.writeln(msg1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">      log.writeln(msg2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">   &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">log2</span><span class="params">(String msg1, String msg2)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">         log.writeln(msg1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">         log.writeln(msg2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">      &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">   &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"> &#125;</span></pre></td></tr></table></figure>
+<p>log1和log2都同步在所调用的实例对象上，所以它们在同步的执行效果上是等价的。如果将log2中的监视器改变为其它对象，则两个方法（简化了说的，其实是一个方法和一个代码块）可以被两个线程在同一时刻分别执行。</p>
 <h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p><a href="http://ifeve.com/java-concurrency-constructs/" target="_blank" rel="noopener">Java并发结构</a><br><a href="http://ifeve.com/java-concurrency-thread-directory/" target="_blank" rel="noopener">并发编程系列文章</a><br><a href="https://www.cnblogs.com/orez88/articles/2513460.html" target="_blank" rel="noopener">阻塞与非阻塞</a><br><a href="https://www.cnblogs.com/tedzhao/archive/2008/11/12/1332112.html" target="_blank" rel="noopener">可持续化的数据结构</a></p>
 
     </article>
@@ -527,7 +531,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">December 29th 2019, 6:16:32 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">January 1st 2020, 10:05:06 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">January 1st 2020, 11:26:58 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -1042,9 +1046,34 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 27
+        Total : 28
         </div>
         <!-- search  -->
         
@@ -1054,6 +1083,20 @@ top:50vh;
     
     
     
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/Java-Concurrency-Learning-core-Java/" >Java Concurrency - Learning core Java</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
@@ -1203,12 +1246,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
         </li>
     
     </div>
@@ -1218,21 +1261,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Android Profile Performance Android  Studio"><span class="iconfont-archer">&#xe606;</span>Android Profile Performance Android  Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
-    
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
-    
-        <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
     
         <span class="sidebar-tag-name" data-tags="Decorator"><span class="iconfont-archer">&#xe606;</span>Decorator</span>
     
+        <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
+    
         <span class="sidebar-tag-name" data-tags="GestureDetector  View"><span class="iconfont-archer">&#xe606;</span>GestureDetector  View</span>
     
-        <span class="sidebar-tag-name" data-tags="Java并发"><span class="iconfont-archer">&#xe606;</span>Java并发</span>
-    
-        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
+        <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
     
         <span class="sidebar-tag-name" data-tags="Linux内存管理"><span class="iconfont-archer">&#xe606;</span>Linux内存管理</span>
+    
+        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
     
         <span class="sidebar-tag-name" data-tags="math"><span class="iconfont-archer">&#xe606;</span>math</span>
     
@@ -1252,15 +1293,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="View  Scroller"><span class="iconfont-archer">&#xe606;</span>View  Scroller</span>
     
-        <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
-    
         <span class="sidebar-tag-name" data-tags="reflect  RTTI"><span class="iconfont-archer">&#xe606;</span>reflect  RTTI</span>
+    
+        <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
         <span class="sidebar-tag-name" data-tags="IPC service  IBinder AIDL"><span class="iconfont-archer">&#xe606;</span>IPC service  IBinder AIDL</span>
     
+        <span class="sidebar-tag-name" data-tags="Window  WMS WindowManager Surface"><span class="iconfont-archer">&#xe606;</span>Window  WMS WindowManager Surface</span>
+    
         <span class="sidebar-tag-name" data-tags="View"><span class="iconfont-archer">&#xe606;</span>View</span>
     
-        <span class="sidebar-tag-name" data-tags="Window  WMS WindowManager Surface"><span class="iconfont-archer">&#xe606;</span>Window  WMS WindowManager Surface</span>
+        <span class="sidebar-tag-name" data-tags="Java并发"><span class="iconfont-archer">&#xe606;</span>Java并发</span>
     
         <span class="sidebar-tag-name" data-tags="fragment"><span class="iconfont-archer">&#xe606;</span>fragment</span>
     
@@ -1301,19 +1344,19 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
     
-        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
-    
         <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
     
         <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
     
-        <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
+        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
     
         <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
     
         <span class="sidebar-category-name" data-categories="蚊子"><span class="iconfont-archer">&#xe60a;</span>蚊子</span>
     
         <span class="sidebar-category-name" data-categories="Android-Performance"><span class="iconfont-archer">&#xe60a;</span>Android-Performance</span>
+    
+        <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
     
         <span class="sidebar-category-name" data-categories="Java-SE"><span class="iconfont-archer">&#xe60a;</span>Java-SE</span>
     

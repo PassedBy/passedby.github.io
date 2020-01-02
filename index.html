@@ -452,6 +452,33 @@ Andr...
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/01/02/Java-Concurrency-Learning-core-Java/" >
+            
+                <span>Java Concurrency - Learning core Java</span>
+        </a>
+        <div class="abstract-content">
+            中断中断线程在Java的早期版本中，stop方法可以终止某个线程，但是现在已被弃用。没有强制线程终止的办法，然而，interrupt方法可以用来请求终止线程。
+中断状态是每一个线程都具有的boolean标志。每个线程都应该不时地检查这个标志，以判断线程是否被中断。而interrupt方法则会将线程的中断状态置位，所以interrupt方法可以用来请求终止线程，注意，是请求，而非要求。
+1while(!Thread.currentThread().isInterrupted() &amp;&amp; more work todo)&#123;2	do more work;3&#125;
+
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/02</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/30/Android-Profile-Learing/" >
             
                 <span>Android Profile Learing</span>
@@ -677,42 +704,6 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "全面屏  手势导航  View">全面屏  手势导航  View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/14/Factory-design-pattern/" >
-            
-                <span>Factory design pattern</span>
-        </a>
-        <div class="abstract-content">
-            在面向对象的世界里，工厂模式被广泛地应用于项目中，也许你没听过，但你肯定用过。简单地来说，工厂模式地出现源于增加程序的可扩展性，降低耦合度。之所以叫工厂模式，是用工厂生产产品来形象比如代码中生产对象的过程。
-
-简单工厂模式
-工厂方法模式
-抽象工厂模式
-
-简单工厂模式 | simple Factory PatternBefore patterns:首先设计两种汽车，分别实现 “Auto” 接口。
-1public interface Auto&#123;2	//所有汽车都可以驾驶3	public void drive();4&#125;56//小轿车7public class Car imp...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Factory">Factory</a>
     
 </div>
             
@@ -1286,9 +1277,34 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 27
+        Total : 28
         </div>
         <!-- search  -->
         
@@ -1298,6 +1314,20 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
     
     
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/Java-Concurrency-Learning-core-Java/" >Java Concurrency - Learning core Java</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
@@ -1447,12 +1477,12 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
         </li>
     
     </div>
@@ -1462,21 +1492,19 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
         <span class="sidebar-tag-name" data-tags="Android Profile Performance Android  Studio"><span class="iconfont-archer">&#xe606;</span>Android Profile Performance Android  Studio</span>
     
-        <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
-    
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
-    
-        <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
     
         <span class="sidebar-tag-name" data-tags="Decorator"><span class="iconfont-archer">&#xe606;</span>Decorator</span>
     
+        <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
+    
         <span class="sidebar-tag-name" data-tags="GestureDetector  View"><span class="iconfont-archer">&#xe606;</span>GestureDetector  View</span>
     
-        <span class="sidebar-tag-name" data-tags="Java并发"><span class="iconfont-archer">&#xe606;</span>Java并发</span>
-    
-        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
+        <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
     
         <span class="sidebar-tag-name" data-tags="Linux内存管理"><span class="iconfont-archer">&#xe606;</span>Linux内存管理</span>
+    
+        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
     
         <span class="sidebar-tag-name" data-tags="math"><span class="iconfont-archer">&#xe606;</span>math</span>
     
@@ -1496,15 +1524,17 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
         <span class="sidebar-tag-name" data-tags="View  Scroller"><span class="iconfont-archer">&#xe606;</span>View  Scroller</span>
     
-        <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
-    
         <span class="sidebar-tag-name" data-tags="reflect  RTTI"><span class="iconfont-archer">&#xe606;</span>reflect  RTTI</span>
+    
+        <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
         <span class="sidebar-tag-name" data-tags="IPC service  IBinder AIDL"><span class="iconfont-archer">&#xe606;</span>IPC service  IBinder AIDL</span>
     
+        <span class="sidebar-tag-name" data-tags="Window  WMS WindowManager Surface"><span class="iconfont-archer">&#xe606;</span>Window  WMS WindowManager Surface</span>
+    
         <span class="sidebar-tag-name" data-tags="View"><span class="iconfont-archer">&#xe606;</span>View</span>
     
-        <span class="sidebar-tag-name" data-tags="Window  WMS WindowManager Surface"><span class="iconfont-archer">&#xe606;</span>Window  WMS WindowManager Surface</span>
+        <span class="sidebar-tag-name" data-tags="Java并发"><span class="iconfont-archer">&#xe606;</span>Java并发</span>
     
         <span class="sidebar-tag-name" data-tags="fragment"><span class="iconfont-archer">&#xe606;</span>fragment</span>
     
@@ -1545,19 +1575,19 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
     
-        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
-    
         <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
     
         <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
     
-        <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
+        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
     
         <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
     
         <span class="sidebar-category-name" data-categories="蚊子"><span class="iconfont-archer">&#xe60a;</span>蚊子</span>
     
         <span class="sidebar-category-name" data-categories="Android-Performance"><span class="iconfont-archer">&#xe60a;</span>Android-Performance</span>
+    
+        <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
     
         <span class="sidebar-category-name" data-categories="Java-SE"><span class="iconfont-archer">&#xe60a;</span>Java-SE</span>
     
