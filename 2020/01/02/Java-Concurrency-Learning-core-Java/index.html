@@ -506,7 +506,7 @@ height:50vh;
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(mLock.tryLock(<span class="number">100</span>,TimeUnit.MILLISECONDS))...</span></pre></td></tr></table></figure>
 
 <p>lock不响应中断（为什么这么设计，一个可能阻塞的方法为什么不设计成可响应中断呢，我的猜测是同时提供多个方法，以供你选择，以增加程序的可定制性）<br>tryLock响应中断，lockInterruptily延时为无线久的tryLock。</p>
-<p>**为什么需要tryLock和tryInterrruptibly?</p>
+<p>**为什么需要tryLock和tryInterrruptibly?<br><a href="https://blog.csdn.net/qq379854836/article/details/72742205" target="_blank" rel="noopener">为什么只有lockInterruptibly可以被interrupted</a></p>
 <blockquote>
 <p>首先你得了解为什么Lock要提供tryLock和lockInterruptibly因为它要破坏死锁中的“不可抢占条件”。synchronized没办法破坏“不可抢占条件”，synchronized申请资源的时候，如果申请不到，线程直接进入阻塞状态，无法释放已经占有的锁。但我们希望的是：如果占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源，这样不可抢占条件被破坏掉了。所以，Lock提供了三种方法，均可以破坏不可抢占条件。这也是为什么有了synchronized还要搞一个Lock的原因之一。tryLock(long time, TimeUint unit)： 一段时间内没有获取锁，不是进入阻塞状态，而是返回一个错误；tryLock：立即返回，获得锁返回true,没获得锁返回false；tryInterruptibly：在锁上等待，直到获取锁，但是会响应中断，这个方法优先考虑响应中断，而不是响应锁的普通获取或重入获取。</p>
 </blockquote>
@@ -519,7 +519,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/">https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/</a>
             <p>发表日期：<a href="https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/">January 2nd 2020, 10:35:35 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/">January 5th 2020, 6:01:29 am</a>
+            <p>更新日期：<a href="https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/">January 5th 2020, 6:03:24 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
