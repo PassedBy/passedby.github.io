@@ -505,10 +505,10 @@ height:50vh;
 <p>还可以采用超时策略，像下面这样</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(mLock.tryLock(<span class="number">100</span>,TimeUnit.MILLISECONDS))...</span></pre></td></tr></table></figure>
 
-<p>采用tryLock的好处是避免死锁。如果一个以恶搞现场在等待获得一个锁时被中断，</p>
+<p>lock不响应中断（为什么这么设计，一个可能阻塞的方法为什么不设计成可响应中断呢）<br>tryLock响应中断，lockInterruptily延时为无线久的tryLock。</p>
 <p>**为什么需要tryLock和tryInterrruptibly?</p>
 <blockquote>
-<p>首先你得了解为什么Lock要提供tryLock和tryInterruptibly因为它要破坏死锁中的“不可抢占条件”。synchronized没办法破坏“不可抢占条件”，synchronized申请资源的时候，如果申请不到，线程直接进入阻塞状态，无法释放已经占有的锁。但我们希望的是：如果占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源，这样不可抢占条件被破坏掉了。所以，Lock提供了三种方法，均可以破坏不可抢占条件。这也是为什么有了synchronized还要搞一个Lock的原因之一。tryLock(long time, TimeUint unit)： 一段时间内没有获取锁，不是进入阻塞状态，而是返回一个错误；tryLock：立即返回，获得锁返回true,没获得锁返回false；tryInterruptibly：在锁上等待，直到获取锁，但是会响应中断，这个方法优先考虑响应中断，而不是响应锁的普通获取或重入获取。</p>
+<p>首先你得了解为什么Lock要提供tryLock和lockInterruptibly因为它要破坏死锁中的“不可抢占条件”。synchronized没办法破坏“不可抢占条件”，synchronized申请资源的时候，如果申请不到，线程直接进入阻塞状态，无法释放已经占有的锁。但我们希望的是：如果占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源，这样不可抢占条件被破坏掉了。所以，Lock提供了三种方法，均可以破坏不可抢占条件。这也是为什么有了synchronized还要搞一个Lock的原因之一。tryLock(long time, TimeUint unit)： 一段时间内没有获取锁，不是进入阻塞状态，而是返回一个错误；tryLock：立即返回，获得锁返回true,没获得锁返回false；tryInterruptibly：在锁上等待，直到获取锁，但是会响应中断，这个方法优先考虑响应中断，而不是响应锁的普通获取或重入获取。</p>
 </blockquote>
 <h2 id="Thanks："><a href="#Thanks：" class="headerlink" title="Thanks："></a>Thanks：</h2><p><a href="https://www.ibm.com/developerworks/cn/java/j-jtp05236.html" target="_blank" rel="noopener">InterruptedException</a><br><a href="https://www.zhihu.com/question/41048032/answer/89431513" target="_blank" rel="noopener">知乎Thread.interrupt意味着什么</a><br><a href="https://www.zhihu.com/question/42031725" target="_blank" rel="noopener">为什么java里的线程可以在阻塞的时候捕获中断异常并处理？</a><br><a href="https://tech.meituan.com/2018/11/15/java-lock.html" target="_blank" rel="noopener">不可不说的Java”锁”事</a><br><a href="https://stackoverflow.com/questions/748175/asynchronous-vs-synchronous-execution-what-does-it-really-mean" target="_blank" rel="noopener">Asynchronous vs synchronous execution, what does it really mean? </a><br><a href="https://www.cnblogs.com/dolphin0520/p/3920373.html" target="_blank" rel="noopener">Java并发编程:volatile关键字</a><br><a href="https://www.zhihu.com/question/277395220" target="_blank" rel="noopener">有了缓存一致性为什么还要多线程同步</a></p>
 
@@ -519,7 +519,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/">https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/</a>
             <p>发表日期：<a href="https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/">January 2nd 2020, 10:35:35 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/">January 5th 2020, 5:50:44 am</a>
+            <p>更新日期：<a href="https://passedby.github.io/2020/01/02/Java-Concurrency-Learning-core-Java/">January 5th 2020, 5:59:48 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
