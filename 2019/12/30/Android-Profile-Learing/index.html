@@ -476,6 +476,8 @@ height:50vh;
 </li>
 </ul>
 <h2 id="查看内存分配"><a href="#查看内存分配" class="headerlink" title="查看内存分配"></a>查看内存分配</h2><p>如果是在Android 7.1 以上的设备上的话，你可以通过拉动切面来选择时间范围，得到的也是一个累计值，分配的数量以及所占用的内存的一个累计数值。7.1以前你需要手动点击左上方的 Record 按钮，类似于 CPU 的Record，截取一个时间区域，从而进行分析。</p>
+<p><img src="https://i.loli.net/2019/12/31/hKNrlQjLAsmDB4H.png" alt="1577780928_1_.png"></p>
+<p>你也可以使用 Dump Heat查看堆转储的相关信息，得到的就是当前的堆内存信息(不是累计的，就是当前的状况)</p>
 <h4 id="结合MAT（Memory-Analys-Tool）"><a href="#结合MAT（Memory-Analys-Tool）" class="headerlink" title="结合MAT（Memory Analys Tool）"></a>结合MAT（Memory Analys Tool）</h4><p>我个人感觉Android Profile提供的信息有时候有些冗余，查看起来不太方便，当然你也可以利用MAT进行一些更细致化的分析。或者利用LeakGanary来进行内存泄漏的分析。</p>
 <p><img src="https://i.loli.net/2019/12/31/P3Ljpdz2gIxVwlb.png" alt="1577775413_1_.png"><br><img src="https://i.loli.net/2019/12/31/1jc52MpODlEiyus.png" alt="1577775894_1_.png"><br><img src="https://i.loli.net/2019/12/31/NOXgZcFLbo9IwJW.png" alt="1577777028_1_.png"></p>
 <p>通过分析gc_root往往能找到泄露的原因所在</p>
@@ -488,7 +490,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/30/Android-Profile-Learing/">https://passedby.github.io/2019/12/30/Android-Profile-Learing/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/30/Android-Profile-Learing/">December 30th 2019, 9:44:39 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/30/Android-Profile-Learing/">January 5th 2020, 5:31:59 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/30/Android-Profile-Learing/">January 5th 2020, 5:34:47 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -1094,9 +1096,48 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 31
         </div>
         <!-- search  -->
         
@@ -1109,6 +1150,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2020/01/05/Learnning-Regex/" >Learnning Regex</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1292,8 +1338,6 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="Android Profile Performance Android  Studio"><span class="iconfont-archer">&#xe606;</span>Android Profile Performance Android  Studio</span>
-    
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
         <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
@@ -1304,9 +1348,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="GestureDetector  View"><span class="iconfont-archer">&#xe606;</span>GestureDetector  View</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux内存管理"><span class="iconfont-archer">&#xe606;</span>Linux内存管理</span>
+        <span class="sidebar-tag-name" data-tags="regex"><span class="iconfont-archer">&#xe606;</span>regex</span>
     
         <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux内存管理"><span class="iconfont-archer">&#xe606;</span>Linux内存管理</span>
     
         <span class="sidebar-tag-name" data-tags="math"><span class="iconfont-archer">&#xe606;</span>math</span>
     
@@ -1320,11 +1366,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="VSYNC  Frame  Tearing"><span class="iconfont-archer">&#xe606;</span>VSYNC  Frame  Tearing</span>
     
-        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
+        <span class="sidebar-tag-name" data-tags="Android Profile Performance Android  Studio"><span class="iconfont-archer">&#xe606;</span>Android Profile Performance Android  Studio</span>
+    
+        <span class="sidebar-tag-name" data-tags="Producer Consumer"><span class="iconfont-archer">&#xe606;</span>Producer Consumer</span>
     
         <span class="sidebar-tag-name" data-tags="View  Scroller"><span class="iconfont-archer">&#xe606;</span>View  Scroller</span>
     
-        <span class="sidebar-tag-name" data-tags="Producer Consumer"><span class="iconfont-archer">&#xe606;</span>Producer Consumer</span>
+        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
     
         <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
@@ -1332,9 +1380,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="IPC service  IBinder AIDL"><span class="iconfont-archer">&#xe606;</span>IPC service  IBinder AIDL</span>
     
-        <span class="sidebar-tag-name" data-tags="Window  WMS WindowManager Surface"><span class="iconfont-archer">&#xe606;</span>Window  WMS WindowManager Surface</span>
-    
         <span class="sidebar-tag-name" data-tags="View"><span class="iconfont-archer">&#xe606;</span>View</span>
+    
+        <span class="sidebar-tag-name" data-tags="Window  WMS WindowManager Surface"><span class="iconfont-archer">&#xe606;</span>Window  WMS WindowManager Surface</span>
     
         <span class="sidebar-tag-name" data-tags="fragment"><span class="iconfont-archer">&#xe606;</span>fragment</span>
     
@@ -1373,15 +1421,17 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
-    
-        <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
-    
         <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
+    
+        <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
     
         <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
     
         <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
+    
+        <span class="sidebar-category-name" data-categories="JavsSE"><span class="iconfont-archer">&#xe60a;</span>JavsSE</span>
+    
+        <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
     
         <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
     
