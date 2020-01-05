@@ -436,35 +436,8 @@ height:50vh;
 <td>poll(time,unit)</td>
 <td>take()</td>
 </tr>
-<tr>
-<td>另外还有三个函数，了解一下：</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>int drainTo(Collection&lt;? super E&gt; c);：  移除此队列中所有可用的元素，并将它们添加到给定collection 中。此操作可能比反复轮询此队列更有效。在试图向 collection c 中添加元素没有成功时，可能导致在抛出相关异常时。如果试图将一个队列放入自身队列中，则会导致 IllegalArgumentException异常。此外，如果正在进行此操作时修改指定的 collection，则此操作行为是不确定的</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>int drainTo(Collection&lt;? super E&gt; c, int maxElements)： 最多从此队列中移除给定数量的可用元素，并将这些元素添加到给定collection中，别的行为与上面int drainTo(Collection&lt;? super E&gt; c)一样。</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>E peek():         获取但不移除此队列的头元素；如果此队列为空，则返回 null</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
+<p>另外还有l两类函数，了解一下：<br>int drainTo(Collection&lt;? super E&gt; c);：  移除此队列中所有可用的元素，并将它们添加到给定collection 中。此操作可能比反复轮询此队列更有效。在试图向 collection c 中添加元素没有成功时，可能导致在抛出相关异常时。如果试图将一个队列放入自身队列中，则会导致 IllegalArgumentException异常。此外，如果正在进行此操作时修改指定的 collection，则此操作行为是不确定的<br>int drainTo(Collection&lt;? super E&gt; c, int maxElements)： 最多从此队列中移除给定数量的可用元素，并将这些元素添加到给定collection中，别的行为与上面int drainTo(Collection&lt;? super E&gt; c)一样。<br>E peek():         获取但不移除此队列的头元素；如果此队列为空，则返回 null</p>
 <h3 id="BlockingQueue成员类（实现类）"><a href="#BlockingQueue成员类（实现类）" class="headerlink" title="BlockingQueue成员类（实现类）"></a>BlockingQueue成员类（实现类）</h3><p><strong>1.ArrayBlockingQueue</strong></p>
 <p>基于数组的阻塞队列的实现，在ArrayBlockingQueue内部维护了一个定长数组，以便缓存队列中的数据对象，除此之外，ArrayBlockingQueue内部还保存着两个整型变量，分别标识着队列的头部和尾部在数组中的位置。</p>
 <p>ArrayBlockingQueue在生产者放入数据和消费者获取数据，都是共用一个锁对象，由此也意味着两者无法真正并行执行，这点尤其不同于LinkedBlockingQueue。</p>
@@ -499,7 +472,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2019/12/24/Producer-consumer-model/">https://passedby.github.io/2019/12/24/Producer-consumer-model/</a>
             <p>发表日期：<a href="https://passedby.github.io/2019/12/24/Producer-consumer-model/">December 24th 2019, 10:42:05 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Producer-consumer-model/">January 5th 2020, 3:33:51 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2019/12/24/Producer-consumer-model/">January 5th 2020, 3:37:08 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
