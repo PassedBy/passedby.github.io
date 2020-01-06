@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">208</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">427</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -405,8 +405,23 @@ height:50vh;
 <h1 id="使用Room将数据保存到本地数据库"><a href="#使用Room将数据保存到本地数据库" class="headerlink" title="使用Room将数据保存到本地数据库"></a>使用Room将数据保存到本地数据库</h1><p>Room时Google官方提供的数据库<a href="https://zh.wikipedia.org/wiki/%E5%AF%B9%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84" target="_blank" rel="noopener">ORM(Object Relational Mapping)</a>框架，使用起来非常方便。Room在SQLite上提供了一个抽象层，以便利用SQLite的全部功能的同时能更加流畅地访问数据库。</p>
 <p>处理大量结构化数据的应用可极大地受益于在本地保留的这些数据，最常见的用例是缓存相关数据，这样当设备无法访问网络时，用户仍然可以在离线状态下浏览相应内容。设备之后重新链接到网络后，用户发起的所有内容更改都会同步到服务器。</p>
 <p>注意，在Android中使用Room，请在应用的 <strong>build.gradle</strong> 文件中声明 Room 依赖项。</p>
-<p>Room 主要包含3个主要组件</p>
+<p>Room 主要包含3个主要组件：</p>
+<ul>
+<li>数据库：包含数据库持有者，并作为应用已保留的持久关系型数据的底层连接的主要接入点</li>
+<li>Entity ：表示数据库中的表</li>
+<li>DAO：包含用于访问数据库的方法</li>
+</ul>
+<p>Room不同组件之间的关系<br><img src="https://developer.android.google.cn/images/training/data-storage/room_architecture.png" alt="Room-structor"></p>
+<p>以下代码包含一个实体和一个DAO的示例数据库配置</p>
+<p>User.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@PrimaryKey</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> uid;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ColumnInfo</span>(name = <span class="string">"first_name"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> String firstName;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@ColumnInfo</span>(name = <span class="string">"last_name"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> String lastName;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
+
+<p>UserDAO.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Dao</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Query</span>(<span class="string">"SELECT * FROM user"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function">List&lt;User&gt; <span class="title">getAll</span><span class="params">()</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Query</span>(<span class="string">"SELECT * FROM user WHERE uid IN (:userIds)"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="function">List&lt;User&gt; <span class="title">loadAllByIds</span><span class="params">(<span class="keyword">int</span>[] userIds)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Query</span>(<span class="string">"SELECT * FROM user WHERE first_name LIKE :first AND "</span> +</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="string">"last_name LIKE :last LIMIT 1"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="function">User <span class="title">findByName</span><span class="params">(String first, String last)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Insert</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insertAll</span><span class="params">(User... users)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Delete</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(User user)</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>AppDataBase.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">@Database</span>(entities = &#123;User<span class="class">.<span class="keyword">class</span>&#125;, <span class="title">version</span> </span>= <span class="number">1</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AppDatabase</span> <span class="keyword">extends</span> <span class="title">RoomDatabase</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> UserDao <span class="title">userDao</span><span class="params">()</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
     
@@ -414,13 +429,18 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2020/01/06/Android-Native-DataBase/">https://passedby.github.io/2020/01/06/Android-Native-DataBase/</a>
             <p>发表日期：<a href="https://passedby.github.io/2020/01/06/Android-Native-DataBase/">January 6th 2020, 9:33:54 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2020/01/06/Android-Native-DataBase/">January 6th 2020, 9:57:50 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2020/01/06/Android-Native-DataBase/">January 6th 2020, 10:28:52 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/01/06/Golang-Learning-Plan/" title= "Golang Learning Plan">
+                    <div class="nextTitle">Golang Learning Plan</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -1040,18 +1060,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 32
+        Total : 33
         </div>
         <!-- search  -->
         
@@ -1064,6 +1075,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/06</span><a class="archive-post-title" href= "/2020/01/06/Golang-Learning-Plan/" >Golang Learning Plan</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1082,12 +1098,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/AS%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8ADB%E5%91%BD%E4%BB%A4/" >AS快捷方式以及常用ADB命令</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/Java-Concurrency-Learning-core-Java/" >Java Concurrency - Learning core Java</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/Java-Concurrency-Learning-core-Java/" >Java Concurrency - Learning core Java</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/AS%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8ADB%E5%91%BD%E4%BB%A4/" >AS快捷方式以及常用ADB命令</a>
         </li>
     
     
@@ -1195,6 +1211,16 @@ top:50vh;
         </li>
     
     
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" >Class文件结构</a>
+        </li>
+    
+    
     
     
     
@@ -1219,27 +1245,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" >Class文件结构</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >View的三大流程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Service-And-IPC/" >Service</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/All-About-Fragment/" >All About Fragment</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/All-About-Fragment/" >All About Fragment</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Service-And-IPC/" >Service</a>
         </li>
     
     
@@ -1261,23 +1277,25 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
-        <span class="sidebar-tag-name" data-tags="Decorator"><span class="iconfont-archer">&#xe606;</span>Decorator</span>
-    
         <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
     
-        <span class="sidebar-tag-name" data-tags="GestureDetector  View"><span class="iconfont-archer">&#xe606;</span>GestureDetector  View</span>
+        <span class="sidebar-tag-name" data-tags="Decorator"><span class="iconfont-archer">&#xe606;</span>Decorator</span>
     
         <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
     
-        <span class="sidebar-tag-name" data-tags="regex"><span class="iconfont-archer">&#xe606;</span>regex</span>
+        <span class="sidebar-tag-name" data-tags="GestureDetector  View"><span class="iconfont-archer">&#xe606;</span>GestureDetector  View</span>
     
-        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
+        <span class="sidebar-tag-name" data-tags="Golang  Spider"><span class="iconfont-archer">&#xe606;</span>Golang  Spider</span>
     
         <span class="sidebar-tag-name" data-tags="Linux内存管理"><span class="iconfont-archer">&#xe606;</span>Linux内存管理</span>
     
         <span class="sidebar-tag-name" data-tags="math"><span class="iconfont-archer">&#xe606;</span>math</span>
     
+        <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
+    
         <span class="sidebar-tag-name" data-tags="全面屏  手势导航  View"><span class="iconfont-archer">&#xe606;</span>全面屏  手势导航  View</span>
+    
+        <span class="sidebar-tag-name" data-tags="regex"><span class="iconfont-archer">&#xe606;</span>regex</span>
     
         <span class="sidebar-tag-name" data-tags="Introduction"><span class="iconfont-archer">&#xe606;</span>Introduction</span>
     
@@ -1346,15 +1364,17 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
     
-        <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
-    
         <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
     
-        <span class="sidebar-category-name" data-categories="JavsSE"><span class="iconfont-archer">&#xe60a;</span>JavsSE</span>
+        <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
+    
+        <span class="sidebar-category-name" data-categories="Golang"><span class="iconfont-archer">&#xe60a;</span>Golang</span>
+    
+        <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
     
         <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
     
-        <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
+        <span class="sidebar-category-name" data-categories="JavsSE"><span class="iconfont-archer">&#xe60a;</span>JavsSE</span>
     
         <span class="sidebar-category-name" data-categories="蚊子"><span class="iconfont-archer">&#xe60a;</span>蚊子</span>
     
