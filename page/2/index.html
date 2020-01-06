@@ -359,38 +359,6 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/24/Android-Performance-VSYNC-FRAME/" >
-            
-                <span>Android Performance : VSYNC/FRAME</span>
-        </a>
-        <div class="abstract-content">
-            
-2015新年伊始，Google发布了关于Android性能优化典范的专题，一共16个短视频，每个3-5分钟，帮助开发者创建更快更优秀的Android App。课程专题不仅仅介绍了Android系统中有关性能问题的底层工作原理，同时也介绍了如何通过工具来找出性能问题以及提升性能的建议。主要从三个方面展开，Android的渲染机制，内存与GC，电量优化。下面是对这些问题和建议的总结梳理。
-
-0. Render Performance大多数用户感知到的卡顿等性能问题的直接根源都是因为渲染性能。从设计师的角度来说，他们希望App能有更多的动画，图片等时尚元素来实现丰富而”流畅”的用户体验，但是...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "VSYNC  Frame  Tearing">VSYNC  Frame  Tearing</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/24/Producer-consumer-model/" >
             
                 <span>Producer consumer model</span>
@@ -703,6 +671,46 @@ I/O功能
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "C">C</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/09/View%E5%B8%B8%E8%A7%81%E6%BB%91%E5%8A%A8%E6%96%B9%E5%BC%8F%E4%B8%8E%E6%AF%94%E8%BE%83/" >
+            
+                <span>View常见滑动方式与比较</span>
+        </a>
+        <div class="abstract-content">
+            常见滑动方式掌握滑动的方法是实现自定义 View 的基础，常见的实现滑动的方式有三种
+
+ScrollTo/SrollBy
+动画
+改变View的LayoutParams使得View重新布局从而实现滑动
+
+使用ScrollTo/ScrollBy1public void scrollTo(int x,int y)
+
+x: 滑动到的距离，这个距离指的是相对于初始位置（并非上一次的位置，而是View内容最初的位置，最初是0）
+y: 同上
+View内部会有两个变量来记录当前内容的位置 ： mScrollX 和 mScrollY ,向左或者向上为正，反之为负
+1public void scrollBy...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View  Scroller">View  Scroller</a>
     
 </div>
             
