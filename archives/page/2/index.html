@@ -346,6 +346,43 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/18/Decorator-Pattern/" >
+            
+                <span>Decorator Pattern</span>
+        </a>
+        <div class="abstract-content">
+            装饰者模式的作用主要在于控制类的数量。其核心思想是利用组合来代替继承，从而动态地扩展类的功能。
+后者更好地控制了类的数量，假设需要扩展 n 个功能，那么继承所需的类的数量为 n! 数量级而采用装饰着模式则为 O(n)
+先给出以下结论，带着为什么来思考：
+
+装饰者和被装饰对象有相同的超类型(接口或者类都ok)
+可以使用一个或者多个装饰者包装一个对象
+既然装饰者和被装饰者具有相同的超类型，所以在任何需要原始对象(被包装的)的场合，可以用装饰过的对象代替它
+装饰者可以在所委托被装饰者的行为之前/或之后，加上自己的行为，以达到特定的目的
+对象可以在任何时候被装饰，所以可以在运行时动态地、不限量地...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Decorator">Decorator</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/15/Slide-Conflict-part-one/" >
             
                 <span>Slide Conflict part one</span>
@@ -670,41 +707,6 @@ Linux 逻辑地址-线性地址-物理地址
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Linux内存管理">Linux内存管理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/04/Java-RTTI-include-reflect/" >
-            
-                <span>Java RTTI [include reflect]</span>
-        </a>
-        <div class="abstract-content">
-            RTTI - 运行期类型识别
-RTTI的概念：当我们手上只有基类型的一个引用时，利用它判断一个对象的正确类型。
-
-本章将讨论如何利用 Java 在运行期间查找对象和类信息。这主要采取两种形式
-01) 一种是传统 RTTI ，它假定我们已在编译和运行期拥有所有类型
-02) 另一种是 Java 1.1 特有的 “反射” 机制，利用它可以在运行期独立查找类信息
-Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型信息在运行时是如何表示的。这项工作是由称为 Class 对象的特殊对象完成的，它包含了与类有关的信息。事实上，Class对象就是用来创建所有的”常规”对象的。J...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "reflect  RTTI">reflect  RTTI</a>
     
 </div>
             
@@ -1286,14 +1288,9 @@ Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型
     
     
     
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 31
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1309,6 +1306,11 @@ Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">01/06</span><a class="archive-post-title" href= "/2020/01/06/Android-Native-DataBase/" >Android Native DataBase</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2020/01/05/Learnning-Regex/" >Learnning Regex</a>
         </li>
     
@@ -1319,12 +1321,12 @@ Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/Java-Concurrency-Learning-core-Java/" >Java Concurrency - Learning core Java</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/AS%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8ADB%E5%91%BD%E4%BB%A4/" >AS快捷方式以及常用ADB命令</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/AS%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8ADB%E5%91%BD%E4%BB%A4/" >AS快捷方式以及常用ADB命令</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/Java-Concurrency-Learning-core-Java/" >Java Concurrency - Learning core Java</a>
         </li>
     
     
@@ -1432,36 +1434,6 @@ Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" >Class文件结构</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >View的三大流程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/All-About-Fragment/" >All About Fragment</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Service-And-IPC/" >Service</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
-        </li>
-    
-    
     
     
     
@@ -1486,6 +1458,36 @@ Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" >Class文件结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >View的三大流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Service-And-IPC/" >Service</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/All-About-Fragment/" >All About Fragment</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
@@ -1494,15 +1496,17 @@ Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+        <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
     
-        <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
         <span class="sidebar-tag-name" data-tags="Decorator"><span class="iconfont-archer">&#xe606;</span>Decorator</span>
     
-        <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
+        <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
     
         <span class="sidebar-tag-name" data-tags="GestureDetector  View"><span class="iconfont-archer">&#xe606;</span>GestureDetector  View</span>
+    
+        <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
     
         <span class="sidebar-tag-name" data-tags="regex"><span class="iconfont-archer">&#xe606;</span>regex</span>
     
@@ -1524,11 +1528,11 @@ Class对象要理解 RTTI 在 Java 中的工作原理，首先必须知道类型
     
         <span class="sidebar-tag-name" data-tags="Android Profile Performance Android  Studio"><span class="iconfont-archer">&#xe606;</span>Android Profile Performance Android  Studio</span>
     
+        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
+    
         <span class="sidebar-tag-name" data-tags="Producer Consumer"><span class="iconfont-archer">&#xe606;</span>Producer Consumer</span>
     
         <span class="sidebar-tag-name" data-tags="View  Scroller"><span class="iconfont-archer">&#xe606;</span>View  Scroller</span>
-    
-        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
     
         <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
@@ -1577,13 +1581,13 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
-    
         <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
     
-        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
+        <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
     
         <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
+    
+        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
     
         <span class="sidebar-category-name" data-categories="JavsSE"><span class="iconfont-archer">&#xe60a;</span>JavsSE</span>
     

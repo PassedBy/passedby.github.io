@@ -346,169 +346,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/24/Producer-consumer-model/" >
+        <a class="abstract-title" href = "/2020/01/06/Android-Native-DataBase/" >
             
-                <span>Producer consumer model</span>
+                <span>Android Native DataBase</span>
         </a>
         <div class="abstract-content">
             
-Producer-Consumer模式在很多场景种都有相应的体现，比如线程池，对象池，MQ等，Pro-Con的本质是在生产者与消费者之间引入一个通道(Channel暂且理解为一个队列)，该通道主要用于 ①控制生产者与消费者的相对速率，尽可能地保证生产的Product尽快被消费，另一方面②对二者进行解耦 ，生产者和消费者在各自的线程中，通过Channel连接，二者无直接关联。
-Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Producer：负责生产Product，并将其放入到队列Channel中3.Consumer：从队列Channel中获取对应...
+使用Room将数据保存到本地数据库Room时Google官方提供的数据库ORM(Object Relational Mapping)框架，使用起来非常方便。Room在SQLite上提供了一个抽象层，以便利用SQLite的全部功能的同时能更加流畅地访问数据库。
+处理大量结构化数据的应用可极大地受益于在本地保留的这些数据，最常见的用例是缓存相关数据，这样当设备无法访问网络时，用户仍然可以在离线状态下浏览相应内容。设备之后重新链接到网络后，用户发起的所有内容更改都会同步到服务器。
+注意，在Android中使用Room，请在应用的 build.gradle 文件中声明 Room 依赖项。
+Ro...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/24</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/06</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Producer Consumer">Producer Consumer</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/18/Decorator-Pattern/" >
-            
-                <span>Decorator Pattern</span>
-        </a>
-        <div class="abstract-content">
-            装饰者模式的作用主要在于控制类的数量。其核心思想是利用组合来代替继承，从而动态地扩展类的功能。
-后者更好地控制了类的数量，假设需要扩展 n 个功能，那么继承所需的类的数量为 n! 数量级而采用装饰着模式则为 O(n)
-先给出以下结论，带着为什么来思考：
-
-装饰者和被装饰对象有相同的超类型(接口或者类都ok)
-可以使用一个或者多个装饰者包装一个对象
-既然装饰者和被装饰者具有相同的超类型，所以在任何需要原始对象(被包装的)的场合，可以用装饰过的对象代替它
-装饰者可以在所委托被装饰者的行为之前/或之后，加上自己的行为，以达到特定的目的
-对象可以在任何时候被装饰，所以可以在运行时动态地、不限量地...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Decorator">Decorator</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/14/Factory-design-pattern/" >
-            
-                <span>Factory design pattern</span>
-        </a>
-        <div class="abstract-content">
-            在面向对象的世界里，工厂模式被广泛地应用于项目中，也许你没听过，但你肯定用过。简单地来说，工厂模式地出现源于增加程序的可扩展性，降低耦合度。之所以叫工厂模式，是用工厂生产产品来形象比如代码中生产对象的过程。
-
-简单工厂模式
-工厂方法模式
-抽象工厂模式
-
-简单工厂模式 | simple Factory PatternBefore patterns:首先设计两种汽车，分别实现 “Auto” 接口。
-1public interface Auto&#123;2	//所有汽车都可以驾驶3	public void drive();4&#125;56//小轿车7public class Car imp...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Factory">Factory</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/12/Observer-subscriber-Pattern/" >
-            
-                <span>观察者模式</span>
-        </a>
-        <div class="abstract-content">
-            观察者模式(JDK中运用最多的模式之一) - 让你的对象知悉现状TODO：观察者模式是不是也利用了策略模式的因素
-实例分析：WeatherDate 对象负责追踪目前的天气状况（温度、湿度、气压），我们希望能建立一个应用，有三种布告板，分别显示目前的状况·气象统计及简单的预报。当 WeatherObject 对象获得最新的测量数据时，三种布告板必须实时更新。另外，我们希望能提供一些API，以供客户实现自己的布告板。
-此系统的三个部分：
-
-气象站（获取数据的传感器）
-WeatherData对象（追踪数据）
-布告板（显示天气状况给用户看）
-
-1public class WeatherData&...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "observer">observer</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/11/start-design-pattern/" >
-            
-                <span>设计模式开篇</span>
-        </a>
-        <div class="abstract-content">
-            设计模式解决什么样的问题我们通过继承来实现代码复用，通过扩展接口来实现功能扩展。不过当需求不断地变更，代码量越来越庞大地时候，仅仅靠这两种方式并不能很好地解决问题，例如通过复写改变子类行为会导致代码在多个子类重复。单纯地使用接口，则带来改变的困难，如果接口改变了，可能要在多处修改。
-封装变化是每一个设计模式背后共有的思想设计原则：
-
-把变化的部分取出来并封装起来，以便以后可以轻易地改动或者扩展此部分，而不影响不需要变化的其它部分    ·
-
-例如一个Duck有很多飞行行为，如果我们在每个子类去实现接口，我们就被实现绑的死死的，所以，从另一个角度来说，我们可以将飞行行为与子类分离（不是通过...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "设计模式 Java">设计模式 Java</a>
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "database">database</a>
     
 </div>
             

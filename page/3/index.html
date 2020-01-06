@@ -359,6 +359,40 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/06/Linux-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" >
+            
+                <span>Linux内存管理</span>
+        </a>
+        <div class="abstract-content">
+            
+这篇文章是大量基于网络资源的学习笔记，但由于所参考的即是转载过的版本（且博客作者未注明转载源，在几经寻找仍未果的情况下，仍然无法找到真实出处，特此注明，如作者见到此文，请您联系我，我将注明出处）
+
+本文着重从开发者的角度谈谈对内存管理的理解。遵循”理论来源于实践”的教条，我们不必一下子就钻入源码，那样容易迷失，所以本文从外到内（先从用户编程的范畴）来观察进程如何使用内存，等到大家有了直观的认识后，再深入到内核去学习内存如何被管理等理论知识。最后再通过一个实例融会贯通。
+Linux 逻辑地址-线性地址-物理地址
+逻辑地址：机器语言中出现的内存地址，都是逻辑地址。逻辑地址是相对于段的偏移地...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/06</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Linux内存管理">Linux内存管理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/04/Java-RTTI-include-reflect/" >
             
                 <span>Java RTTI [include reflect]</span>
@@ -578,39 +612,6 @@ Api
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Service-And-IPC/" >
-            
-                <span>Service</span>
-        </a>
-        <div class="abstract-content">
-            
-本文仅列出一些需要注意的点.如果需要详细地了解 Service，请查阅官方文档：Android developer :Service
-ConceptService是一种可在后台执行长时间运行操作而不提供界面的应用组件。服务有三种类型分别为 前台、后台、绑定 。
-
-注意：服务在其托管进程的主线程中运行，它既不创建自己的线程，也不在单独的进程中运行（除非另行指定）。如果服务将执行任何 CPU 密集型工作或阻止性操作（例如 MP3 播放或联网），则应通过在服务内创建新线程来完成这项工作。通过使用单独的线程，您可以降低发生“应用无响应”(ANR) 错误的风险，而应用的主线程仍可继续专注于运行用...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "IPC service  IBinder AIDL">IPC service  IBinder AIDL</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/11/29/All-About-Fragment/" >
             
                 <span>All About Fragment</span>
@@ -642,15 +643,16 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Java-Exception/" >
+        <a class="abstract-title" href = "/2019/11/29/Service-And-IPC/" >
             
-                <span>Java Exception</span>
+                <span>Service</span>
         </a>
         <div class="abstract-content">
-            Java的基本理念是 [构不佳的代码不能运行]
-发现错误的理想时机是在编译阶段，然而，编译期间并不能找出所有的错误，余下的问题必须在运行期间解决。这就需要错误源能通过某种方式，把适当的信息传递给某个接收者–该接收者将知道如何正确处理这个问题
-概念异常这个词有 “我对此感到意外” 的意思，问题出现了，你也许不知道该如何处理，但你的确知道不该置之不理，你要停下来，看看是不是有别人或在别的地方，能够处理这个问题。只是在当前的环境中还没有足够的信息来解决这个问题，所以就把这个问题提交到一个更高级别的环境中，在这里将做出正确的决定
-使用异常的另一个相当明显的好处是，它往往能够降低错误处理代码的复杂...
+            
+本文仅列出一些需要注意的点.如果需要详细地了解 Service，请查阅官方文档：Android developer :Service
+ConceptService是一种可在后台执行长时间运行操作而不提供界面的应用组件。服务有三种类型分别为 前台、后台、绑定 。
+
+注意：服务在其托管进程的主线程中运行，它既不创建自己的线程，也不在单独的进程中运行（除非另行指定）。如果服务将执行任何 CPU 密集型工作或阻止性操作（例如 MP3 播放或联网），则应通过在服务内创建新线程来完成这项工作。通过使用单独的线程，您可以降低发生“应用无响应”(ANR) 错误的风险，而应用的主线程仍可继续专注于运行用...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -661,7 +663,7 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Exception">Exception</a>
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "IPC service  IBinder AIDL">IPC service  IBinder AIDL</a>
     
 </div>
             
@@ -1360,14 +1362,9 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
     
     
     
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 31
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1383,6 +1380,11 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">01/06</span><a class="archive-post-title" href= "/2020/01/06/Android-Native-DataBase/" >Android Native DataBase</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2020/01/05/Learnning-Regex/" >Learnning Regex</a>
         </li>
     
@@ -1393,12 +1395,12 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/Java-Concurrency-Learning-core-Java/" >Java Concurrency - Learning core Java</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/AS%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8ADB%E5%91%BD%E4%BB%A4/" >AS快捷方式以及常用ADB命令</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/AS%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%B8%B8%E7%94%A8ADB%E5%91%BD%E4%BB%A4/" >AS快捷方式以及常用ADB命令</a>
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2020/01/02/Java-Concurrency-Learning-core-Java/" >Java Concurrency - Learning core Java</a>
         </li>
     
     
@@ -1506,36 +1508,6 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" >Class文件结构</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >View的三大流程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/All-About-Fragment/" >All About Fragment</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Service-And-IPC/" >Service</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
-        </li>
-    
-    
     
     
     
@@ -1560,6 +1532,36 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/Class%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/" >Class文件结构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/View%E7%9A%84%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B/" >View的三大流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Service-And-IPC/" >Service</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/All-About-Fragment/" >All About Fragment</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
@@ -1568,15 +1570,17 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+        <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
     
-        <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
         <span class="sidebar-tag-name" data-tags="Decorator"><span class="iconfont-archer">&#xe606;</span>Decorator</span>
     
-        <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
+        <span class="sidebar-tag-name" data-tags="Class"><span class="iconfont-archer">&#xe606;</span>Class</span>
     
         <span class="sidebar-tag-name" data-tags="GestureDetector  View"><span class="iconfont-archer">&#xe606;</span>GestureDetector  View</span>
+    
+        <span class="sidebar-tag-name" data-tags="Factory"><span class="iconfont-archer">&#xe606;</span>Factory</span>
     
         <span class="sidebar-tag-name" data-tags="regex"><span class="iconfont-archer">&#xe606;</span>regex</span>
     
@@ -1598,11 +1602,11 @@ A Fragment represents a behavior or a portion of user interface in an Activity. 
     
         <span class="sidebar-tag-name" data-tags="Android Profile Performance Android  Studio"><span class="iconfont-archer">&#xe606;</span>Android Profile Performance Android  Studio</span>
     
+        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
+    
         <span class="sidebar-tag-name" data-tags="Producer Consumer"><span class="iconfont-archer">&#xe606;</span>Producer Consumer</span>
     
         <span class="sidebar-tag-name" data-tags="View  Scroller"><span class="iconfont-archer">&#xe606;</span>View  Scroller</span>
-    
-        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
     
         <span class="sidebar-tag-name" data-tags="Exception"><span class="iconfont-archer">&#xe606;</span>Exception</span>
     
@@ -1651,13 +1655,13 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
-    
         <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
     
-        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
+        <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
     
         <span class="sidebar-category-name" data-categories="设计模式"><span class="iconfont-archer">&#xe60a;</span>设计模式</span>
+    
+        <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
     
         <span class="sidebar-category-name" data-categories="JavsSE"><span class="iconfont-archer">&#xe60a;</span>JavsSE</span>
     
