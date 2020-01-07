@@ -658,14 +658,15 @@ Java并发性和多线程介绍多线程技术，使得在一个程序内部能�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/24/Producer-consumer-model/" >
+        <a class="abstract-title" href = "/2019/12/24/Android-Performance-VSYNC-FRAME/" >
             
-                <span>Producer consumer model</span>
+                <span>Android Performance : Vsync/Frame</span>
         </a>
         <div class="abstract-content">
             
-Producer-Consumer模式在很多场景种都有相应的体现，比如线程池，对象池，MQ等，Pro-Con的本质是在生产者与消费者之间引入一个通道(Channel暂且理解为一个队列)，该通道主要用于 ①控制生产者与消费者的相对速率，尽可能地保证生产的Product尽快被消费，另一方面②对二者进行解耦 ，生产者和消费者在各自的线程中，通过Channel连接，二者无直接关联。
-Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Producer：负责生产Product，并将其放入到队列Channel中3.Consumer：从队列Channel中获取对应...
+2015新年伊始，Google发布了关于Android性能优化典范的专题，一共16个短视频，每个3-5分钟，帮助开发者创建更快更优秀的Android App。课程专题不仅仅介绍了Android系统中有关性能问题的底层工作原理，同时也介绍了如何通过工具来找出性能问题以及提升性能的建议。主要从三个方面展开，Android的渲染机制，内存与GC，电量优化。下面是对这些问题和建议的总结梳理。
+
+0. Render Performance大多数用户感知到的卡顿等性能问题的直接根源都是因为渲染性能。从设计师的角度来说，他们希望App能有更多的动画，图片等时尚元素来实现丰富而”流畅”的用户体验，但是...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -676,7 +677,7 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Producer Consumer">Producer Consumer</a>
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "VSYNC  Frame  Tearing">VSYNC  Frame  Tearing</a>
     
 </div>
             
@@ -1365,9 +1366,16 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 32
+        Total : 33
         </div>
         <!-- search  -->
         
@@ -1428,6 +1436,11 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
         <li class="archive-post-item">
             <span class="archive-post-date">12/29</span><a class="archive-post-title" href= "/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" >Java并发编程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2019/12/24/Android-Performance-VSYNC-FRAME/" >Android Performance : Vsync/Frame</a>
         </li>
     
     
@@ -1511,29 +1524,6 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
         </li>
@@ -1560,12 +1550,35 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
         </li>
     
     </div>
@@ -1625,6 +1638,8 @@ Producer-Consumer中的角色1.Product：生产者线程锁需要的产品2.Prod
     
         <span class="sidebar-tag-name" data-tags="Java并发"><span class="iconfont-archer">&#xe606;</span>Java并发</span>
     
+        <span class="sidebar-tag-name" data-tags="VSYNC  Frame  Tearing"><span class="iconfont-archer">&#xe606;</span>VSYNC  Frame  Tearing</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -1681,6 +1696,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
     
         <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
+    
+        <span class="sidebar-category-name" data-categories="Android-Performance"><span class="iconfont-archer">&#xe60a;</span>Android-Performance</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

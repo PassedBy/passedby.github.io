@@ -346,6 +346,37 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/19/Window/" >
+            
+                <span>Window</span>
+        </a>
+        <div class="abstract-content">
+            什么是Window一台Android手机屏幕上显示的内容就是由一个个Window组合而成的，顶部的状态栏是一个WIndow，底部的导航栏也是一个Window，中间自己的应用显示区域也是一块大Window，Toast，Dialog也都对应一个自己的WIndow。而Android中对这些Window的管理是通过一个框架的服务–WMS。
+
+上面展示了通常状况下，屏幕中可见的 Window，其中Activity对应中间的那个Window，该 Window对应着DecorView，它也是Activity中的顶级View（它实际上是一个FrameLayout），DecorView包含了标题栏和内容类...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Window  WMS WindowManager Surface">Window  WMS WindowManager Surface</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/18/Decorator-Pattern/" >
             
                 <span>Decorator Pattern</span>
@@ -671,40 +702,6 @@ View内部会有两个变量来记录当前内容的位置 ： mScrollX 和 mScr
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "GestureDetector  View">GestureDetector  View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/12/06/Linux-%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/" >
-            
-                <span>Linux内存管理</span>
-        </a>
-        <div class="abstract-content">
-            
-这篇文章是大量基于网络资源的学习笔记，但由于所参考的即是转载过的版本（且博客作者未注明转载源，在几经寻找仍未果的情况下，仍然无法找到真实出处，特此注明，如作者见到此文，请您联系我，我将注明出处）
-
-本文着重从开发者的角度谈谈对内存管理的理解。遵循”理论来源于实践”的教条，我们不必一下子就钻入源码，那样容易迷失，所以本文从外到内（先从用户编程的范畴）来观察进程如何使用内存，等到大家有了直观的认识后，再深入到内核去学习内存如何被管理等理论知识。最后再通过一个实例融会贯通。
-Linux 逻辑地址-线性地址-物理地址
-逻辑地址：机器语言中出现的内存地址，都是逻辑地址。逻辑地址是相对于段的偏移地...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/06</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "Linux内存管理">Linux内存管理</a>
     
 </div>
             
@@ -1276,9 +1273,16 @@ Linux 逻辑地址-线性地址-物理地址
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 32
+        Total : 33
         </div>
         <!-- search  -->
         
@@ -1339,6 +1343,11 @@ Linux 逻辑地址-线性地址-物理地址
     
         <li class="archive-post-item">
             <span class="archive-post-date">12/29</span><a class="archive-post-title" href= "/2019/12/29/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" >Java并发编程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href= "/2019/12/24/Android-Performance-VSYNC-FRAME/" >Android Performance : Vsync/Frame</a>
         </li>
     
     
@@ -1422,29 +1431,6 @@ Linux 逻辑地址-线性地址-物理地址
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href= "/2019/11/30/%E8%B5%A4%E5%A3%81%E8%B5%8B/" >赤壁赋</a>
         </li>
@@ -1471,12 +1457,35 @@ Linux 逻辑地址-线性地址-物理地址
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
         </li>
     
     </div>
@@ -1536,6 +1545,8 @@ Linux 逻辑地址-线性地址-物理地址
     
         <span class="sidebar-tag-name" data-tags="Java并发"><span class="iconfont-archer">&#xe606;</span>Java并发</span>
     
+        <span class="sidebar-tag-name" data-tags="VSYNC  Frame  Tearing"><span class="iconfont-archer">&#xe606;</span>VSYNC  Frame  Tearing</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -1592,6 +1603,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="JavaSE"><span class="iconfont-archer">&#xe60a;</span>JavaSE</span>
     
         <span class="sidebar-category-name" data-categories="Android"><span class="iconfont-archer">&#xe60a;</span>Android</span>
+    
+        <span class="sidebar-category-name" data-categories="Android-Performance"><span class="iconfont-archer">&#xe60a;</span>Android-Performance</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
