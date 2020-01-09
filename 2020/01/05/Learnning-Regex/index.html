@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">656</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.6k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -468,7 +468,43 @@ height:50vh;
 </tbody></table>
 <p>下面开始逐一对上面的元字符进行介绍：</p>
 <h2 id="点运算符"><a href="#点运算符" class="headerlink" title="点运算符   ."></a>点运算符   <strong>.</strong></h2><p><strong>.</strong> 匹配任意单个字符，但不匹配换行符<br><img src="https://i.loli.net/2020/01/05/PnyuMhJlQmFEKYo.png" alt="1578231163_1_.png"><br>可以思考一个问题，<strong>如何才能匹配到换行符呢？</strong></p>
-<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><p><a href="https://github.com/ziishaned/learn-regex" target="_blank" rel="noopener">Learn regex</a><br><a href="https://regex101.com/r/xc9GkU/1" target="_blank" rel="noopener">Regex online Test</a></p>
+<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><p>字符集也叫做字符类。其结构是一对方括号以及其中包含的字符集合，如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[abtdpo]th</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">----------------- 匹配如下 --------------------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">ath / bth / tth / dth / pth / oth /</span></pre></td></tr></table></figure>
+
+<p>也可以用连字符来表示一个范围，且它可以和普通字符结合，如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[b-faqp]th</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"> </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">------------------ 匹配如下 -------------------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">上面的字符集表示b-f这个范围的字符以及a、q、p这三个字符所以匹配如下字符串</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">bth / cth / dth / eth / fth /     ath / qth / pth</span></pre></td></tr></table></figure>
+
+<p>注意，a-c也可以是 1-8 或者 <strong>.</strong> ，在字符集里的东西都是字符。不过需要注意的是， c-a 是Illegal的，这个也很容易理解哈，从小到大。</p>
+<p>否定字符集：<br>一般来说， “^” 表示一个字符串的开头，但它用在一个方括号的开头的时候，它表示这个字符集是否定的。例如<br> [^c]ar  字符集表示的字符则是除了C以外的任何字符，其实也很容易理解啦。</p>
+<blockquote>
+<p>无论什么形式的字符集，它能且仅能表示一个字符</p>
+</blockquote>
+<h2 id="重复次数"><a href="#重复次数" class="headerlink" title="重复次数"></a>重复次数</h2><p>后面跟着元字符  +，’*’    or   ? 的，用来指定匹配子模式的次数。 这些元字符在不同的情况下有着不同的意思。</p>
+<h3 id="1-号"><a href="#1-号" class="headerlink" title="1. * 号"></a>1. * 号</h3><p>表示前置字符重复大于等于0次 ，例如 ‘ a*  ‘ 表示多个a开头的字符.<br>现在假设我们需要匹配 以0个或多个空格开头的cat字符串：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">\s*cat</span></pre></td></tr></table></figure>
+<h3 id="2-号"><a href="#2-号" class="headerlink" title="2. +号"></a>2. +号</h3><p>和 * 基本一致，但是匹配次数 &gt;=1, 不同于 * 的 &gt;=0 , 很好理解，例如 \s<em>cat可以匹配 a*</em>cat**a ,但是 \s+cat则无法匹配其中的cat，并需要有前置空格才行</p>
+<h3 id="3-？号"><a href="#3-？号" class="headerlink" title="3. ？号"></a>3. ？号</h3><p>实际上，？ 属不属于描述重复次数的比较有争议，他表示它的前置字符是可选的，也就是出现0次或者1次。我们姑且理解为重复0次或一次。<br>例如：表达式  [T]?he 匹配 The 或者 he</p>
+<h2 id="号"><a href="#号" class="headerlink" title="{}号"></a>{}号</h2><p>{} 是一个量词，常用来一个或一组字符可以重复出现的次数。常用一个或一组字符可以重复的次数。例如表达<br> [0-9]{2,4}  匹配最少2位最多4位 0~9 的数字  ，更具体地来说，比如可以匹配  34   345  等等</p>
+<p>半闭形态：<br>[0-9]{2,}  =&gt; 匹配至少2位 0-9 的字符，不设上限</p>
+<p>固定形态：<br>[0-9]{2 } =&gt; 匹配3位0-9的数字</p>
+<h2 id="…-特征标群"><a href="#…-特征标群" class="headerlink" title="(…) 特征标群"></a>(…) 特征标群</h2><p>特征标群是一组写在 (…)  中的子模式。其实它就是表示了一个组合，比如 “ab*“ 匹配a后面接一个重复了&gt;=0次的b字符 ，但是 (ab)* 则表示 ab 一起重复了 &gt;=0 次。这样就很容易理解吧，它将其中的子模式和外面的东西隔开，它是完整的，concreat的</p>
+<p>再例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">(c|g|p)ar </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">----------- 匹配 ----------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">car par gar</span></pre></td></tr></table></figure>
+<h2 id="或运算符"><a href="#或运算符" class="headerlink" title="| 或运算符"></a>| 或运算符</h2><p>需要注意的是， |  表示匹配完全的左边和完全的右边(在没有其它元字符的情况下)，例如<br>abc|egfd 可以匹配的是  abc 或者 egfd ，而不是  abcgfd 或者 abegfd，这点需要注意哈，容易搞混淆</p>
+<p>但是在有其他元字符的情况下，则不是这样，你只需要注意元字符是不能用来进行匹配的(<strong>除非使用转义字符</strong>)，这点不仅是对于<br>| , 对其他的元字符也是这样。例如<br>(T|h)he|car  则匹配</p>
+<ul>
+<li>(T|h)he<ul>
+<li>The</li>
+<li>hhe</li>
+</ul>
+</li>
+<li>car</li>
+</ul>
+<h2 id="转码特殊字符"><a href="#转码特殊字符" class="headerlink" title="转码特殊字符"></a>转码特殊字符</h2><p>反斜杠 <strong>\</strong> 在表达式中用于转码紧跟其后的字符。用于指定  {}  []  /  \ + *  . $ ^ | ?  这些特殊字符。如果想要匹配这些特殊字符则要在其前面加上反斜线  <strong>\</strong></p>
+<p>例如 “ . “ 是用来匹配除换行符外的所有字符的。如果想要匹配句子中的  “ . “ ，则要写成 \.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">(f|c|m)at\.?   The fat cat sat on the mat.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">---------  注意？为选择性匹配 --------------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">fat   /  cat    /  mat.</span></pre></td></tr></table></figure>
+
+<h2 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h2><h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><p><a href="https://github.com/ziishaned/learn-regex" target="_blank" rel="noopener">Learn regex</a><br><a href="https://regex101.com/r/xc9GkU/1" target="_blank" rel="noopener">Regex online Test</a></p>
 
     </article>
     <!-- license  -->
@@ -477,7 +513,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2020/01/05/Learnning-Regex/">https://passedby.github.io/2020/01/05/Learnning-Regex/</a>
             <p>发表日期：<a href="https://passedby.github.io/2020/01/05/Learnning-Regex/">January 5th 2020, 5:32:57 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2020/01/05/Learnning-Regex/">January 6th 2020, 12:05:40 am</a>
+            <p>更新日期：<a href="https://passedby.github.io/2020/01/05/Learnning-Regex/">January 9th 2020, 6:22:13 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -634,7 +670,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本匹配"><span class="toc-number">1.</span> <span class="toc-text">基本匹配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#元字符"><span class="toc-number">2.</span> <span class="toc-text">元字符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#点运算符"><span class="toc-number">2.1.</span> <span class="toc-text">点运算符   .</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符集"><span class="toc-number">2.2.</span> <span class="toc-text">字符集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Thanks"><span class="toc-number">3.</span> <span class="toc-text">Thanks</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本匹配"><span class="toc-number">1.</span> <span class="toc-text">基本匹配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#元字符"><span class="toc-number">2.</span> <span class="toc-text">元字符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#点运算符"><span class="toc-number">2.1.</span> <span class="toc-text">点运算符   .</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符集"><span class="toc-number">2.2.</span> <span class="toc-text">字符集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重复次数"><span class="toc-number">2.3.</span> <span class="toc-text">重复次数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-号"><span class="toc-number">2.3.1.</span> <span class="toc-text">1. * 号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-号"><span class="toc-number">2.3.2.</span> <span class="toc-text">2. +号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-？号"><span class="toc-number">2.3.3.</span> <span class="toc-text">3. ？号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#号"><span class="toc-number">2.4.</span> <span class="toc-text">{}号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#…-特征标群"><span class="toc-number">2.5.</span> <span class="toc-text">(…) 特征标群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#或运算符"><span class="toc-number">2.6.</span> <span class="toc-text">| 或运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转码特殊字符"><span class="toc-number">2.7.</span> <span class="toc-text">转码特殊字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锚点"><span class="toc-number">2.8.</span> <span class="toc-text">锚点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Thanks"><span class="toc-number">3.</span> <span class="toc-text">Thanks</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
