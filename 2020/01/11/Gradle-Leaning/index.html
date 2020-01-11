@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">717</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                        <span>Word count: <span class="post-count word-count">727</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -400,7 +400,7 @@ height:50vh;
 <p><a href="https://geminiwen.com/" target="_blank" rel="noopener">Gemini’s story</a></p>
 <h1 id="Gradle-Builds-Everything-基础概念"><a href="#Gradle-Builds-Everything-基础概念" class="headerlink" title="Gradle Builds Everything - 基础概念"></a>Gradle Builds Everything - 基础概念</h1><p>本文是从撰写Gradle Plugin的角度，希望把Gradle体系的一些基础结构讲明白</p>
 <p>首先我们能应该明白，gradle的工作是把所有的构建动作管理起来—任务是否应该执行，什么时候执行，执行某个任务前先做些什么事情，某几个动作是否可以并行执行。</p>
-<h2 id="什么是任务"><a href="#什么是任务" class="headerlink" title="什么是任务"></a>什么是任务</h2><p>一个任务我们可以理解为把一次指定的输入，转换成想要的输出。比如 [编译] 这个动作，就是把 .java 文件编译成 .class ,或者执行 appt ，把资源文件编译成一个 resource.ap_ 文件等. 任务的基础就是这么简单，然后为了加快执行速度，gradle 增加了 UP-TO-DATE 检查(只要输入和输出的文件不发生变化，那么这个任务就不再执行) ， 也增加了 incremental build 的特性(下一次的编译，并不只是把 .class 全部删除，重新编译一次这样粗暴，而是只编译变化了的几个文件)</p>
+<h2 id="什么是任务"><a href="#什么是任务" class="headerlink" title="什么是任务"></a>什么是任务</h2><p>一个任务我们可以理解为把一次指定的输入，转换成想要的输出。比如 [编译] 这个动作，就是把 .java 文件编译成 .class ,或者执行 appt ，把资源文件编译成一个 resource.ap_ 文件等. 任务的基础就是这么简单，然后为了加快执行速度，gradle 增加了 UP-TO-DATE [TODO：不理解]检查(只要输入和输出的文件不发生变化，那么这个任务就不再执行) ， 也增加了 incremental build 的特性(下一次的编译，并不只是把 .class 全部删除，重新编译一次这样粗暴，而是只编译变化了的几个文件)</p>
 <p>在这种细粒度的情况下，我们对于任务执行的正确性和效率都有了保障。</p>
 <h2 id="『构建』的生命周期"><a href="#『构建』的生命周期" class="headerlink" title="『构建』的生命周期"></a>『构建』的生命周期</h2><p>关于Gradle的构建任务，其实网上有很多文章介绍了，无非是介绍任务的定义方式，任务的 doFirst 和 doLast ，但是很少介绍其它的元素，我们从 gradle plugin 的视角介绍一下这些概念。在一开始之前，我们需要了解一下  gradle 这个容器的一些最基础的流程 — gradle 构建生命周期</p>
 <p><a href="https://docs.gradle.org/current/userguide/build_lifecycle.html#build_lifecycle" target="_blank" rel="noopener">Gradle官方文章/lifecycle</a></p>
@@ -412,7 +412,7 @@ height:50vh;
 </ul>
 <p>我们需要在执行的函数中，拿到在配置阶段定义的 Input ，然后产出 Output ，放在规定的目录下，或者写入指定的文件即可。</p>
 <p>对于我们来说，理解生命周期尤为重要，如果你在 configuration 阶段去获取一个 Task 的结果，从逻辑上讲是很愚蠢的。所以你需要知道你的代码是在 “什么状态下” 执行这一步操作。</p>
-
+<h2 id="任务间的依赖"><a href="#任务间的依赖" class="headerlink" title="任务间的依赖"></a>任务间的依赖</h2>
     </article>
     <!-- license  -->
     
@@ -420,7 +420,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2020/01/11/Gradle-Leaning/">https://passedby.github.io/2020/01/11/Gradle-Leaning/</a>
             <p>发表日期：<a href="https://passedby.github.io/2020/01/11/Gradle-Leaning/">January 11th 2020, 2:28:33 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2020/01/11/Gradle-Leaning/">January 11th 2020, 4:20:17 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2020/01/11/Gradle-Leaning/">January 11th 2020, 4:24:38 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -572,7 +572,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Gradle-Builds-Everything-基础概念"><span class="toc-number">1.</span> <span class="toc-text">Gradle Builds Everything - 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是任务"><span class="toc-number">1.1.</span> <span class="toc-text">什么是任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#『构建』的生命周期"><span class="toc-number">1.2.</span> <span class="toc-text">『构建』的生命周期</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Gradle-Builds-Everything-基础概念"><span class="toc-number">1.</span> <span class="toc-text">Gradle Builds Everything - 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是任务"><span class="toc-number">1.1.</span> <span class="toc-text">什么是任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#『构建』的生命周期"><span class="toc-number">1.2.</span> <span class="toc-text">『构建』的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#任务间的依赖"><span class="toc-number">1.3.</span> <span class="toc-text">任务间的依赖</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
