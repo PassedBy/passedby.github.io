@@ -346,6 +346,46 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/09/View%E5%B8%B8%E8%A7%81%E6%BB%91%E5%8A%A8%E6%96%B9%E5%BC%8F%E4%B8%8E%E6%AF%94%E8%BE%83/" >
+            
+                <span>View常见滑动方式与比较</span>
+        </a>
+        <div class="abstract-content">
+            常见滑动方式掌握滑动的方法是实现自定义 View 的基础，常见的实现滑动的方式有三种
+
+ScrollTo/SrollBy
+动画
+改变View的LayoutParams使得View重新布局从而实现滑动
+
+使用ScrollTo/ScrollBy1public void scrollTo(int x,int y)
+
+x: 滑动到的距离，这个距离指的是相对于初始位置（并非上一次的位置，而是View内容最初的位置，最初是0）
+y: 同上
+View内部会有两个变量来记录当前内容的位置 ： mScrollX 和 mScrollY ,向左或者向上为正，反之为负
+1public void scrollBy...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View  Scroller">View  Scroller</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/08/GestureDetector/" >
             
                 <span>GestureDetector</span>
@@ -622,39 +662,6 @@ Api
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "View">View</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/29/Service-And-IPC/" >
-            
-                <span>Service</span>
-        </a>
-        <div class="abstract-content">
-            
-本文仅列出一些需要注意的点.如果需要详细地了解 Service，请查阅官方文档：Android developer :Service
-ConceptService是一种可在后台执行长时间运行操作而不提供界面的应用组件。服务有三种类型分别为 前台、后台、绑定 。
-
-注意：服务在其托管进程的主线程中运行，它既不创建自己的线程，也不在单独的进程中运行（除非另行指定）。如果服务将执行任何 CPU 密集型工作或阻止性操作（例如 MP3 播放或联网），则应通过在服务内创建新线程来完成这项工作。通过使用单独的线程，您可以降低发生“应用无响应”(ANR) 错误的风险，而应用的主线程仍可继续专注于运行用...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" target="_blank" rel="noopener" data-tags = "IPC service  IBinder AIDL">IPC service  IBinder AIDL</a>
     
 </div>
             
@@ -1232,9 +1239,48 @@ ConceptService是一种可在后台执行长时间运行操作而不提供界面
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 34
+        Total : 35
         </div>
         <!-- search  -->
         
@@ -1247,6 +1293,11 @@ ConceptService是一种可在后台执行长时间运行操作而不提供界面
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/12</span><a class="archive-post-title" href= "/2020/01/12/Android-Studio-common-shortcut-key-and-adb-cmd/" >Android Studio common shortcut key and adb cmd</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1277,6 +1328,29 @@ ConceptService是一种可在后台执行长时间运行操作而不提供界面
         <li class="archive-post-item">
             <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2020/01/05/%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" >一些想法</a>
         </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -1414,35 +1488,12 @@ ConceptService是一种可在后台执行长时间运行操作而不提供界面
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/29/hello-world/" >Common Guide</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2019 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" >Java Class Loading</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2019/11/29/Java-Exception/" >Java Exception</a>
         </li>
     
     </div>
@@ -1451,6 +1502,8 @@ ConceptService是一种可在后台执行长时间运行操作而不提供界面
     <div class="sidebar-tags-name">
     
         <span class="sidebar-tag-name" data-tags="database"><span class="iconfont-archer">&#xe606;</span>database</span>
+    
+        <span class="sidebar-tag-name" data-tags="AS   adb"><span class="iconfont-archer">&#xe606;</span>AS   adb</span>
     
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
@@ -1464,15 +1517,15 @@ ConceptService是一种可在后台执行长时间运行操作而不提供界面
     
         <span class="sidebar-tag-name" data-tags="Golang  Spider"><span class="iconfont-archer">&#xe606;</span>Golang  Spider</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux内存管理"><span class="iconfont-archer">&#xe606;</span>Linux内存管理</span>
-    
         <span class="sidebar-tag-name" data-tags="Lint"><span class="iconfont-archer">&#xe606;</span>Lint</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux内存管理"><span class="iconfont-archer">&#xe606;</span>Linux内存管理</span>
     
         <span class="sidebar-tag-name" data-tags="math"><span class="iconfont-archer">&#xe606;</span>math</span>
     
-        <span class="sidebar-tag-name" data-tags="Introduction"><span class="iconfont-archer">&#xe606;</span>Introduction</span>
-    
         <span class="sidebar-tag-name" data-tags="全面屏  手势导航  View"><span class="iconfont-archer">&#xe606;</span>全面屏  手势导航  View</span>
+    
+        <span class="sidebar-tag-name" data-tags="Introduction"><span class="iconfont-archer">&#xe606;</span>Introduction</span>
     
         <span class="sidebar-tag-name" data-tags="设计模式 Java"><span class="iconfont-archer">&#xe606;</span>设计模式 Java</span>
     
@@ -1482,9 +1535,9 @@ ConceptService是一种可在后台执行长时间运行操作而不提供界面
     
         <span class="sidebar-tag-name" data-tags="regex"><span class="iconfont-archer">&#xe606;</span>regex</span>
     
-        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
-    
         <span class="sidebar-tag-name" data-tags="Producer Consumer"><span class="iconfont-archer">&#xe606;</span>Producer Consumer</span>
+    
+        <span class="sidebar-tag-name" data-tags="observer"><span class="iconfont-archer">&#xe606;</span>observer</span>
     
         <span class="sidebar-tag-name" data-tags="View  Scroller"><span class="iconfont-archer">&#xe606;</span>View  Scroller</span>
     
@@ -1537,6 +1590,8 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="AndroidSE"><span class="iconfont-archer">&#xe60a;</span>AndroidSE</span>
     
+        <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
+    
         <span class="sidebar-category-name" data-categories="OS"><span class="iconfont-archer">&#xe60a;</span>OS</span>
     
         <span class="sidebar-category-name" data-categories="JVM"><span class="iconfont-archer">&#xe60a;</span>JVM</span>
@@ -1546,8 +1601,6 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="Golang"><span class="iconfont-archer">&#xe60a;</span>Golang</span>
     
         <span class="sidebar-category-name" data-categories="Gradle"><span class="iconfont-archer">&#xe60a;</span>Gradle</span>
-    
-        <span class="sidebar-category-name" data-categories="工程学与方法论"><span class="iconfont-archer">&#xe60a;</span>工程学与方法论</span>
     
         <span class="sidebar-category-name" data-categories="数据结构与算法分析"><span class="iconfont-archer">&#xe60a;</span>数据结构与算法分析</span>
     
