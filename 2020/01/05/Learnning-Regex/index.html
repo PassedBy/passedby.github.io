@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">2.9k</span>Reading time: <span class="post-count reading-time">10 min</span></span>
+                        <span>Word count: <span class="post-count word-count">3k</span>Reading time: <span class="post-count reading-time">11 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -610,6 +610,13 @@ height:50vh;
 
 <h1 id="贪婪与惰性匹配-Greedy-vs-lazy-matching"><a href="#贪婪与惰性匹配-Greedy-vs-lazy-matching" class="headerlink" title="贪婪与惰性匹配(Greedy vs lazy matching)"></a>贪婪与惰性匹配(Greedy vs lazy matching)</h1><p>正则表达式默认采用贪婪匹配模式,在该模式下意味着会匹配尽可能长的子串.我们可以使用 <strong>?</strong> 将贪婪匹配模式转化为惰性匹配模式</p>
 <p>所谓贪婪与惰性,实际上就是说当出现多个匹配结果的时候, 贪婪策略会选择那个最长的,而惰性则是选择第一个结果(TODO:还是说最短的,有待验证一下)</p>
+<p>贪婪:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="string">"/(.*/at)/"</span>  =&gt; The fat cat sat on the mat.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">--------------- 匹配结果 ------------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">The fat cat sat on the mat</span></pre></td></tr></table></figure>
+
+<p>非贪婪</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="string">"/(.\*?at)/"</span> =&gt; The fat cat sat on the mat.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">--------------- 匹配结果 -----------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">The fat</span></pre></td></tr></table></figure>
+
+
 <p>如果您在阅读本文的过程中存在任何疑问,请通过留言或者信箱联系我,我会尽快回复.</p>
 <h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><p><a href="https://github.com/ziishaned/learn-regex" target="_blank" rel="noopener">Learn regex</a><br><a href="https://regex101.com/r/xc9GkU/1" target="_blank" rel="noopener">Regex online Test</a></p>
 
@@ -620,7 +627,7 @@ height:50vh;
             <p>Author：<a href="https://passedby.github.io">Dan</a>
             <p>原文链接：<a href="https://passedby.github.io/2020/01/05/Learnning-Regex/">https://passedby.github.io/2020/01/05/Learnning-Regex/</a>
             <p>发表日期：<a href="https://passedby.github.io/2020/01/05/Learnning-Regex/">January 5th 2020, 5:32:57 pm</a>
-            <p>更新日期：<a href="https://passedby.github.io/2020/01/05/Learnning-Regex/">January 12th 2020, 2:23:37 pm</a>
+            <p>更新日期：<a href="https://passedby.github.io/2020/01/05/Learnning-Regex/">January 12th 2020, 4:40:47 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
